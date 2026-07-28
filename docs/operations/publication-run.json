@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "run_id": "css-fx-github-20260728",
   "created_at": "2026-07-28T06:41:49.003Z",
-  "updated_at": "2026-07-28T06:44:29Z",
+  "updated_at": "2026-07-28T06:48:40Z",
   "objective": "Publish the CSS.FX visual interaction and prompt library in a public GitHub repository with clear upstream attribution and personal non-commercial terms",
   "lifecycle": [
     "idea_captured",
@@ -35,13 +35,22 @@
   },
   "channels": {
     "github": {
-      "status": "not_started",
-      "artifacts": [],
+      "status": "platform_verified_published",
+      "artifacts": [
+        "README.md",
+        "LICENSE.md",
+        "THIRD_PARTY_NOTICES.md",
+        "demo/downloads/css-fx-library-single.html"
+      ],
       "audience": "public; personal non-commercial study and reference",
       "publish_actor": "assistant",
-      "published_url": null,
-      "verified_at": null,
-      "evidence": [],
+      "published_url": "https://github.com/bigpowert25-del/css-effects-atoms",
+      "verified_at": "2026-07-28T06:48:40Z",
+      "evidence": [
+        "GitHub repository read-back reported visibility PUBLIC and default branch main.",
+        "README.md and THIRD_PARTY_NOTICES.md were read back through the GitHub API.",
+        "Initial remote main commit matched local commit f15c14a8c022071fb1498268538d9d0c981038fe."
+      ],
       "notes": [
         "User explicitly requested a public GitHub repository.",
         "User explicitly required non-commercial personal practice/reference terms.",
