@@ -1,0 +1,16 @@
+{
+  "id": "scenarios-paragraph",
+  "name": "Scenarios Paragraph",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".scenarios-paragraph { font-size: 21px; line-height: 1.55; letter-spacing: -0.02em; color: rgba(0,0,0,0.75); max-width: 560px; transition: opacity 0.45s, transform 0.45s; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

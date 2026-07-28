@@ -1,0 +1,16 @@
+{
+  "id": "c5-animated-gradient",
+  "name": "C5 Animated Gradient",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from FAQ_CTA",
+  "css": ".c5-animated-gradient {\n  background-color: #ff8e53;\n  background-image:\n    radial-gradient(circle at var(--c5-x1) var(--c5-y1), #fff1aa 0px, transparent var(--c5-s1)),\n    radial-gradient(circle at var(--c5-x2) var(--c5-y2), #ff4b2b 0px, transparent var(--c5-s2)),\n    radial-gradient(circle at var(--c5-x3) var(--c5-y3), #8aff8a 0px, transparent var(--c5-s3)),\n    radial-gradient(circle at var(--c5-x4) var(--c5-y4), #ffd000 0px, transparent var(--c5-s4)),\n    radial-gradient(circle at var(--c5-x5) var(--c5-y5), #ff1493 0px, transparent var(--c5-s5));\n  animation:\n    c5-blob1 5s ease-in-out infinite,\n    c5-blob2 6s ease-in-out infinite,\n    c5-blob3 5.5s ease-in-out infinite,\n    c5-blob4 6.5s ease-in-out infinite,\n    c5-blob5 4s ease-in-out infinite,\n    c5-size1 3.5s ease-in-out infinite,\n    c5-size2 4.2s ease-in-out infinite,\n    c5-size3 3.8s ease-in-out infinite,\n    c5-size4 4.6s ease-in-out infinite,\n    c5-size5 3s ease-in-out infinite;\n}",
+  "tags": [
+    "faq_cta"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/FAQ_CTA",
+  "version": "1.0.0"
+}

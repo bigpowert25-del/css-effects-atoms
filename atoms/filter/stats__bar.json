@@ -1,0 +1,16 @@
+{
+  "id": "stats__bar",
+  "name": "Stats__Bar",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".stats__bar {\n  position: relative;\n  z-index: 1;\n  width: var(--bar-value);\n  height: 100%;\n  background: linear-gradient(90deg, rgb(113 145 208 / 0.62) 0%, #8fb0ef 62%, #d6e3ff 100%);\n  box-shadow: 0 0 34px rgb(113 145 208 / 0.24);\n  transform: scaleX(0);\n  transform-origin: left;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

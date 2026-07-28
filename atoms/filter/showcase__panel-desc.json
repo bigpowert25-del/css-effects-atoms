@@ -1,0 +1,16 @@
+{
+  "id": "showcase__panel-desc",
+  "name": "Showcase__Panel Desc",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".showcase__panel-desc {\n  max-width: 490px;\n  margin: 0;\n  color: rgb(255 255 255 / 0.58);\n  font-size: clamp(14px, 1.05vw, 18px);\n  font-weight: 400;\n  line-height: 1.6;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

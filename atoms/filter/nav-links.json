@@ -1,0 +1,16 @@
+{
+  "id": "nav-links",
+  "name": "Nav Links",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from 3d-story",
+  "css": ".nav-links { display: flex; align-items: center; gap: 1.5rem; }",
+  "tags": [
+    "3d-story"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/3d-story",
+  "version": "1.0.0"
+}

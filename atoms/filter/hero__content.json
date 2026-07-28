@@ -1,0 +1,16 @@
+{
+  "id": "hero__content",
+  "name": "Hero__Content",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".hero__content {\n  position: absolute;\n  inset: 0;\n  z-index: 1;\n  display: grid;\n  place-items: center;\n  height: 100vh;\n  width: min(100%, var(--hero-max-width));\n  margin: 0 auto;\n  pointer-events: none;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "stats__chart-head",
+  "name": "Stats__Chart Head",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".stats__chart-head {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 24px;\n  padding: clamp(18px, 2vw, 28px);\n  border-bottom: 1px solid rgb(255 255 255 / 0.08);\n  background: rgb(255 255 255 / 0.025);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

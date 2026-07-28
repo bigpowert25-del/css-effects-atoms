@@ -1,0 +1,16 @@
+{
+  "id": "fb-form",
+  "name": "Fb Form",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".fb-form{width:100%;display:flex;flex-direction:column;gap:14px}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

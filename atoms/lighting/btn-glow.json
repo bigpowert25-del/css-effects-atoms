@@ -1,0 +1,16 @@
+{
+  "id": "btn-glow",
+  "name": "Btn Glow",
+  "category": "lighting",
+  "subcategory": "shadow",
+  "description": "CSS class from cinematic-brand",
+  "css": ".btn-glow {\n  outline: 1.5px solid rgba(255, 255, 255, 0.6);\n  outline-offset: -1.5px;\n  box-shadow: inset 0 0 14px 0 rgba(255, 255, 255, 0.7);\n}",
+  "tags": [
+    "cinematic-brand"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/cinematic-brand",
+  "version": "1.0.0"
+}

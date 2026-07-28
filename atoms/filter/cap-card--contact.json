@@ -1,0 +1,16 @@
+{
+  "id": "cap-card--contact",
+  "name": "Cap Card  Contact",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".cap-card--contact {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  padding: 24px;\n  background:\n    linear-gradient(135deg, rgb(255 255 255 / 0.72), rgb(238 244 244 / 0.86)),\n    #edf2f2;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

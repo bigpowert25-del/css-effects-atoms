@@ -1,0 +1,16 @@
+{
+  "id": "grid-lines",
+  "name": "Grid Lines",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".grid-lines {\n      position: absolute;\n      inset: 0;\n      z-index: 1;\n      pointer-events: none;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

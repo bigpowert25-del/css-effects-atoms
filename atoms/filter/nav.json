@@ -1,0 +1,16 @@
+{
+  "id": "nav",
+  "name": "Nav",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".nav {\n      position: relative;\n      z-index: 50;\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      padding: 28px 24px 0;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

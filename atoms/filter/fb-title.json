@@ -1,0 +1,16 @@
+{
+  "id": "fb-title",
+  "name": "Fb Title",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".fb-title{font-family:\"Instrument Serif\",Georgia,serif;font-size:1.5rem;color:#fff;font-weight:400;letter-spacing:-0.025em;margin:0 0 8px 0;line-height:1.2;white-space:nowrap}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

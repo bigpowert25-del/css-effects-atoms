@@ -1,0 +1,16 @@
+{
+  "id": "capabilities__grid",
+  "name": "Capabilities__Grid",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".capabilities__grid {\n  display: grid;\n  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);\n  gap: clamp(14px, 1.25vw, 22px);\n  max-width: var(--hero-max-width);\n  min-height: clamp(620px, 72vh, 780px);\n  margin: 0 auto;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

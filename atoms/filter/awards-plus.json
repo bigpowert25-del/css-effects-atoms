@@ -1,0 +1,16 @@
+{
+  "id": "awards-plus",
+  "name": "Awards Plus",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".awards-plus {\n      color: white;\n      font-size: 20px;\n      font-weight: 700;\n      position: relative;\n      top: -4px;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

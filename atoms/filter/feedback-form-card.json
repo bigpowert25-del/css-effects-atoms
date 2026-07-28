@@ -1,0 +1,16 @@
+{
+  "id": "feedback-form-card",
+  "name": "Feedback Form Card",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".feedback-form-card{position:relative;width:100%;max-width:28rem;background:rgba(0,0,0,.45);backdrop-filter:blur(48px);-webkit-backdrop-filter:blur(48px);border:1px solid rgba(255,255,255,.1);padding:32px;text-align:center;pointer-events:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none;will-change:transform,opacity,filter}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "mission__button-icon",
+  "name": "Mission__Button Icon",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".mission__button-icon {\n  position: relative;\n  display: inline-grid;\n  place-items: center;\n  width: clamp(58px, 3.65vw, 72px);\n  aspect-ratio: 1;\n  border-radius: 5px;\n  background: #d8e8ff;\n  transition:\n    background 180ms ease,\n    transform 180ms ease;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

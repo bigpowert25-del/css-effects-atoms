@@ -1,0 +1,16 @@
+{
+  "id": "stat-card-inner",
+  "name": "Stat Card Inner",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from neural-interface",
+  "css": ".stat-card-inner {\n  background: rgba(0,0,0,0.45);\n  border: 1px solid rgba(255,255,255,0.05);\n  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);\n  border-radius: 23px; padding: 32px;\n  display: flex; flex-direction: column;\n  justify-content: space-between; flex: 1;\n}",
+  "tags": [
+    "neural-interface"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/neural-interface",
+  "version": "1.0.0"
+}

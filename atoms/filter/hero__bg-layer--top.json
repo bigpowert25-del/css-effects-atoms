@@ -1,0 +1,16 @@
+{
+  "id": "hero__bg-layer--top",
+  "name": "Hero__Bg Layer  Top",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".hero__bg-layer--top {\n  z-index: 1;\n  background: var(--hero-bg-top);\n  mix-blend-mode: screen;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "vhs-scanlines",
+  "name": "Vhs Scanlines",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from Velorah_Focus",
+  "css": ".vhs-scanlines {\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n  background: linear-gradient(\n    to bottom,\n    rgba(255,255,255,0),\n    rgba(255,255,255,0) 50%,\n    rgba(0,0,0,0.15) 50%,\n    rgba(0,0,0,0.15)\n  );\n  background-size: 100% 4px;\n  z-index: 51;\n}",
+  "tags": [
+    "velorah_focus"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Velorah_Focus",
+  "version": "1.0.0"
+}

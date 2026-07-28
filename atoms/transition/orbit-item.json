@@ -1,0 +1,16 @@
+{
+  "id": "orbit-item",
+  "name": "Orbit Item",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from luxury-botanical",
+  "css": ".orbit-item {\n    position: absolute;\n    will-change: transform;\n    user-select: none;\n  }",
+  "tags": [
+    "luxury-botanical"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/luxury-botanical",
+  "version": "1.0.0"
+}

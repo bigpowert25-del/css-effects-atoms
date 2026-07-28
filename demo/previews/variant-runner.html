@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CSS FX Interaction Stage</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0a0c0d;
+      --paper: #eef0ea;
+      --accent: #ff543d;
+      --secondary: #55c2a5;
+      --px: 50%;
+      --py: 50%;
+      --rx: 0deg;
+      --ry: 0deg;
+    }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    body {
+      background: var(--bg);
+      color: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    button { font: inherit; }
+    button:focus-visible { outline: 2px solid var(--secondary); outline-offset: 3px; }
+    .stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        linear-gradient(color-mix(in srgb, var(--paper) 10%, transparent) 1px, transparent 1px),
+        linear-gradient(90deg, color-mix(in srgb, var(--paper) 10%, transparent) 1px, transparent 1px),
+        var(--bg);
+      background-size: 48px 48px;
+      perspective: 900px;
+      touch-action: none;
+    }
+    .stage::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      pointer-events: none;
+      box-shadow: inset 0 0 80px color-mix(in srgb, var(--bg) 80%, transparent);
+    }
+    .chrome {
+      position: absolute;
+      z-index: 10;
+      top: 18px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+    .chrome b { font-size: 14px; }
+    .chrome span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: color-mix(in srgb, var(--paper) 65%, transparent);
+    }
+    .chrome span::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 14px var(--accent);
+    }
+    .caption {
+      position: absolute;
+      z-index: 10;
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: end;
+      pointer-events: none;
+    }
+    .caption h1 {
+      max-width: 12ch;
+      margin: 0;
+      font-size: clamp(24px, 6vw, 56px);
+      line-height: .86;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .caption p {
+      max-width: 25ch;
+      margin: 0;
+      color: color-mix(in srgb, var(--paper) 66%, transparent);
+      font-size: 11px;
+      line-height: 1.45;
+      text-align: right;
+    }
+    .experience { position: absolute; inset: 0; }
+    canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .cursor {
+      position: absolute;
+      z-index: 9;
+      width: 28px;
+      height: 28px;
+      left: var(--px);
+      top: var(--py);
+      border: 1px solid var(--paper);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: width .2s, height .2s;
+      mix-blend-mode: difference;
+    }
+    .cursor::after {
+      content: "";
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--paper);
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero-card {
+      position: absolute;
+      inset: 17% 17% 24%;
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--paper) 25%, transparent);
+      background:
+        radial-gradient(circle at var(--px) var(--py), color-mix(in srgb, var(--accent) 48%, transparent), transparent 28%),
+        color-mix(in srgb, var(--bg) 84%, var(--paper));
+      transform: rotateX(var(--rx)) rotateY(var(--ry));
+      transform-style: preserve-3d;
+      transition: transform .12s ease-out;
+    }
+    .hero-card::before {
+      content: attr(data-index);
+      color: var(--accent);
+      font-size: clamp(68px, 18vw, 180px);
+      font-weight: 900;
+      line-height: .75;
+      transform: translateZ(70px);
+    }
+    .hero-card i {
+      position: absolute;
+      inset: 10px;
+      border: 1px solid color-mix(in srgb, var(--paper) 14%, transparent);
+    }
+
+    .proximity-grid {
+      position: absolute;
+      inset: 12% 8% 20%;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 6px;
+    }
+    .proximity-grid i {
+      border: 1px solid color-mix(in srgb, var(--paper) 20%, transparent);
+      background: color-mix(in srgb, var(--paper) 4%, transparent);
+      transform: scale(var(--s, .74));
+      opacity: var(--o, .3);
+      transition: transform .16s ease-out, opacity .16s, background .16s;
+    }
+
+    .type-stage {
+      position: absolute;
+      inset: 18% 5% 22%;
+      display: grid;
+      align-content: center;
+    }
+    .type-stage .word {
+      margin: 0;
+      color: var(--paper);
+      font-size: clamp(45px, 15vw, 150px);
+      font-weight: 900;
+      line-height: .72;
+      letter-spacing: 0;
+      text-align: center;
+      text-transform: uppercase;
+      transform: skewX(calc((var(--vx, 0)) * 1deg)) translateX(calc(var(--vx, 0) * 1px));
+      font-variation-settings: "wght" var(--weight, 700);
+    }
+    .type-stage .ghost {
+      position: absolute;
+      inset: 50% 0 auto;
+      color: transparent;
+      -webkit-text-stroke: 1px color-mix(in srgb, var(--secondary) 75%, transparent);
+      transform: translateY(-50%) scale(1.18);
+      opacity: .45;
+    }
+
+    .pad-grid {
+      position: absolute;
+      inset: 16% 10% 23%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .pad-grid button {
+      border: 1px solid color-mix(in srgb, var(--paper) 18%, transparent);
+      color: var(--paper);
+      background: color-mix(in srgb, var(--paper) 5%, transparent);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .pad-grid button::before {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: var(--level, 24%);
+      background: var(--accent);
+      opacity: .8;
+      transition: height .12s;
+    }
+    .pad-grid button span { position: relative; z-index: 1; font-size: 10px; }
+    .pad-grid button:is(:hover, :focus-visible) { outline: 2px solid var(--secondary); outline-offset: -3px; }
+
+    .gallery {
+      position: absolute;
+      inset: 14% -8% 21%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transform: translateX(var(--drag-x, 0px)) skewX(calc(var(--velocity, 0) * -.15deg));
+      transition: transform .08s linear;
+    }
+    .gallery article {
+      flex: 0 0 clamp(145px, 26vw, 290px);
+      height: 78%;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--paper) 20%, transparent);
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--accent) 85%, var(--bg)), color-mix(in srgb, var(--secondary) 70%, var(--bg)));
+    }
+    .gallery article:nth-child(even) { height: 100%; filter: hue-rotate(60deg); }
+    .gallery article::before {
+      content: attr(data-n);
+      position: absolute;
+      right: 8px;
+      top: 2px;
+      font-size: clamp(54px, 11vw, 120px);
+      font-weight: 900;
+      color: color-mix(in srgb, var(--paper) 85%, transparent);
+    }
+    .gallery article::after {
+      content: "";
+      position: absolute;
+      inset: 52% 10% 10%;
+      background: color-mix(in srgb, var(--bg) 83%, transparent);
+      clip-path: polygon(0 35%, 30% 0, 56% 45%, 74% 18%, 100% 68%, 100% 100%, 0 100%);
+    }
+
+    .radial {
+      position: absolute;
+      width: min(48vw, 330px);
+      aspect-ratio: 1;
+      left: 50%;
+      top: 46%;
+      transform: translate(-50%, -50%) rotate(calc(var(--pxn, 0) * 10deg));
+      border: 1px solid color-mix(in srgb, var(--paper) 30%, transparent);
+      border-radius: 50%;
+    }
+    .radial::before, .radial::after {
+      content: "";
+      position: absolute;
+      border: 1px dashed color-mix(in srgb, var(--secondary) 55%, transparent);
+      border-radius: 50%;
+      inset: 18%;
+    }
+    .radial::after { inset: 38%; background: var(--accent); border: 0; }
+    .radial button {
+      position: absolute;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: 1px solid color-mix(in srgb, var(--paper) 25%, transparent);
+      color: var(--paper);
+      background: var(--bg);
+      transform: translate(-50%, -50%);
+    }
+    .radial button:nth-child(1) { left: 50%; top: 0; }
+    .radial button:nth-child(2) { left: 100%; top: 50%; }
+    .radial button:nth-child(3) { left: 50%; top: 100%; }
+    .radial button:nth-child(4) { left: 0; top: 50%; }
+    .radial button:is(:hover, :focus-visible) { background: var(--paper); color: var(--bg); outline: 0; }
+
+    .dashboard {
+      position: absolute;
+      inset: 14% 8% 23%;
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 8px;
+    }
+    .dashboard article {
+      border: 1px solid color-mix(in srgb, var(--paper) 18%, transparent);
+      background: color-mix(in srgb, var(--paper) 4%, transparent);
+      padding: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+    .dashboard article:first-child { grid-row: span 2; }
+    .dashboard b { font-size: clamp(32px, 8vw, 78px); letter-spacing: 0; }
+    .dashboard small { display: block; color: color-mix(in srgb, var(--paper) 55%, transparent); }
+    .bars {
+      position: absolute;
+      inset: auto 12px 12px;
+      height: 45%;
+      display: flex;
+      align-items: end;
+      gap: 4px;
+    }
+    .bars i { flex: 1; height: var(--h); background: var(--accent); transform-origin: bottom; }
+
+    .product {
+      position: absolute;
+      inset: 12% 8% 22%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid color-mix(in srgb, var(--paper) 18%, transparent);
+      overflow: hidden;
+    }
+    .product-figure {
+      position: relative;
+      background: color-mix(in srgb, var(--paper) 8%, var(--bg));
+    }
+    .product-figure::before {
+      content: "";
+      position: absolute;
+      width: 32%;
+      height: 62%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(calc(var(--pxn, 0) * 5deg));
+      border-radius: 34% 34% 14% 14%;
+      background: linear-gradient(90deg, var(--secondary), var(--paper) 48%, var(--accent));
+      box-shadow: 0 22px 40px color-mix(in srgb, var(--accent) 25%, transparent);
+    }
+    .product-copy { padding: 14%; display: grid; align-content: center; gap: 12px; }
+    .product-copy b { font-size: clamp(25px, 5vw, 58px); line-height: .9; }
+    .product-copy i { height: 1px; background: var(--accent); width: 70%; }
+    .hotspot {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid var(--paper);
+      left: var(--px);
+      top: var(--py);
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 0 8px color-mix(in srgb, var(--paper) 12%, transparent);
+    }
+    .comparison {
+      position: absolute;
+      inset: 14% 8% 22%;
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--paper) 25%, transparent);
+      background: linear-gradient(135deg, var(--secondary), var(--bg));
+      --split: 50%;
+    }
+    .comparison::before {
+      content: "AFTER";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--paper);
+      font-size: clamp(45px, 12vw, 120px);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--bg));
+      clip-path: inset(0 calc(100% - var(--split)) 0 0);
+    }
+    .comparison::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--split);
+      width: 2px;
+      background: var(--paper);
+      transform: translateX(-1px);
+      box-shadow: 0 0 0 7px color-mix(in srgb, var(--paper) 14%, transparent);
+    }
+    .comparison input { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; }
+    .tabs-stage {
+      position: absolute;
+      inset: 16% 8% 23%;
+      display: grid;
+      grid-template-rows: 42px 1fr;
+      border: 1px solid color-mix(in srgb, var(--paper) 24%, transparent);
+    }
+    .tabs-nav { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid color-mix(in srgb, var(--paper) 24%, transparent); }
+    .tabs-nav button { border: 0; border-right: 1px solid color-mix(in srgb, var(--paper) 18%, transparent); background: transparent; color: var(--paper); }
+    .tabs-nav button.active { background: var(--accent); color: var(--bg); }
+    .tabs-panel { display: grid; place-items: center; font-size: clamp(48px, 12vw, 120px); font-weight: 900; }
+    .three-variant { position: absolute; inset: 0; }
+
+    .unknown {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+    }
+    @media (max-width: 620px) {
+      .caption p { display: none; }
+      .caption { grid-template-columns: 1fr; }
+      .caption h1 { font-size: clamp(25px, 11vw, 50px); }
+      .proximity-grid { grid-template-columns: repeat(6, 1fr); }
+      .dashboard { inset-inline: 5%; grid-template-columns: 1fr 1fr; }
+      .product { grid-template-columns: 1fr; }
+      .product-copy { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition-duration: .001ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage" id="stage">
+    <div class="chrome"><b>CSS·FX / INTERACTION</b><span id="family">LIVE INPUT</span></div>
+    <div class="experience" id="experience"></div>
+    <div class="caption"><h1 id="title">INTERACTION</h1><p id="note">MOVE · DRAG · CLICK<br />POINTER / TOUCH / KEYBOARD</p></div>
+    <span class="cursor" aria-hidden="true"></span>
+  </main>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const preset = params.get("preset") || "perspective-tilt-card";
+    const coverMode = window.__FX_COVER__ === true || params.get("cover") === "1";
+    const PRESETS = {
+      "perspective-tilt-card": ["空间倾斜卡", "depth", ["#0b0d0e", "#f1eee6", "#ff553d", "#54c2a5"]],
+      "proximity-grid": ["邻近感应网格", "proximity", ["#090c13", "#eef1ff", "#ff4f7b", "#45d7ff"]],
+      "cursor-text-scramble": ["光标文字解码", "type", ["#eeece4", "#151716", "#e94f37", "#2b7a78"]],
+      "hover-sound-pads": ["悬停音色垫", "audio", ["#071318", "#eff6f4", "#ffc857", "#4bc0c8"]],
+      "drag-elastic-line": ["拖拽弹性线", "canvas", ["#0c0c0f", "#f4f0e8", "#ff5c5c", "#57cc99"]],
+      "scroll-progress-type": ["滚动字阶", "type", ["#f1eee5", "#171817", "#d64045", "#3772ff"]],
+      "image-clip-wipe": ["方向图片擦除", "gallery", ["#101011", "#f0ede5", "#f15a47", "#74c69d"]],
+      "spotlight-border": ["追光边框", "depth", ["#07090c", "#f3f0e8", "#f72585", "#4cc9f0"]],
+      "velocity-skew": ["速度斜切", "type", ["#edeae1", "#151616", "#ff4d3d", "#277da1"]],
+      "magnetic-nav": ["磁性导航", "radial", ["#101312", "#eef2ea", "#e9c46a", "#2a9d8f"]],
+      "cursor-constellation": ["光标星座", "canvas", ["#060912", "#f1f1ff", "#ff6b6b", "#64dfdf"]],
+      "depth-parallax": ["分层景深", "gallery", ["#0e1010", "#ede9df", "#f77f00", "#43aa8b"]],
+      "hold-to-charge": ["长按蓄能", "canvas", ["#080b0e", "#edf2f4", "#ef233c", "#00b4d8"]],
+      "pointer-color-mixer": ["指针混色盘", "canvas", ["#111111", "#f4f1ea", "#ff006e", "#3a86ff"]],
+      "magnetic-field": ["磁力场", "proximity", ["#080d0c", "#eff5ee", "#ff5d47", "#39c6a5"]],
+      "cursor-spotlight": ["光标聚光", "depth", ["#07090d", "#f2eee6", "#ffca3a", "#4cc9f0"]],
+      "image-reveal-lens": ["图像揭示镜", "product", ["#ebe7de", "#151716", "#e94f37", "#2a9d8f"]],
+      "kinetic-type": ["动力排版", "type", ["#eeeae1", "#161817", "#ef3e36", "#277da1"]],
+      "gravity-dots": ["引力粒子", "canvas", ["#06100e", "#ecf4f1", "#ff6b35", "#2ec4b6"]],
+      "pointer-ripple": ["指针涟漪", "canvas", ["#071019", "#edf6f9", "#ffb703", "#219ebc"]],
+      "liquid-follow": ["液态跟随", "canvas", ["#0d0b12", "#f3efff", "#f72585", "#4cc9f0"]],
+      "hover-image-trail": ["影像尾迹", "gallery", ["#11110f", "#f3eee4", "#f04438", "#53b3a7"]],
+      "scroll-video-scrub": ["滚动影像序列", "gallery", ["#090a0b", "#f2ede3", "#d1495b", "#168aad"]],
+      "raycast-hover": ["空间射线悬停", "spatial", ["#060b10", "#e9f5f2", "#00d9a5", "#ff5d5d"]],
+      "kinetic-gallery": ["动力画廊", "gallery", ["#101010", "#f3ede3", "#ff4f3b", "#60d394"]],
+      "before-after-stage": ["前后对比舞台", "product", ["#ece8df", "#151717", "#d1495b", "#00798c"]],
+      "physics-tags": ["物理标签池", "canvas", ["#0a1010", "#edf6f4", "#f4a261", "#2a9d8f"]],
+      "radial-command-menu": ["径向命令菜单", "radial", ["#080a0e", "#f1f0e8", "#ff4365", "#00d9c0"]],
+      "draggable-timeline": ["可拖拽时间线", "gallery", ["#efece4", "#171818", "#e63946", "#457b9d"]],
+      "generative-poster": ["生成式海报台", "type", ["#11100e", "#f2eee4", "#ffba08", "#3f88c5"]],
+      "audio-spectrum-panel": ["音频频谱面板", "audio", ["#071015", "#edf6f9", "#ffb703", "#219ebc"]],
+      "scroll-story-panel": ["滚动叙事面板", "dashboard", ["#eeeae1", "#151717", "#d62828", "#2a9d8f"]],
+      "masonry-reveal-grid": ["瀑布揭示网格", "gallery", ["#0e0e0f", "#f0ece4", "#ff595e", "#8ac926"]],
+      "elastic-tabs": ["弹性标签页", "radial", ["#f0ede5", "#161817", "#ff4d3d", "#1982c4"]],
+      "liquid-navigation": ["液态导航器", "canvas", ["#07110f", "#eef4ee", "#ff6b35", "#2ec4b6"]],
+      "cursor-media-wall": ["光标媒体墙", "gallery", ["#111111", "#f4efe6", "#ef476f", "#06d6a0"]],
+      "product-hotspot-stage": ["产品热点舞台", "product", ["#ece9e1", "#171817", "#e76f51", "#2a9d8f"]],
+      "data-orbit-dashboard": ["数据轨道仪表盘", "dashboard", ["#071217", "#eaf4f4", "#ff9f1c", "#2ec4b6"]],
+      "shader-image-panel": ["着色器图像面板", "product", ["#09090d", "#f1efff", "#f72585", "#4cc9f0"]],
+      "node-map-editor": ["节点关系编辑器", "canvas", ["#0b1112", "#ecf3f1", "#ff595e", "#52b788"]],
+      "spatial-card-deck": ["空间卡片牌组", "gallery", ["#0e0f10", "#f1eee7", "#ff6b35", "#5bc0eb"]],
+      "drag-card-stack": ["拖拽卡片栈", "gallery", ["#0f1010", "#f1eee7", "#ff6b35", "#5bc0eb"]],
+      "shader-poster": ["着色器海报", "spatial", ["#09090d", "#f1efff", "#f72585", "#4cc9f0"]],
+      "media-carousel": ["媒体轮播器", "gallery", ["#0b0b0c", "#f5f1e8", "#ff4f3d", "#5ac8fa"]],
+      "orbit-product-viewer": ["轨道产品查看器", "spatial", ["#10100e", "#f3f0e8", "#f04a3b", "#8cd7c1"]],
+      "variable-type-console": ["可变字体控制台", "type", ["#ebe8df", "#151716", "#e43f35", "#2d6a4f"]]
+    };
+
+    const config = PRESETS[preset];
+    const stage = document.querySelector("#stage");
+    const experience = document.querySelector("#experience");
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const state = { x: innerWidth / 2, y: innerHeight / 2, px: 0, py: 0, vx: 0, down: false, drag: 0, charge: 0, burst: 0, active: !coverMode, disposed: false };
+    let raf = 0;
+    let resizeObserver;
+    let canvasContext = null;
+    const teardown = [];
+
+    function template(family) {
+      if (preset === "before-after-stage" || preset === "image-clip-wipe") return `<div class="comparison"><input type="range" min="0" max="100" value="50" aria-label="对比位置" /></div>`;
+      if (preset === "elastic-tabs") return `<div class="tabs-stage"><div class="tabs-nav">${["01","02","03","04"].map((label, i) => `<button type="button" class="${i === 0 ? "active" : ""}">${label}</button>`).join("")}</div><div class="tabs-panel">01</div></div>`;
+      if (["shader-image-panel", "spatial-card-deck", "raycast-hover", "shader-poster", "orbit-product-viewer"].includes(preset)) return `<canvas class="three-variant"></canvas>`;
+      if (family === "depth") return `<div class="hero-card" data-index="01"><i></i></div>`;
+      if (family === "proximity") return `<div class="proximity-grid">${"<i></i>".repeat(48)}</div>`;
+      if (family === "type") return `<div class="type-stage"><div class="word ghost">VARIABLE</div><div class="word">VARIABLE</div></div>`;
+      if (family === "audio") return `<div class="pad-grid">${Array.from({length: 12}, (_, i) => `<button type="button" aria-label="音色 ${i + 1}"><span>0${i + 1}</span></button>`).join("")}</div>`;
+      if (family === "gallery") return `<div class="gallery">${Array.from({length: 7}, (_, i) => `<article data-n="0${i + 1}"></article>`).join("")}</div>`;
+      if (family === "radial") return `<div class="radial"><button>↑</button><button>→</button><button>↓</button><button>←</button></div>`;
+      if (family === "dashboard") return `<div class="dashboard"><article><small>LIVE INDEX</small><b>82.4</b><div class="bars">${Array.from({length: 14}, (_, i) => `<i style="--h:${24 + ((i * 31) % 70)}%"></i>`).join("")}</div></article><article><small>VELOCITY</small><b>24</b></article><article><small>NODES</small><b>128</b></article></div>`;
+      if (family === "product") return `<div class="product"><div class="product-figure"><span class="hotspot"></span></div><div class="product-copy"><small>OBJECT / 01</small><b>TACTILE<br />FORM</b><i></i><small>MOVE TO INSPECT</small></div></div>`;
+      return `<canvas></canvas>`;
+    }
+
+    function setPointer(event) {
+      const rect = stage.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      state.vx = x - state.x;
+      state.x = x;
+      state.y = y;
+      state.px = Math.max(-1, Math.min(1, x / rect.width * 2 - 1));
+      state.py = Math.max(-1, Math.min(1, y / rect.height * 2 - 1));
+      stage.style.setProperty("--px", `${x}px`);
+      stage.style.setProperty("--py", `${y}px`);
+      stage.style.setProperty("--pxn", state.px);
+      stage.style.setProperty("--rx", `${state.py * -8}deg`);
+      stage.style.setProperty("--ry", `${state.px * 10}deg`);
+      stage.style.setProperty("--vx", Math.max(-16, Math.min(16, state.vx)));
+      stage.style.setProperty("--weight", Math.round(450 + (state.px + 1) * 225));
+      if (state.down) {
+        state.drag += state.vx;
+        stage.style.setProperty("--drag-x", `${state.drag}px`);
+        stage.style.setProperty("--velocity", Math.max(-20, Math.min(20, state.vx)));
+      }
+      updateProximity();
+    }
+
+    function updateProximity() {
+      document.querySelectorAll(".proximity-grid i").forEach((cell) => {
+        const rect = cell.getBoundingClientRect();
+        const distance = Math.hypot(state.x - (rect.left + rect.width / 2), state.y - (rect.top + rect.height / 2));
+        const strength = Math.max(0, 1 - distance / 180);
+        cell.style.setProperty("--s", (.72 + strength * .58).toFixed(2));
+        cell.style.setProperty("--o", (.2 + strength * .8).toFixed(2));
+        cell.style.background = strength > .5 ? "var(--accent)" : "";
+      });
+    }
+
+    function setupCanvas() {
+      if (!config || config[1] !== "canvas") return;
+      experience.innerHTML = "<canvas></canvas>";
+      const canvas = experience.querySelector("canvas");
+      canvasContext = canvas.getContext("2d");
+      const points = Array.from({ length: coverMode ? 44 : 84 }, (_, i) => ({
+        x: Math.random(), y: Math.random(), p: i * .67, r: 1 + Math.random() * 2
+      }));
+      function resize() {
+        const rect = stage.getBoundingClientRect();
+        const dpr = Math.min(devicePixelRatio || 1, coverMode ? 1.25 : 2);
+        canvas.width = Math.round(rect.width * dpr);
+        canvas.height = Math.round(rect.height * dpr);
+        canvasContext.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      resizeObserver = new ResizeObserver(resize);
+      resizeObserver.observe(stage);
+      resize();
+      const draw = (time) => {
+        if (state.disposed) return;
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+        canvasContext.clearRect(0, 0, width, height);
+        if (preset === "pointer-color-mixer") {
+          const hue = Math.round((state.px + 1) * 180);
+          const gradient = canvasContext.createRadialGradient(state.x, state.y, 10, state.x, state.y, Math.max(width, height) * .7);
+          gradient.addColorStop(0, `hsl(${hue} 90% 58%)`);
+          gradient.addColorStop(1, `hsl(${(hue + 170) % 360} 72% 12%)`);
+          canvasContext.fillStyle = gradient;
+          canvasContext.fillRect(0, 0, width, height);
+        }
+        if (preset === "drag-elastic-line") {
+          canvasContext.strokeStyle = config[2][2];
+          canvasContext.lineWidth = 8;
+          canvasContext.beginPath();
+          canvasContext.moveTo(0, height * .5);
+          canvasContext.bezierCurveTo(width * .3, height * .5, state.x, state.y, width, height * .5);
+          canvasContext.stroke();
+        }
+        points.forEach((point, index) => {
+          const px = point.x * width + Math.sin(time * .0006 + point.p) * 15;
+          const py = point.y * height + Math.cos(time * .0005 + point.p) * 13;
+          const dx = state.x - px;
+          const dy = state.y - py;
+          const distance = Math.max(30, Math.hypot(dx, dy));
+          const pull = state.down ? 820 / distance : (state.active ? 180 : 72) / distance;
+          const x = px + dx / distance * pull;
+          const y = py + dy / distance * pull;
+          canvasContext.fillStyle = index % 7 === 0 ? config[2][2] : config[2][1];
+          canvasContext.globalAlpha = Math.max(.18, 1 - distance / 540);
+          if (preset === "physics-tags" && index < 14) {
+            canvasContext.font = "700 12px system-ui";
+            canvasContext.fillText(["MOTION","TYPE","MEDIA","FIELD"][index % 4], x, y);
+          } else {
+            canvasContext.beginPath();
+            canvasContext.arc(x, y, point.r + Math.max(0, 80 - distance) / 28, 0, Math.PI * 2);
+            canvasContext.fill();
+          }
+          if (distance < 125) {
+            canvasContext.strokeStyle = config[2][3];
+            canvasContext.globalAlpha = .32;
+            canvasContext.beginPath();
+            canvasContext.moveTo(x, y);
+            canvasContext.lineTo(state.x, state.y);
+            canvasContext.stroke();
+          }
+        });
+        if (preset === "hold-to-charge") {
+          if (state.down) state.charge = Math.min(1, state.charge + .018);
+          else state.charge *= .92;
+          canvasContext.strokeStyle = config[2][2];
+          canvasContext.lineWidth = 5;
+          canvasContext.globalAlpha = .9;
+          canvasContext.beginPath();
+          canvasContext.arc(state.x, state.y, 28 + state.charge * 75 + state.burst, -.5 * Math.PI, (-.5 + state.charge * 2) * Math.PI);
+          canvasContext.stroke();
+          state.burst *= .9;
+        }
+        canvasContext.globalAlpha = 1;
+        if (!reduced) raf = requestAnimationFrame(draw);
+      };
+      draw(0);
+    }
+
+    function setupScramble() {
+      if (preset !== "cursor-text-scramble") return;
+      const words = [...document.querySelectorAll(".type-stage .word")];
+      const target = "DECODED";
+      const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      let progress = 0;
+      const decode = () => {
+        progress = Math.min(target.length, progress + .45);
+        const value = [...target].map((char, index) => index < progress ? char : glyphs[Math.floor(Math.random() * glyphs.length)]).join("");
+        words.forEach((word) => { word.textContent = value; });
+        if (progress < target.length && !state.disposed) requestAnimationFrame(decode);
+      };
+      const restart = () => { progress = 0; decode(); };
+      stage.addEventListener("pointerenter", restart);
+      teardown.push(() => stage.removeEventListener("pointerenter", restart));
+      restart();
+    }
+
+    function setupAudio() {
+      if (config?.[1] !== "audio") return;
+      let audioContext;
+      const play = (index) => {
+        const AudioEngine = window.AudioContext || window.webkitAudioContext;
+        if (!AudioEngine) return;
+        audioContext ||= new AudioEngine();
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.frequency.value = 180 * Math.pow(2, index / 12);
+        gain.gain.setValueAtTime(.0001, audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(.06, audioContext.currentTime + .01);
+        gain.gain.exponentialRampToValueAtTime(.0001, audioContext.currentTime + .16);
+        oscillator.connect(gain).connect(audioContext.destination);
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + .18);
+      };
+      document.querySelectorAll(".pad-grid button").forEach((pad, index) => {
+        const activate = () => play(index);
+        pad.addEventListener("pointerdown", activate);
+        pad.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") activate(); });
+      });
+      teardown.push(() => audioContext?.close());
+    }
+
+    function setupComparison() {
+      const comparison = document.querySelector(".comparison");
+      if (!comparison) return;
+      const range = comparison.querySelector("input");
+      const update = () => comparison.style.setProperty("--split", `${range.value}%`);
+      range.addEventListener("input", update);
+      teardown.push(() => range.removeEventListener("input", update));
+    }
+
+    function setupTabs() {
+      if (preset !== "elastic-tabs") return;
+      const buttons = [...document.querySelectorAll(".tabs-nav button")];
+      const panel = document.querySelector(".tabs-panel");
+      buttons.forEach((button, index) => button.addEventListener("click", () => {
+        buttons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        panel.textContent = `0${index + 1}`;
+        panel.animate?.([{ transform: "translateY(8px)", opacity: .2 }, { transform: "none", opacity: 1 }], { duration: reduced ? 1 : 280 });
+      }));
+    }
+
+    async function setupThreeVariant() {
+      if (!["shader-image-panel", "spatial-card-deck", "raycast-hover", "shader-poster", "orbit-product-viewer"].includes(preset)) return;
+      const canvas = experience.querySelector("canvas");
+      let renderer;
+      let frame = 0;
+      try {
+        const THREE = await import("https://cdn.jsdelivr.net/npm/three@0.185.0/build/three.module.js");
+        if (state.disposed) return;
+        renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+        renderer.setPixelRatio(Math.min(devicePixelRatio || 1, coverMode ? 1.25 : 2));
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(config[2][0]);
+        const camera = new THREE.PerspectiveCamera(42, 1, .1, 40);
+        camera.position.z = 7;
+        const group = new THREE.Group();
+        scene.add(group);
+        const geometry = new THREE.BoxGeometry(2.5, 3.4, .12, 18, 18, 2);
+        const materials = Array.from({ length: 5 }, (_, index) => new THREE.MeshBasicMaterial({
+          color: index % 2 ? config[2][2] : config[2][3],
+          wireframe: preset === "shader-image-panel",
+          transparent: true,
+          opacity: .86,
+        }));
+        materials.forEach((material, index) => {
+          const mesh = new THREE.Mesh(geometry, material);
+          mesh.position.x = (index - 2) * 1.35;
+          mesh.position.z = -Math.abs(index - 2) * .5;
+          mesh.rotation.y = (index - 2) * -.2;
+          group.add(mesh);
+        });
+        const resize = () => {
+          const width = stage.clientWidth, height = stage.clientHeight;
+          renderer.setSize(width, height, false);
+          camera.aspect = width / Math.max(1, height);
+          camera.updateProjectionMatrix();
+        };
+        resize();
+        const observer = new ResizeObserver(resize);
+        observer.observe(stage);
+        const draw = (time) => {
+          if (state.disposed) return;
+          group.rotation.y += (state.px * .45 - group.rotation.y) * .06;
+          group.rotation.x += (-state.py * .2 - group.rotation.x) * .06;
+          const speed = state.active ? .001 : .00035;
+          group.children.forEach((mesh, index) => { mesh.position.y = Math.sin(time * speed + index) * .16; });
+          renderer.render(scene, camera);
+          if (!reduced) frame = requestAnimationFrame(draw);
+        };
+        draw(0);
+        teardown.push(() => {
+          cancelAnimationFrame(frame);
+          observer.disconnect();
+          geometry.dispose();
+          materials.forEach((material) => material.dispose());
+          renderer.dispose();
+        });
+      } catch (error) {
+        canvas.remove();
+        experience.innerHTML = `<div class="hero-card" data-index="3D"><i></i></div>`;
+        document.querySelector("#family").textContent += " / DOM FALLBACK";
+      }
+    }
+
+    function animatePads(time) {
+      if (state.disposed || !config || config[1] !== "audio") return;
+      document.querySelectorAll(".pad-grid button").forEach((pad, index) => {
+        const level = 18 + Math.abs(Math.sin(time * .0018 + index * .72)) * 72;
+        pad.style.setProperty("--level", `${level}%`);
+      });
+      if (!reduced) raf = requestAnimationFrame(animatePads);
+    }
+
+    function dispose() {
+      if (state.disposed) return;
+      state.disposed = true;
+      cancelAnimationFrame(raf);
+      resizeObserver?.disconnect();
+      teardown.splice(0).forEach((cleanup) => cleanup());
+      stage.removeEventListener("pointermove", setPointer);
+      canvasContext = null;
+    }
+
+    if (!config) {
+      experience.innerHTML = `<div class="unknown">未知互动预设：${preset}</div>`;
+    } else {
+      const [label, family, palette] = config;
+      [stage.style.backgroundColor, stage.style.color] = [palette[0], palette[1]];
+      stage.style.setProperty("--bg", palette[0]);
+      stage.style.setProperty("--paper", palette[1]);
+      stage.style.setProperty("--accent", palette[2]);
+      stage.style.setProperty("--secondary", palette[3]);
+      document.querySelector("#title").textContent = label;
+      document.querySelector("#family").textContent = family.toUpperCase();
+      if (preset === "shader-image-panel") document.querySelector("#family").textContent = "THREE / SHADER";
+      if (preset === "spatial-card-deck") document.querySelector("#family").textContent = "THREE / DECK";
+      if (preset === "raycast-hover") document.querySelector("#family").textContent = "THREE / RAYCAST";
+      if (preset === "shader-poster") document.querySelector("#family").textContent = "THREE / POSTER";
+      if (preset === "orbit-product-viewer") document.querySelector("#family").textContent = "THREE / PRODUCT";
+      experience.innerHTML = template(family);
+      setupCanvas();
+      if (family === "audio") animatePads(0);
+      setupScramble();
+      setupAudio();
+      setupComparison();
+      setupTabs();
+      setupThreeVariant();
+    }
+
+    stage.addEventListener("pointermove", setPointer);
+    stage.addEventListener("pointerdown", (event) => {
+      state.down = true;
+      stage.setPointerCapture?.(event.pointerId);
+      setPointer(event);
+    });
+    stage.addEventListener("pointerup", () => {
+      if (preset === "hold-to-charge" && state.charge > .3) state.burst = 90 * state.charge;
+      state.down = false;
+      stage.style.setProperty("--velocity", 0);
+    });
+    stage.addEventListener("wheel", (event) => {
+      state.drag -= event.deltaY * .2;
+      stage.style.setProperty("--drag-x", `${state.drag}px`);
+      if (preset === "scroll-progress-type") {
+        const weight = Math.max(200, Math.min(900, 550 + state.drag));
+        stage.style.setProperty("--weight", weight);
+      }
+      if (preset === "scroll-story-panel") {
+        document.querySelectorAll(".dashboard b").forEach((value, index) => {
+          value.textContent = String(Math.round(Math.abs(state.drag) + 24 + index * 38));
+        });
+      }
+    }, { passive: true });
+    addEventListener("keydown", (event) => {
+      const amount = event.key === "ArrowLeft" ? -24 : event.key === "ArrowRight" ? 24 : 0;
+      if (amount) {
+        state.drag += amount;
+        stage.style.setProperty("--drag-x", `${state.drag}px`);
+      }
+    });
+    addEventListener("message", (event) => {
+      if (event.data?.type === "fx:activate") {
+        state.active = true;
+        document.body.classList.add("is-active");
+      }
+      if (event.data?.type === "fx:deactivate") {
+        state.active = false;
+        state.down = false;
+        document.body.classList.remove("is-active");
+      }
+      if (event.data?.type === "fx:dispose") dispose();
+    });
+    addEventListener("pagehide", dispose);
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MOVIES · MotionSites 演示集合</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050810;color:#d0d8e8;font-family:system-ui,sans-serif;min-height:100vh}
+.hero{text-align:center;padding:80px 20px 60px;background:radial-gradient(ellipse at 50% 0%,#0f1b3a 0%,#050810 70%)}
+.hero h1{font-size:clamp(32px,6vw,56px);font-weight:900;background:linear-gradient(135deg,#5b8def,#00d4ff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.hero p{color:#6b7a99;font-size:16px;max-width:500px;margin:0 auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:24px;padding:40px 5vw;max-width:1400px;margin:0 auto}
+.card{background:linear-gradient(135deg,#0d1525,#080c16);border:1px solid #1a2a40;border-radius:16px;overflow:hidden;transition:all 0.3s;text-decoration:none;display:block}
+.card:hover{transform:translateY(-4px);border-color:#3a5a80;box-shadow:0 16px 48px rgba(91,141,239,0.1)}
+.card .thumb{height:200px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;overflow:hidden}
+.card .thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent,#050810)}
+.card .info{padding:20px;border-top:1px solid #1a2a40}
+.card .info h2{font-size:18px;font-weight:800;color:#fff;margin-bottom:6px}
+.card .info p{font-size:13px;color:#6b7a99;line-height:1.5}
+.card .info .prompt{font-size:11px;color:#5b8def;margin-top:8px;font-family:monospace}
+.card .badge{position:absolute;top:12px;right:12px;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:700;z-index:2;background:#5b8def20;color:#5b8def;border:1px solid #5b8def30}
+
+.aetheris{background:linear-gradient(135deg,#020617,#0f172a)}.aetheris .thumb{background:radial-gradient(ellipse at 30% 50%,#1e3a5f,#020617)}
+.collectible{background:linear-gradient(135deg,#0f0a1a,#1a0f2d)}.collectible .thumb{background:linear-gradient(135deg,#7c3aed,#3b82f6,#06b6d4)}
+.automation{background:linear-gradient(135deg,#050a14,#0a1525)}.automation .thumb{background:radial-gradient(ellipse at 70% 30%,#1e40af,#050a14)}
+.apex{background:linear-gradient(135deg,#0a0812,#12102a)}.apex .thumb{background:linear-gradient(135deg,#2563eb,#7c3aed)}
+.arise{background:linear-gradient(135deg,#000,#1a1208)}.arise .thumb{background:linear-gradient(135deg,#dba85a,#1a1208)}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>MotionSites · Demo Gallery</h1>
+  <p>5个由 PRO 模型根据 MotionSites 661 提示词生成的完整页面</p>
+</div>
+<div class="grid">
+  <a class="card aetheris" href="aetheris-voyage.html">
+    <div class="thumb"><span style="font-size:48px">🪐</span><span class="badge">太空科技</span></div>
+    <div class="info"><h2>Aetheris Voyage</h2><p>太空旅行登录页 · 液态玻璃设计系统 · React + Framer Motion + 视频交叉淡入淡出</p><span class="prompt">Aetheris_Voyage</span></div>
+  </a>
+  <a class="card collectible" href="3d-collectible-hero.html">
+    <div class="thumb"><span style="font-size:48px">🎮</span><span class="badge">3D角色</span></div>
+    <div class="info"><h2>3D Collectible Hero</h2><p>潮玩角色轮播 · 背景色随角色切换 · 3D缩放+模糊层次 · SVG噪点叠加</p><span class="prompt">3D_Collectible_Hero</span></div>
+  </a>
+  <a class="card automation" href="ai-automation.html">
+    <div class="thumb"><span style="font-size:48px">🤖</span><span class="badge">AI</span></div>
+    <div class="info"><h2>AI Automation</h2><p>AI自动化展示 · 全屏视频背景 · FadeUp滚动动画 · 三屏叙事布局</p><span class="prompt">AI_Automation</span></div>
+  </a>
+  <a class="card apex" href="apex-saas.html">
+    <div class="thumb"><span style="font-size:48px">🚀</span><span class="badge">SaaS</span></div>
+    <div class="info"><h2>Apex SaaS</h2><p>SaaS产品发布页 · HSL色彩系统 · 液态玻璃导航 · Logo跑马灯 · 统计卡片</p><span class="prompt">Apex_SaaS</span></div>
+  </a>
+  <a class="card arise" href="arise.html">
+    <div class="thumb"><span style="font-size:48px">⚜️</span><span class="badge">品牌</span></div>
+    <div class="info"><h2>Arise</h2><p>金融品牌页 · 金属金色调 · 8区块完整布局 · 定价表 · 汉堡菜单响应式</p><span class="prompt">Arise</span></div>
+  </a>
+</div>
+</body>
+</html>

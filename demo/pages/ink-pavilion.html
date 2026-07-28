@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ink Pavilion — Digital Exhibition</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #e9e1d0;
+      --ink: #211d18;
+      --muted: #766d61;
+      --red: #a9342b;
+      --moss: #56675b;
+      --line: rgb(33 29 24 / 22%);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      pointer-events: none;
+      opacity: .14;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+    }
+    a { color: inherit; }
+    button { font: inherit; }
+    .site-nav {
+      position: fixed;
+      z-index: 12;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 58px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 clamp(18px, 4vw, 58px);
+      border-bottom: 1px solid var(--line);
+      background: rgb(233 225 208 / 86%);
+      backdrop-filter: blur(10px);
+      font: 9px/1 ui-monospace, monospace;
+      text-transform: uppercase;
+    }
+    .brand { font-size: 13px; font-weight: 800; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { text-decoration: none; }
+    .nav-index { justify-self: end; color: var(--red); }
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      padding: 92px clamp(18px, 4vw, 58px) 34px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(220px, .75fr);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    #inkField {
+      position: absolute;
+      inset: 58px 0 0;
+      z-index: -1;
+      width: 100%;
+      height: calc(100% - 58px);
+      display: block;
+      touch-action: none;
+    }
+    .hero-copy { align-self: end; }
+    .eyebrow {
+      margin: 0 0 22px;
+      color: var(--red);
+      font: 10px/1 ui-monospace, monospace;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 7ch;
+      margin: 0;
+      font-size: clamp(64px, 12vw, 178px);
+      font-weight: 500;
+      line-height: .78;
+      letter-spacing: 0;
+    }
+    .hero-side {
+      align-self: stretch;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding-left: clamp(18px, 3vw, 46px);
+      border-left: 1px solid var(--line);
+    }
+    .vertical-title {
+      justify-self: end;
+      writing-mode: vertical-rl;
+      font-size: clamp(25px, 4vw, 52px);
+      line-height: 1;
+    }
+    .hero-note {
+      max-width: 26ch;
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .seal {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-top: 20px;
+      border: 2px solid var(--red);
+      color: var(--red);
+      font-size: 10px;
+      line-height: 1;
+      transform: rotate(-4deg);
+    }
+    .section {
+      min-height: 100svh;
+      padding: clamp(70px, 10vw, 140px) clamp(18px, 4vw, 58px);
+      border-bottom: 1px solid var(--line);
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr) minmax(180px, .5fr);
+      gap: 28px;
+      align-items: start;
+      margin-bottom: clamp(54px, 8vw, 110px);
+    }
+    .section-no { color: var(--red); font: 10px/1 ui-monospace, monospace; }
+    h2 {
+      max-width: 13ch;
+      margin: 0;
+      font-size: clamp(40px, 7vw, 98px);
+      font-weight: 500;
+      line-height: .9;
+      letter-spacing: 0;
+    }
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--ink);
+    }
+    .manifesto-grid article {
+      min-height: 230px;
+      padding: 18px;
+      border-right: 1px solid var(--line);
+    }
+    .manifesto-grid article:last-child { border-right: 0; }
+    .manifesto-grid b { display: block; color: var(--red); font: 10px/1 ui-monospace, monospace; }
+    .manifesto-grid strong { display: block; margin-top: 70px; font-size: 24px; font-weight: 500; }
+    .manifesto-grid p { margin: 12px 0 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .collection {
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .collection .section-head p { color: rgb(233 225 208 / 62%); }
+    .works {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr 1fr;
+      gap: 12px;
+    }
+    .work {
+      position: relative;
+      min-height: 62vh;
+      overflow: hidden;
+      border: 1px solid rgb(233 225 208 / 22%);
+      background: #2d2924;
+    }
+    .work:nth-child(2) { margin-top: 12vh; background: var(--moss); }
+    .work:nth-child(3) { margin-top: 5vh; background: #713832; }
+    .work::before,
+    .work::after {
+      content: "";
+      position: absolute;
+      background: var(--paper);
+      opacity: .76;
+    }
+    .work::before { width: 1px; top: 8%; bottom: 8%; left: 52%; transform: rotate(12deg); }
+    .work::after { height: 1px; left: 8%; right: 8%; top: 46%; transform: rotate(-8deg); }
+    .work b { position: absolute; left: 18px; bottom: 18px; font-size: clamp(20px, 3vw, 38px); font-weight: 500; }
+    .work span { position: absolute; top: 16px; right: 16px; color: #f0b1a8; font: 9px/1 ui-monospace, monospace; }
+    .archive-grid {
+      display: grid;
+      grid-template-columns: .65fr 1.35fr;
+      gap: clamp(34px, 6vw, 90px);
+    }
+    .archive-index { border-top: 1px solid var(--ink); }
+    .archive-row {
+      min-height: 78px;
+      display: grid;
+      grid-template-columns: 46px 1fr auto;
+      align-items: center;
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .archive-row span, .archive-row small { font: 9px/1 ui-monospace, monospace; }
+    .archive-row small { color: var(--muted); }
+    .archive-quote {
+      align-self: end;
+      font-size: clamp(30px, 5vw, 70px);
+      line-height: 1.05;
+    }
+    .visit {
+      min-height: 76svh;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      background: var(--red);
+      color: #f3ead8;
+    }
+    .visit h2 { max-width: 9ch; font-size: clamp(54px, 10vw, 150px); }
+    .visit-meta { display: grid; gap: 12px; font: 10px/1.4 ui-monospace, monospace; text-transform: uppercase; text-align: right; }
+    .visit a { text-underline-offset: 5px; }
+    @media (max-width: 720px) {
+      .site-nav { grid-template-columns: 1fr auto; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-side { min-height: 34vh; margin-top: 36px; padding: 24px 0 0; border-left: 0; border-top: 1px solid var(--line); }
+      .vertical-title { writing-mode: horizontal-tb; justify-self: start; }
+      .section-head { grid-template-columns: 42px 1fr; }
+      .section-head p { grid-column: 2; }
+      .manifesto-grid { grid-template-columns: 1fr 1fr; }
+      .manifesto-grid article:nth-child(2) { border-right: 0; }
+      .works { grid-template-columns: 1fr; }
+      .work, .work:nth-child(2), .work:nth-child(3) { min-height: 48vh; margin-top: 0; }
+      .archive-grid { grid-template-columns: 1fr; }
+      .visit { grid-template-columns: 1fr; gap: 80px; }
+      .visit-meta { text-align: left; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <span class="brand">INK / PAVILION</span>
+    <div class="nav-links"><a href="#manifesto">理念</a><a href="#collection">展品</a><a href="#archive">档案</a><a href="#visit">参观</a></div>
+    <span class="nav-index">EXHIBITION 06</span>
+  </nav>
+
+  <main>
+    <section class="hero" id="hero">
+      <canvas id="inkField" aria-hidden="true"></canvas>
+      <div class="hero-copy">
+        <p class="eyebrow">DIGITAL CULTURE / JIANGXI</p>
+        <h1>墨<br />阁</h1>
+      </div>
+      <div class="hero-side">
+        <strong class="vertical-title">纸上有山河</strong>
+        <div><p class="hero-note">一场关于文字、建筑与数字流动的展览。移动指针，让墨迹在纸面重新组织。</p><span class="seal">墨阁</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="manifesto">
+      <div class="section-head"><span class="section-no">01 / 理念</span><h2>传统不是静止的形式</h2><p>我们把亭台、碑帖、纸张和时间拆成可响应的数字材料，让观看本身成为作品的一部分。</p></div>
+      <div class="manifesto-grid">
+        <article><b>01</b><strong>字</strong><p>字形是结构，也是运动的起点。</p></article>
+        <article><b>02</b><strong>纸</strong><p>纤维、留白与光线共同建立空间。</p></article>
+        <article><b>03</b><strong>阁</strong><p>建筑被转译为层级、秩序和节奏。</p></article>
+        <article><b>04</b><strong>游</strong><p>滚动与指针决定每一次观看路径。</p></article>
+      </div>
+    </section>
+
+    <section class="section collection" id="collection">
+      <div class="section-head"><span class="section-no">02 / 展品</span><h2>三种未完成的山水</h2><p>每件作品都保留空白，让新的输入进入画面。</p></div>
+      <div class="works">
+        <article class="work"><span>NO. 017</span><b>折山</b></article>
+        <article class="work"><span>NO. 028</span><b>听雨</b></article>
+        <article class="work"><span>NO. 041</span><b>远帆</b></article>
+      </div>
+    </section>
+
+    <section class="section" id="archive">
+      <div class="section-head"><span class="section-no">03 / 档案</span><h2>时间留下不同的墨色</h2><p>从纸本到像素，媒介改变，关于远方与相逢的愿望仍在继续。</p></div>
+      <div class="archive-grid">
+        <div class="archive-index">
+          <div class="archive-row"><span>01</span><b>滕阁秋风</b><small>653</small></div>
+          <div class="archive-row"><span>02</span><b>临川梦影</b><small>1598</small></div>
+          <div class="archive-row"><span>03</span><b>江右新声</b><small>2026</small></div>
+        </div>
+        <blockquote class="archive-quote">“落霞与孤鹜齐飞，秋水共长天一色。”</blockquote>
+      </div>
+    </section>
+
+    <section class="section visit" id="visit">
+      <h2>入阁<br />观展</h2>
+      <div class="visit-meta"><span>南昌 / 线上同步</span><span>10:00 - 20:00</span><a href="#hero">返回卷首 ↑</a></div>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const canvas = document.querySelector("#inkField");
+      const context = canvas.getContext("2d", { alpha: true });
+      const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const cover = new URLSearchParams(location.search).get("cover") === "1" || window.__FX_COVER__ === true;
+      const pointer = { x: .62, y: .38, tx: .62, ty: .38 };
+      const drops = Array.from({ length: cover ? 34 : 68 }, (_, index) => ({
+        x: Math.random(), y: Math.random(), size: 1 + Math.random() * 5, phase: index * .63,
+      }));
+      let active = !cover;
+      let disposed = false;
+      let frameId = 0;
+
+      function resize() {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = Math.min(devicePixelRatio || 1, cover ? 1.2 : 2);
+        canvas.width = Math.max(1, Math.round(rect.width * dpr));
+        canvas.height = Math.max(1, Math.round(rect.height * dpr));
+        context.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function move(event) {
+        const rect = canvas.getBoundingClientRect();
+        pointer.tx = (event.clientX - rect.left) / Math.max(1, rect.width);
+        pointer.ty = (event.clientY - rect.top) / Math.max(1, rect.height);
+      }
+
+      function draw(time) {
+        if (disposed) return;
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+        pointer.x += (pointer.tx - pointer.x) * .045;
+        pointer.y += (pointer.ty - pointer.y) * .045;
+        context.clearRect(0, 0, width, height);
+        context.save();
+        context.globalCompositeOperation = "multiply";
+        context.strokeStyle = "rgba(33,29,24,.20)";
+        context.lineWidth = Math.max(24, width * .055);
+        context.lineCap = "round";
+        context.beginPath();
+        context.moveTo(width * .16, height * .25);
+        context.bezierCurveTo(width * .35, height * (.08 + pointer.y * .16), width * (.58 + pointer.x * .12), height * .72, width * .9, height * .45);
+        context.stroke();
+        context.lineWidth = 1;
+        drops.forEach((drop, index) => {
+          const speed = active ? .00022 : .00007;
+          const x = (drop.x + Math.sin(time * speed + drop.phase) * .035 + pointer.x * (index % 3) * .012) * width;
+          const y = (drop.y + Math.cos(time * speed + drop.phase) * .03 + pointer.y * (index % 4) * .009) * height;
+          context.fillStyle = index % 13 === 0 ? "rgba(169,52,43,.62)" : "rgba(33,29,24,.36)";
+          context.beginPath();
+          context.arc(x, y, drop.size, 0, Math.PI * 2);
+          context.fill();
+        });
+        context.restore();
+        if (!reduced) frameId = requestAnimationFrame(draw);
+      }
+
+      function dispose() {
+        disposed = true;
+        cancelAnimationFrame(frameId);
+        removeEventListener("resize", resize);
+        canvas.removeEventListener("pointermove", move);
+      }
+
+      addEventListener("resize", resize);
+      canvas.addEventListener("pointermove", move);
+      addEventListener("message", (event) => {
+        if (event.data?.type === "fx:activate") active = true;
+        if (event.data?.type === "fx:deactivate") active = false;
+        if (event.data?.type === "fx:dispose") dispose();
+      });
+      addEventListener("pagehide", dispose);
+      resize();
+      draw(0);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "id": "anim-fade",
+  "name": "Anim Fade",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from financial-suite",
+  "css": ".anim-fade {\n  opacity: 0;\n  animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;\n}",
+  "tags": [
+    "financial-suite"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/financial-suite",
+  "version": "1.0.0"
+}

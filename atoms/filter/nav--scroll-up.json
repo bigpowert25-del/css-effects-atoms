@@ -1,0 +1,16 @@
+{
+  "id": "nav--scroll-up",
+  "name": "Nav  Scroll Up",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".nav--scroll-up {\n  transform: translate3d(-50%, -100px, 0);\n  pointer-events: none;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

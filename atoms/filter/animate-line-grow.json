@@ -1,0 +1,16 @@
+{
+  "id": "animate-line-grow",
+  "name": "Animate Line Grow",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".animate-line-grow {\n      transform-origin: top;\n      animation: line-grow 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

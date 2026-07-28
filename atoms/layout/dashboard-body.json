@@ -1,0 +1,16 @@
+{
+  "id": "dashboard-body",
+  "name": "Dashboard Body",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from nimbus-demo",
+  "css": ".dashboard-body {\n  position: relative;\n  z-index: 2;\n  display: grid;\n  grid-template-columns: 240px 1fr;\n  min-height: 560px;\n}",
+  "tags": [
+    "nimbus-demo"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-demo",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "dashboard-main",
+  "name": "Dashboard Main",
+  "category": "3d",
+  "subcategory": "transform",
+  "description": "CSS class from nimbus-demo",
+  "css": ".dashboard-main {\n  padding: clamp(34px, 5vw, 60px);\n}",
+  "tags": [
+    "nimbus-demo"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-demo",
+  "version": "1.0.0"
+}

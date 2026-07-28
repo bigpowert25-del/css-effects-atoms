@@ -1,0 +1,16 @@
+{
+  "id": "premium-card-title",
+  "name": "Premium Card Title",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".premium-card-title{font-family:\"Instrument Serif\",serif;font-size:72px;line-height:1.05;font-weight:400;color:#fff;margin:0 0 clamp(10px,1.2vw,20px) 0;letter-spacing:-0.01em;width:324px;max-width:100%}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

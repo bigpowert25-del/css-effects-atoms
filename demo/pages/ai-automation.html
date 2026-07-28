@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COGNITRA — AI Automation Agency</title>
+<style>
+@import url('https://db.onlinewebfonts.com/c/e66905e07608167a84e6ad52f638c3c6?family=Helvetica+Now+Var');
+
+:root {
+  --font: 'Helvetica Now Var', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --c-black: #1a1a1a;
+  --c-gray: #5a5a5a;
+  --c-gray2: #3a3a3a;
+  --c-gray3: #666;
+  --c-bg: #C5C5C5;
+  --c-white: #fff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--c-bg); color: var(--c-black); -webkit-font-smoothing: antialiased; }
+
+/* ========== FADE-UP REVEAL ========== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.fade-up.revealed {
+  opacity: 1;
+  transform: translateY(0) !important;
+}
+
+/* ========== BACKGROUND VIDEO ========== */
+.bg-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  background: transparent;
+  border-bottom: 1px solid rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 32px;
+}
+.nav-brand {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-black);
+}
+.nav-links, .nav-links-secondary {
+  display: flex;
+  gap: 48px;
+}
+.nav-links a, .nav-links-secondary a {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--c-black);
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+.nav-links a:hover, .nav-links-secondary a:hover { opacity: 0.6; }
+
+/* ========== SECTION 1 — HERO ========== */
+.section-hero {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 48%;
+  background: var(--c-bg);
+  display: flex;
+  flex-direction: column;
+  padding-top: 70px;
+}
+.hero-inner {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 32px 24px 32px;
+}
+.hero-row {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  gap: 48px;
+}
+.hero-col-left {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 80px;
+}
+.hero-col-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 80px;
+}
+.hero-title {
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--c-black);
+}
+.hero-slide-counter {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--c-gray3);
+}
+.hero-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--c-gray);
+  max-width: 340px;
+}
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+}
+.btn-primary, .btn-secondary {
+  border-radius: 9999px;
+  padding: 12px 36px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--c-black);
+  transition: all 0.25s;
+  font-family: var(--font);
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-primary {
+  background: var(--c-black);
+  color: var(--c-white);
+}
+.btn-primary:hover { opacity: 0.85; }
+.btn-secondary {
+  background: transparent;
+  color: var(--c-black);
+}
+.btn-secondary:hover { background: var(--c-black); color: var(--c-white); }
+
+.hero-bottom-text {
+  position: absolute;
+  top: 74%;
+  transform: translateY(-50%);
+  left: 32px;
+  max-width: 260px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.9);
+}
+
+/* ========== SECTION 2 — STATEMENT ========== */
+.section-statement {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 70px 32px 32px 32px;
+}
+.statement-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 720px;
+  padding: 80px 0;
+}
+.statement-heading {
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--c-white);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+}
+.statement-heading .word {
+  display: inline-block;
+}
+.statement-heading .word.fade-up {
+  transform: translateY(32px);
+}
+.statement-sub {
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.85);
+  max-width: 260px;
+}
+
+/* ========== SECTION 3 — SERVICES ========== */
+.section-services {
+  position: relative;
+  z-index: 2;
+  background: var(--c-bg);
+  display: flex;
+  flex-direction: column;
+  padding: 70px 32px 80px 32px;
+  min-height: auto;
+}
+.services-counter {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--c-gray3);
+  margin-bottom: 20px;
+}
+.services-head-row {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+.services-col-left {
+  width: 32%;
+}
+.services-col-right {
+  flex: 1;
+  padding-top: 8px;
+}
+.services-heading {
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--c-black);
+  max-width: 320px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+}
+.services-heading .word {
+  display: inline-block;
+}
+.services-heading .word.fade-up {
+  transform: translateY(28px);
+}
+.services-head-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--c-gray2);
+  max-width: 320px;
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  grid-auto-rows: 1fr;
+}
+.card {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.18);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+}
+.card-video-wrap {
+  width: 100%;
+  aspect-ratio: 4/3;
+  position: relative;
+  overflow: hidden;
+}
+.card-video-wrap video {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.card-text {
+  padding: 24px 28px 28px 28px;
+}
+.card-text h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--c-black);
+  margin-bottom: 14px;
+}
+.card-text p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--c-gray2);
+}
+
+/* ========== FIXED SCROLL INDICATOR ========== */
+.scroll-indicator {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  width: 22px;
+  height: 36px;
+  border: 1.5px solid rgba(0,0,0,0.75);
+  border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+.scroll-dot {
+  width: 3px;
+  height: 8px;
+  background: rgba(0,0,0,0.85);
+  border-radius: 2px;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ========== FIXED REPOST BUTTON ========== */
+.repost-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(0,0,0,0.8);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--font);
+  transition: opacity 0.2s;
+}
+.repost-btn:hover { opacity: 0.6; }
+.repost-btn svg { width: 14px; height: 14px; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .navbar { padding: 16px 18px; }
+  .nav-links { gap: 18px; }
+  .nav-links-secondary { display: none; }
+  .hero-row { flex-direction: column; gap: 24px; }
+  .hero-col-left, .hero-col-right { width: 100%; gap: 24px; }
+  .section-hero { padding: 90px 18px 32px 18px; }
+  .section-statement { padding: 90px 18px 32px 18px; }
+  .section-services { padding: 90px 18px 60px 18px; }
+  .services-head-row { flex-direction: column; gap: 16px; margin-bottom: 24px; }
+  .services-col-left { width: 100%; }
+  .cards-grid { grid-template-columns: 1fr; gap: 16px; }
+  .section-services { height: auto; min-height: 100vh; }
+  .hero-bottom-text { top: auto; bottom: 80px; transform: none; left: 18px; right: 18px; max-width: none; }
+  .btn-primary, .btn-secondary { padding: 11px 22px; font-size: 10px; }
+  .hero-overlay { padding-top: 64px; }
+  .hero-inner { padding: 0 18px 24px 18px; }
+  .hero-row { gap: 32px; }
+}
+
+@media (max-width: 600px) {
+  .nav-links { gap: 14px; }
+  .nav-brand { font-size: 12px; }
+  .hero-overlay { height: 56%; padding-top: 64px; }
+  .hero-buttons { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- BG VIDEO -->
+<video class="bg-video" autoplay muted loop playsinline>
+  <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260514_135830_bb6491d1-9b66-4aec-9722-13b4dfe3fb46.mp4" type="video/mp4">
+</video>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-brand fade-up" data-delay="0">COGNITRA</div>
+  <div class="nav-links">
+    <a class="fade-up" data-delay="0.05">MAIN</a>
+    <a class="fade-up" data-delay="0.1">OFFERING</a>
+    <a class="fade-up" data-delay="0.15">CASE</a>
+    <a class="fade-up" data-delay="0.2">RATES</a>
+  </div>
+  <div class="nav-links-secondary">
+    <a class="fade-up" data-delay="0.3">CREW</a>
+    <a class="fade-up" data-delay="0.35">CONNECT</a>
+  </div>
+</nav>
+
+<!-- SECTION 1 — HERO -->
+<section class="section-hero">
+  <div class="hero-overlay">
+    <div class="hero-inner">
+      <div class="hero-row">
+        <div class="hero-col-left">
+          <h1 class="hero-title fade-up" data-delay="0.1">SCALING<br>FASTER USING AI</h1>
+          <div class="hero-slide-counter fade-up" data-delay="0.5">001 / 005</div>
+        </div>
+        <div class="hero-col-right">
+          <p class="hero-desc fade-up" data-delay="0.25">We engineer custom automation flows and personalized AI products for ambitious modern businesses.</p>
+          <nav class="hero-buttons fade-up" data-delay="0.4" aria-label="Hero actions">
+            <button class="btn-primary">BOOK A CALL!</button>
+            <button class="btn-secondary">OUR PRODUCTS</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom-text fade-up" data-delay="0.6">Guiding future-minded companies forward with bespoke AI products and streamlined workflows.</div>
+</section>
+
+<!-- SECTION 2 — STATEMENT -->
+<section class="section-statement">
+  <div class="statement-inner">
+    <h2 class="statement-heading" id="statement-heading"></h2>
+    <p class="statement-sub fade-up" data-delay="0.9">We provide all-in-one AI automation services in one place.</p>
+  </div>
+</section>
+
+<!-- SECTION 3 — SERVICES -->
+<section class="section-services">
+  <div class="services-counter fade-up" data-delay="0">003 / 005</div>
+  <div class="services-head-row">
+    <div class="services-col-left">
+      <h2 class="services-heading" id="services-heading"></h2>
+    </div>
+    <div class="services-col-right">
+      <p class="services-head-desc fade-up" data-delay="0.25">We provide all-in-one AI automation services in one place.</p>
+    </div>
+  </div>
+  <div class="cards-grid">
+
+    <div class="card fade-up" data-delay="0.4">
+      <div class="card-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260513_220333_48163edc-995f-4513-9f44-48dbb07a7329.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="card-text">
+        <h3>Process Streamlining</h3>
+        <p>We automate your processes by linking together the daily tools you rely upon. Lifting throughput and improving overall output.</p>
+      </div>
+    </div>
+
+    <div class="card fade-up" data-delay="0.55">
+      <div class="card-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260513_221040_e6ba7c5a-864e-46e9-871e-341a176a7e3e.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="card-text">
+        <h3>Strategic advisory</h3>
+        <p>We craft intelligent assistants that are adaptive, grasp context, and are skilled enough to handle highly intricate customer requests.</p>
+      </div>
+    </div>
+
+    <div class="card fade-up" data-delay="0.7">
+      <div class="card-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260513_221104_fb538584-5b87-495f-952e-09ddd5a1792a.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="card-text">
+        <h3>Assistant engineering</h3>
+        <p>Through our knowledge, we explore deep into your business and advise you on how AI powered automations may transform your operations.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCROLL INDICATOR -->
+<div class="scroll-indicator">
+  <div class="scroll-dot"></div>
+</div>
+
+<!-- REPOST BUTTON -->
+<button class="repost-btn" aria-label="Repost">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="18" cy="5" r="3"/>
+    <circle cx="6" cy="12" r="3"/>
+    <circle cx="18" cy="19" r="3"/>
+    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+  </svg>
+  REPOST
+</button>
+
+<script>
+(function() {
+  'use strict';
+
+  // === 1. Split heading words into spans ===
+  function splitWords(el, text, delayBase, delayStep, initialY) {
+    const words = text.split(' ');
+    el.innerHTML = '';
+    words.forEach((word, i) => {
+      const span = document.createElement('span');
+      span.className = 'word fade-up';
+      span.textContent = word;
+      span.style.transform = 'translateY(' + initialY + 'px)';
+      span.style.transitionDelay = (delayBase + i * delayStep) + 's';
+      el.appendChild(span);
+    });
+  }
+
+  const stmtH = document.getElementById('statement-heading');
+  if (stmtH) {
+    splitWords(stmtH, 'WE BUILD END-TO-END AI AUTOMATION SYSTEMS.', 0.15, 0.08, 32);
+  }
+
+  const svcH = document.getElementById('services-heading');
+  if (svcH) {
+    splitWords(svcH, 'EXPLORE WHAT WE OFFER', 0.1, 0.1, 28);
+  }
+
+  // === 2. IntersectionObserver for fade-up elements ===
+  function setupObserver(selector) {
+    const els = document.querySelectorAll(selector);
+    if (!els.length) return;
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = parseFloat(el.dataset.delay || '0');
+          // Apply delay via transition-delay
+          el.style.transitionDelay = delay + 's';
+          el.classList.add('revealed');
+          observer.unobserve(el);
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: '0px 0px -20px 0px'
+    });
+
+    els.forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+
+  // Observe all .fade-up elements
+  setupObserver('.fade-up');
+
+  // === 3. Repost button — copy URL ===
+  var repostBtn = document.querySelector('.repost-btn');
+  if (repostBtn) {
+    repostBtn.addEventListener('click', function() {
+      var url = window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function() {
+          repostBtn.textContent = 'COPIED!';
+          repostBtn.style.fontWeight = '700';
+          setTimeout(function() {
+            repostBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> REPOST';
+            repostBtn.style.fontWeight = '400';
+          }, 2000);
+        }).catch(function() {
+          repostBtn.textContent = 'ERROR';
+          setTimeout(function() {
+            repostBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> REPOST';
+          }, 2000);
+        });
+      }
+    });
+  }
+
+  // === 4. Reveal elements already in view on load ===
+  window.addEventListener('load', function() {
+    // Force trigger for elements already visible
+    document.querySelectorAll('.fade-up').forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        // The observer will handle it, but ensure near-top elements trigger
+        el.classList.add('revealed');
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

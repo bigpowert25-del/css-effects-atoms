@@ -1,0 +1,16 @@
+{
+  "id": "nav--scroll-down",
+  "name": "Nav  Scroll Down",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".nav--scroll-down {\n  transform: translate3d(-50%, 16px, 0);\n  background-color: rgba(255, 255, 255, 0.88);\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n  color: #111111;\n  padding: 14px 24px;\n  border-radius: 40px;\n  border-color: rgba(0, 0, 0, 0.08);\n  box-shadow:\n    0 12px 30px -10px rgba(0, 0, 0, 0.08),\n    0 4px 12px -5px rgba(0, 0, 0, 0.03);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

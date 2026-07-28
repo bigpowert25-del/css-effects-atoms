@@ -1,0 +1,16 @@
+{
+  "id": "page-wrapper",
+  "name": "Page Wrapper",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".page-wrapper {\n      display: flex;\n      flex-direction: column;\n      height: 100vh;\n      overflow: hidden;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

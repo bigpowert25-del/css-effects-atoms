@@ -1,0 +1,16 @@
+{
+  "id": "premium-feature-card",
+  "name": "Premium Feature Card",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".premium-feature-card{background:rgba(255,255,255,.16);backdrop-filter:blur(80px);-webkit-backdrop-filter:blur(80px);border:1px solid rgba(255,255,255,.15);border-radius:0;padding:24px;width:280px;height:440px;box-shadow:0 30px 60px rgba(0,0,0,.3);display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;transition:border-color .3s ease;will-change:transform,opacity,filter}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

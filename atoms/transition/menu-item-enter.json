@@ -1,0 +1,16 @@
+{
+  "id": "menu-item-enter",
+  "name": "Menu Item Enter",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from investment-hero",
+  "css": ".menu-item-enter {\n  animation: menuItemSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;\n}",
+  "tags": [
+    "investment-hero"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/investment-hero",
+  "version": "1.0.0"
+}

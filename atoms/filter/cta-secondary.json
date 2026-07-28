@@ -1,0 +1,16 @@
+{
+  "id": "cta-secondary",
+  "name": "Cta Secondary",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".cta-secondary { height: 60px; padding: 0 32px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.25); background: transparent; color: #000; font-weight: 500; font-size: 18px; line-height: 18px; letter-spacing: -0.02em; cursor: pointer; transition: all 0.3s; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

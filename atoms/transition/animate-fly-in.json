@@ -1,0 +1,16 @@
+{
+  "id": "animate-fly-in",
+  "name": "Animate Fly In",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from Scroll_Landing_Page",
+  "css": ".animate-fly-in {\n  animation: flyInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;\n}",
+  "tags": [
+    "scroll_landing_page"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Scroll_Landing_Page",
+  "version": "1.0.0"
+}

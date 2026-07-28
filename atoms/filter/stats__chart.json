@@ -1,0 +1,16 @@
+{
+  "id": "stats__chart",
+  "name": "Stats__Chart",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".stats__chart {\n  position: relative;\n  max-width: var(--hero-max-width);\n  min-height: clamp(520px, 58vh, 680px);\n  margin: clamp(28px, 3vw, 48px) auto 0;\n  padding: 0 0 22px;\n  overflow: hidden;\n  border: 1px solid rgb(255 255 255 / 0.08);\n  border-radius: 20px;\n  background-color: rgb(255 255 255 / 0.025);\n  background-image:\n    repeating-linear-gradient(\n      to right,\n      transparent 0,\n      transparent calc(10% - 1px),\n      rgb(255 255 255 / 0.07) calc(10% - 1px),\n      rgb(255 255 255 / 0.07) 10%\n    );\n  box-shadow:\n    inset 0 1px 0 rgb(255 255 255 / 0.08),\n    0 24px 70px rgb(0 0 0 / 0.18);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "split-char",
+  "name": "Split Char",
+  "category": "layout",
+  "subcategory": "flex",
+  "description": "CSS class from Cinematic_Landing_Page",
+  "css": ".split-char {\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n  line-height: 1 !important;\n}",
+  "tags": [
+    "cinematic_landing_page"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Cinematic_Landing_Page",
+  "version": "1.0.0"
+}

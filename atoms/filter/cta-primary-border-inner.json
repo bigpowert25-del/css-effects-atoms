@@ -1,0 +1,16 @@
+{
+  "id": "cta-primary-border-inner",
+  "name": "Cta Primary Border Inner",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".cta-primary-border-inner { position: absolute; top: -200%; left: -250%; width: 600%; height: 600%; background: conic-gradient(from 0deg, rgb(122,50,227) 0%, rgb(253,135,61) 25%, rgb(236,72,153) 50%, rgb(122,50,227) 75%, rgb(253,135,61) 100%); animation: spin-slow 3s linear infinite; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

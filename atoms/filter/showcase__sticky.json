@@ -1,0 +1,16 @@
+{
+  "id": "showcase__sticky",
+  "name": "Showcase__Sticky",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".showcase__sticky {\n  position: sticky;\n  top: 0;\n  height: 100vh;\n  background: transparent;\n  overflow: visible;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

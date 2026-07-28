@@ -1,0 +1,16 @@
+{
+  "id": "stats__trace",
+  "name": "Stats__Trace",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".stats__trace { position: absolute; inset: 0; z-index: 2; pointer-events: none; }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

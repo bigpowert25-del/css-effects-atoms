@@ -1,0 +1,16 @@
+{
+  "id": "hero__bg-layer",
+  "name": "Hero__Bg Layer",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".hero__bg-layer {\n  position: absolute;\n  inset: 0;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  pointer-events: none;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

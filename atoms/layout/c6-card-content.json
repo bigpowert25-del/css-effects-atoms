@@ -1,0 +1,16 @@
+{
+  "id": "c6-card-content",
+  "name": "C6 Card Content",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from Learnly",
+  "css": ".c6-card-content {\n  position: absolute;\n  bottom: 30px;\n  left: 30px;\n  right: 30px;\n  color: white;\n  z-index: 2;\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  transition: all 0.4s ease;\n}",
+  "tags": [
+    "learnly"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Learnly",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "stagger-delay-8",
+  "name": "Stagger Delay 8",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from mood-tracker",
+  "css": ".stagger-delay-8 { animation-delay: 1.1s; }",
+  "tags": [
+    "mood-tracker"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/mood-tracker",
+  "version": "1.0.0"
+}

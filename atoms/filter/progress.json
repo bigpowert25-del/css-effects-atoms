@@ -1,0 +1,16 @@
+{
+  "id": "progress",
+  "name": "Progress",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".progress { fill: none; stroke: url(#progressGrad); stroke-width: 2.5; stroke-linecap: round; transition: stroke-dasharray 0.03s linear; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

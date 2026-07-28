@@ -1,0 +1,16 @@
+{
+  "id": "pricing-cards",
+  "name": "Pricing Cards",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".pricing-cards { margin-top: 72px; display: flex; flex-direction: row; gap: 24px; align-items: stretch; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "left-bg",
+  "name": "Left Bg",
+  "category": "lighting",
+  "subcategory": "shadow",
+  "description": "CSS class from Scenic_Travel",
+  "css": ".left-bg  { width: 50vw; height: 100%; background-color: #f3ebe4; }",
+  "tags": [
+    "scenic_travel"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Scenic_Travel",
+  "version": "1.0.0"
+}

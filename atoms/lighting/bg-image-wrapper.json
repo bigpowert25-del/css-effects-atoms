@@ -1,0 +1,16 @@
+{
+  "id": "bg-image-wrapper",
+  "name": "Bg Image Wrapper",
+  "category": "lighting",
+  "subcategory": "shadow",
+  "description": "CSS class from Scenic_Travel",
+  "css": ".bg-image-wrapper { position: absolute; inset: 0; z-index: 0; }",
+  "tags": [
+    "scenic_travel"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Scenic_Travel",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "c6-title",
+  "name": "C6 Title",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from Learnly",
+  "css": ".c6-title {\n  font-size: 5.5rem;\n  line-height: 1.05;\n  font-weight: 600;\n  color: var(--text-main);\n  margin-bottom: 40px;\n  letter-spacing: -2px;\n}",
+  "tags": [
+    "learnly"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Learnly",
+  "version": "1.0.0"
+}

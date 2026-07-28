@@ -1,0 +1,16 @@
+{
+  "id": "orbit-path-svg",
+  "name": "Orbit Path Svg",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from luxury-botanical",
+  "css": ".orbit-path-svg {\n    position: absolute;\n    inset: 0;\n    pointer-events: none;\n  }",
+  "tags": [
+    "luxury-botanical"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/luxury-botanical",
+  "version": "1.0.0"
+}

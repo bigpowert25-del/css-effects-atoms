@@ -1,0 +1,16 @@
+{
+  "id": "swiper",
+  "name": "Swiper",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from neural-interface",
+  "css": ".swiper { width: 100%; height: 520px; padding-bottom: 20px !important; overflow: visible !important; }",
+  "tags": [
+    "neural-interface"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/neural-interface",
+  "version": "1.0.0"
+}

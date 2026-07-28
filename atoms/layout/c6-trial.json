@@ -1,0 +1,16 @@
+{
+  "id": "c6-trial",
+  "name": "C6 Trial",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from Learnly",
+  "css": ".c6-trial {\n  background: var(--dark);\n  color: white;\n  padding: 12px 28px;\n  border-radius: 30px;\n  font-size: 0.95rem;\n  text-decoration: none;\n  font-weight: 600;\n  transition: var(--transition);\n}",
+  "tags": [
+    "learnly"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Learnly",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "animate-ticker",
+  "name": "Animate Ticker",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from bio-age-dashboard",
+  "css": ".animate-ticker { animation: ticker 12s linear infinite; }",
+  "tags": [
+    "bio-age-dashboard"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bio-age-dashboard",
+  "version": "1.0.0"
+}

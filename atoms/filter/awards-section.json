@@ -1,0 +1,16 @@
+{
+  "id": "awards-section",
+  "name": "Awards Section",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".awards-section {\n      display: flex;\n      position: absolute;\n      right: 24px;\n      top: 42%;\n      z-index: 30;\n      width: calc(25.4% - 24px);\n      max-width: 341px;\n      align-items: center;\n      justify-content: space-between;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

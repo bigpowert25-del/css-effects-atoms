@@ -1,0 +1,16 @@
+{
+  "id": "operations-cubes",
+  "name": "Operations Cubes",
+  "category": "background",
+  "subcategory": "gradient",
+  "description": "CSS class from nimbus-ops",
+  "css": ".operations-cubes {\n  position: relative;\n  min-height: 96svh;\n  padding: clamp(84px, 9vw, 132px) clamp(20px, 5vw, 72px);\n  overflow: hidden;\n  border-top: 1px solid rgba(255, 240, 199, 0.1);\n  background:\n    radial-gradient(circle at 74% 42%, rgba(151, 211, 235, 0.16), transparent 25rem),\n    radial-gradient(circle at 22% 78%, rgba(255, 216, 121, 0.13), transparent 24rem),\n    #0c0d0a;\n}",
+  "tags": [
+    "nimbus-ops"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-ops",
+  "version": "1.0.0"
+}

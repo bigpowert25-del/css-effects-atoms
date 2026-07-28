@@ -1,0 +1,16 @@
+{
+  "id": "liquid-glass-strong",
+  "name": "Liquid Glass Strong",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from Visual_Hero",
+  "css": ".liquid-glass-strong {\n  background: rgba(255,255,255,0.01);\n  background-blend-mode: luminosity;\n  backdrop-filter: blur(50px);\n  -webkit-backdrop-filter: blur(50px);\n  border: none;\n  box-shadow: 4px 4px 4px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.15);\n  position: relative;\n  overflow: hidden;\n}",
+  "tags": [
+    "visual_hero"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Visual_Hero",
+  "version": "1.0.0"
+}

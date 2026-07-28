@@ -1,0 +1,16 @@
+{
+  "id": "hero-desc",
+  "name": "Hero Desc",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from neural-interface",
+  "css": ".hero-desc {\n  max-width: 380px;\n  font-size: 15px; color: rgba(255,255,255,0.6);\n  line-height: 1.625;\n  transition: opacity 0.1s linear, transform 0.1s linear;\n}",
+  "tags": [
+    "neural-interface"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/neural-interface",
+  "version": "1.0.0"
+}

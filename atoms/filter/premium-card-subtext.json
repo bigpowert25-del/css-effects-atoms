@@ -1,0 +1,16 @@
+{
+  "id": "premium-card-subtext",
+  "name": "Premium Card Subtext",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".premium-card-subtext{font-family:\"Manrope\",sans-serif;font-size:clamp(12px,1vw,15px);line-height:1.6;font-weight:400;color:rgba(255,255,255,.64);letter-spacing:0.01em;margin:0;width:clamp(260px,22vw,380px);max-width:100%}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "operations-inner",
+  "name": "Operations Inner",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from nimbus-ops",
+  "css": ".operations-inner {\n  position: relative;\n  z-index: 1;\n  display: grid;\n  grid-template-columns: minmax(280px, 0.44fr) minmax(420px, 0.56fr);\n  gap: clamp(44px, 7vw, 108px);\n  align-items: center;\n  width: min(100%, 1320px);\n  min-height: calc(96svh - clamp(168px, 18vw, 264px));\n  margin-inline: auto;\n}",
+  "tags": [
+    "nimbus-ops"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-ops",
+  "version": "1.0.0"
+}

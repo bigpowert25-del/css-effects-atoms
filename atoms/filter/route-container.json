@@ -1,0 +1,16 @@
+{
+  "id": "route-container",
+  "name": "Route Container",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-driving-assistant",
+  "css": ".route-container {\n  position: absolute; inset: 0; z-index: 30;\n  pointer-events: none; display: flex;\n  align-items: center; justify-content: center;\n  opacity: 0; will-change: transform, opacity;\n}",
+  "tags": [
+    "ai-driving-assistant"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-driving-assistant",
+  "version": "1.0.0"
+}

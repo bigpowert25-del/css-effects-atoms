@@ -1,0 +1,16 @@
+{
+  "id": "engine-visual",
+  "name": "Engine Visual",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".engine-visual {\n  position: fixed;\n  z-index: 3;\n  left: 50%;\n  top: -15px;\n  width: auto;\n  height: calc((100% + 15px) * 1.4);\n  max-width: calc(100vw - 96px);\n  max-height: 1023px;\n  aspect-ratio: 2 / 3;\n  transform: translate3d(-50%, var(--scroll-y, 0px), 0);\n  will-change: transform, opacity;\n  filter: drop-shadow(0 28px 34px rgb(26 31 42 / 0.22));\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

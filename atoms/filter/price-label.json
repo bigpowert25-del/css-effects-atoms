@@ -1,0 +1,16 @@
+{
+  "id": "price-label",
+  "name": "Price Label",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".price-label {\n      color: rgba(11, 33, 34, 0.64);\n      font-size: 14px;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

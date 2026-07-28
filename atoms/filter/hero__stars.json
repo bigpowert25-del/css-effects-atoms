@@ -1,0 +1,16 @@
+{
+  "id": "hero__stars",
+  "name": "Hero__Stars",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".hero__stars {\n  position: absolute;\n  inset: 0 0 auto;\n  z-index: 2;\n  height: 210px;\n  pointer-events: none;\n  background-image:\n    radial-gradient(circle, rgb(255 255 255 / 0.78) 0 1px, transparent 1.8px),\n    radial-gradient(circle, rgb(255 255 255 / 0.58) 0 1px, transparent 1.6px),\n    radial-gradient(circle, rgb(255 255 255 / 0.68) 0 1px, transparent 1.7px);\n  background-position:\n    10% 24%,\n    38% 16%,\n    76% 32%;\n  background-size:\n    180px 94px,\n    260px 120px,\n    340px 150px;\n  opacity: 0.45;\n  animation: hero-stars-twinkle 4.8s ease-in-out infinite alternate;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

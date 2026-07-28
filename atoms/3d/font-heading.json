@@ -1,0 +1,16 @@
+{
+  "id": "font-heading",
+  "name": "Font Heading",
+  "category": "3d",
+  "subcategory": "transform",
+  "description": "CSS class from luxury-hero",
+  "css": ".font-heading {\n  font-family: 'Magical Source Demo', serif;\n}",
+  "tags": [
+    "luxury-hero"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/luxury-hero",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "gradient-overlay",
+  "name": "Gradient Overlay",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from 3d-story",
+  "css": ".gradient-overlay {\n  position: absolute; inset: 0;\n  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent, transparent);\n}",
+  "tags": [
+    "3d-story"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/3d-story",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "mission",
+  "name": "Mission",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".mission {\n  position: relative;\n  z-index: 40;\n  min-height: 100vh;\n  margin-top: -12vh;\n  background: #ffffff;\n  color: #161616;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "footer-dots",
+  "name": "Footer Dots",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".footer-dots { position: relative; height: 120px; overflow: hidden; background: #000000; }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

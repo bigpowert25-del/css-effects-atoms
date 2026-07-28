@@ -1,0 +1,16 @@
+{
+  "id": "header-menu",
+  "name": "Header Menu",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-driving-assistant",
+  "css": ".header-menu { display: flex; align-items: center; padding: 4px 16px; cursor: pointer; border: none; background: none; }",
+  "tags": [
+    "ai-driving-assistant"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-driving-assistant",
+  "version": "1.0.0"
+}

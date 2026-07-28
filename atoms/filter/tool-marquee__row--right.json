@@ -1,0 +1,16 @@
+{
+  "id": "tool-marquee__row--right",
+  "name": "Tool Marquee__Row  Right",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".tool-marquee__row--right { animation: marquee-right 28s linear infinite; }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

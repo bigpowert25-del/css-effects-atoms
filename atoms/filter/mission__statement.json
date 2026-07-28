@@ -1,0 +1,16 @@
+{
+  "id": "mission__statement",
+  "name": "Mission__Statement",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".mission__statement {\n  grid-column: 2;\n  grid-row: 1;\n  align-self: start;\n  max-width: 1180px;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

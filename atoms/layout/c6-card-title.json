@@ -1,0 +1,16 @@
+{
+  "id": "c6-card-title",
+  "name": "C6 Card Title",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from Learnly",
+  "css": ".c6-card-title { font-size: 2.2rem; font-weight: 600; line-height: 1.1; white-space: nowrap; }",
+  "tags": [
+    "learnly"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Learnly",
+  "version": "1.0.0"
+}

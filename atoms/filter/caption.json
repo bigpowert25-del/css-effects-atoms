@@ -1,0 +1,16 @@
+{
+  "id": "caption",
+  "name": "Caption",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-driving-assistant",
+  "css": ".caption {\n  max-width: 628px; font-size: 14px; line-height: 1.3;\n  letter-spacing: -0.02em; color: rgba(240,241,243,0.8);\n}",
+  "tags": [
+    "ai-driving-assistant"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-driving-assistant",
+  "version": "1.0.0"
+}

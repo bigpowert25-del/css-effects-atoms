@@ -1,0 +1,16 @@
+{
+  "id": "animate-fade-in-scale",
+  "name": "Animate Fade In Scale",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".animate-fade-in-scale {\n      animation: fade-in-scale 1s cubic-bezier(0.16, 1, 0.3, 1) both;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

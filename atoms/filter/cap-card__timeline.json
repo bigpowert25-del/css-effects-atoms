@@ -1,0 +1,16 @@
+{
+  "id": "cap-card__timeline",
+  "name": "Cap Card__Timeline",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".cap-card__timeline {\n  position: absolute;\n  z-index: 1;\n  right: 20px;\n  bottom: 20px;\n  left: 20px;\n  display: grid;\n  gap: 12px;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

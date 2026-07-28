@@ -1,0 +1,16 @@
+{
+  "id": "four-oh-four",
+  "name": "Four Oh Four",
+  "category": "text",
+  "subcategory": "glow",
+  "description": "CSS class from 404-planet",
+  "css": ".four-oh-four {\n       text-shadow: 0 0 80px rgba(255,255,255,0.3), 0 0 160px rgba(255,255,255,0.1);\n     }",
+  "tags": [
+    "404-planet"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/404-planet",
+  "version": "1.0.0"
+}

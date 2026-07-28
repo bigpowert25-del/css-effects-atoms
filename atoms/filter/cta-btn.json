@@ -1,0 +1,16 @@
+{
+  "id": "cta-btn",
+  "name": "Cta Btn",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from 3d-story",
+  "css": ".cta-btn {\n  display: inline-flex; align-items: center; gap: 0.5rem;\n  background: #2C5C88; color: #fff; font-weight: 500; border-radius: 0.5rem;\n  padding: 0.875rem 2rem; font-size: 0.875rem; text-decoration: none; transition: background 0.2s;\n}",
+  "tags": [
+    "3d-story"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/3d-story",
+  "version": "1.0.0"
+}

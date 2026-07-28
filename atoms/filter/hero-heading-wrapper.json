@@ -1,0 +1,16 @@
+{
+  "id": "hero-heading-wrapper",
+  "name": "Hero Heading Wrapper",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".hero-heading-wrapper {\n      position: absolute;\n      top: 5%;\n      left: 0;\n      right: 0;\n      z-index: 10;\n      text-align: center;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

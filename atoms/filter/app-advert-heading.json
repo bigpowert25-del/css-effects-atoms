@@ -1,0 +1,16 @@
+{
+  "id": "app-advert-heading",
+  "name": "App Advert Heading",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".app-advert-heading { font-size: 78px; line-height: 82px; font-weight: 500; letter-spacing: -0.05em; color: #fff; transition: opacity 0.6s, transform 0.6s; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

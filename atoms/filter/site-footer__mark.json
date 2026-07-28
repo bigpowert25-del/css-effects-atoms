@@ -1,0 +1,16 @@
+{
+  "id": "site-footer__mark",
+  "name": "Site Footer__Mark",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".site-footer__mark {\n  position: relative;\n  flex: 0 0 clamp(58px, 6.1vw, 118px);\n  aspect-ratio: 1;\n  margin-right: clamp(14px, 1.6vw, 28px);\n  overflow: hidden;\n  border-radius: 50%;\n  background: #ffffff;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

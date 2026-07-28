@@ -1,0 +1,16 @@
+{
+  "id": "ctas",
+  "name": "Ctas",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from 3d-story",
+  "css": ".ctas {\n  display: flex; align-items: center; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center;\n}",
+  "tags": [
+    "3d-story"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/3d-story",
+  "version": "1.0.0"
+}

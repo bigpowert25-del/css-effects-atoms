@@ -1,0 +1,16 @@
+{
+  "id": "showcase-film",
+  "name": "Showcase Film",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".showcase-film {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 1px;\n  height: 1px;\n  z-index: 45;\n  overflow: hidden;\n  background: #d7dde4;\n  opacity: 0;\n  pointer-events: none;\n  will-change: top, left, width, height, border-radius, opacity;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

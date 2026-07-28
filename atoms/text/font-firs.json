@@ -1,0 +1,16 @@
+{
+  "id": "font-firs",
+  "name": "Font Firs",
+  "category": "text",
+  "subcategory": "glow",
+  "description": "CSS class from Stellar_Launch",
+  "css": ".font-firs {\n  font-family: 'TT Firs Neue', 'Inter', system-ui, sans-serif;\n}",
+  "tags": [
+    "stellar_launch"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Stellar_Launch",
+  "version": "1.0.0"
+}

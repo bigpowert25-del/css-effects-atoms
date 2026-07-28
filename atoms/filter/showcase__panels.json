@@ -1,0 +1,16 @@
+{
+  "id": "showcase__panels",
+  "name": "Showcase__Panels",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".showcase__panels {\n  grid-column: 1;\n  position: relative;\n  min-height: clamp(200px, 30vh, 400px);\n  max-width: 640px;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

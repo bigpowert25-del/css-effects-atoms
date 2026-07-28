@@ -1,0 +1,16 @@
+{
+  "id": "scenarios-image-container",
+  "name": "Scenarios Image Container",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".scenarios-image-container { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 16px; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

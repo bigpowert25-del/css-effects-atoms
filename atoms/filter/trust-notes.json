@@ -1,0 +1,16 @@
+{
+  "id": "trust-notes",
+  "name": "Trust Notes",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".trust-notes { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

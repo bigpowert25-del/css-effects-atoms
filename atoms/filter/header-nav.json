@@ -1,0 +1,16 @@
+{
+  "id": "header-nav",
+  "name": "Header Nav",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-driving-assistant",
+  "css": ".header-nav { display: flex; align-items: center; gap: 12px; padding: 9px 16px; }",
+  "tags": [
+    "ai-driving-assistant"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-driving-assistant",
+  "version": "1.0.0"
+}

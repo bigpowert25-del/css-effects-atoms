@@ -1,0 +1,16 @@
+{
+  "id": "stats__range",
+  "name": "Stats__Range",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".stats__range {\n  position: absolute;\n  top: 9px;\n  bottom: 9px;\n  left: var(--range-start);\n  width: var(--range-width);\n  border: 1px solid rgb(170 184 213 / 0.22);\n  background: linear-gradient(90deg, rgb(113 145 208 / 0.05), rgb(170 184 213 / 0.14), rgb(113 145 208 / 0.05));\n  opacity: 0;\n  transform: scaleX(0.6);\n  transform-origin: left;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

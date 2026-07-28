@@ -1,0 +1,16 @@
+{
+  "id": "hero__nav",
+  "name": "Hero__Nav",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".hero__nav {\n  position: fixed;\n  top: 0;\n  left: 50%;\n  z-index: 100;\n  display: grid;\n  grid-template-columns: minmax(220px, 1fr) auto minmax(180px, 1fr);\n  align-items: center;\n  gap: 32px;\n  width: min(100% - 96px, var(--hero-max-width));\n  margin: 0;\n  padding: 27px 16px 16px;\n  color: #ffffff;\n  transform: translate3d(-50%, 0, 0);\n  transition:\n    background-color 300ms ease,\n    color 300ms ease,\n    transform 300ms ease,\n    box-shadow 300ms ease,\n    border-color 300ms ease,\n    padding 300ms ease,\n    top 300ms ease;\n  border: 1px solid transparent;\n  border-radius: 0;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

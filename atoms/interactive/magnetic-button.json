@@ -1,0 +1,25 @@
+{
+  "id": "magnetic-button",
+  "name": "磁吸按钮",
+  "category": "interactive",
+  "subcategory": "hover",
+  "description": "鼠标悬浮时按钮跟随光标移动，产生磁吸感",
+  "css": ".fx-magnetic{transition:transform 0.3s cubic-bezier(0.33,1,0.68,1);will-change:transform}\n.fx-magnetic:hover{transform:scale(1.08)}",
+  "js": "document.querySelectorAll('.fx-magnetic').forEach(btn=>{btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();const x=(e.clientX-r.left-r.width/2)*0.3;const y=(e.clientY-r.top-r.height/2)*0.3;btn.style.transform=`translate(${x}px,${y}px) scale(1.08)`});btn.addEventListener('mouseleave',()=>{btn.style.transform='translate(0,0) scale(1)'})})",
+  "tags": [
+    "magnetic",
+    "hover",
+    "button",
+    "interaction"
+  ],
+  "keywords": [
+    "磁吸",
+    "悬浮",
+    "跟随鼠标"
+  ],
+  "dependencies": [],
+  "source": "motionsites/crafted",
+  "version": "1.0.0",
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "html": ""
+}

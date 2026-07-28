@@ -1,0 +1,16 @@
+{
+  "id": "error-msg",
+  "name": "Error Msg",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".error-msg{color:#9ca3af;font-family:\"JetBrains Mono\",monospace;font-size:12px;line-height:1.625;margin:0}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "mission__eyebrow",
+  "name": "Mission__Eyebrow",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".mission__eyebrow {\n  grid-column: 1;\n  grid-row: 1;\n  align-self: start;\n  margin: 0;\n  color: #202020;\n  font-size: clamp(13px, 0.9vw, 16.8px);\n  font-weight: 700;\n  line-height: 1.22;\n  letter-spacing: 0;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

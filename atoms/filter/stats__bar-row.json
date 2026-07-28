@@ -1,0 +1,16 @@
+{
+  "id": "stats__bar-row",
+  "name": "Stats__Bar Row",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".stats__bar-row {\n  display: grid;\n  grid-template-columns: minmax(180px, 0.27fr) minmax(0, 1fr);\n  align-items: center;\n  gap: clamp(18px, 2vw, 34px);\n  opacity: 0;\n  transform: translateY(18px);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

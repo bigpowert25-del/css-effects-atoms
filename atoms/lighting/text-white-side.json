@@ -1,0 +1,16 @@
+{
+  "id": "text-white-side",
+  "name": "Text White Side",
+  "category": "lighting",
+  "subcategory": "shadow",
+  "description": "CSS class from Scenic_Travel",
+  "css": ".text-white-side { color: white;   clip-path: inset(0 0 0 50%); }",
+  "tags": [
+    "scenic_travel"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Scenic_Travel",
+  "version": "1.0.0"
+}

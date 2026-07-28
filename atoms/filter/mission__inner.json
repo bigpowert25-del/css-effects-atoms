@@ -1,0 +1,16 @@
+{
+  "id": "mission__inner",
+  "name": "Mission__Inner",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".mission__inner {\n  display: grid;\n  grid-template-columns: minmax(240px, 0.95fr) minmax(0, 2fr);\n  grid-template-rows: auto minmax(360px, 1fr);\n  column-gap: clamp(56px, 8vw, 170px);\n  row-gap: clamp(76px, 5vw, 104px);\n  width: min(100% - 96px, var(--hero-max-width));\n  min-height: 100vh;\n  margin: 0 auto;\n  padding: clamp(34px, 3vw, 54px) 0 clamp(32px, 4vw, 62px);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "c6-actions",
+  "name": "C6 Actions",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from Learnly",
+  "css": ".c6-actions { display: flex; align-items: center; gap: 25px; }",
+  "tags": [
+    "learnly"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Learnly",
+  "version": "1.0.0"
+}

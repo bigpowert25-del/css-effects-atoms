@@ -1,0 +1,16 @@
+{
+  "id": "console-showcase",
+  "name": "Console Showcase",
+  "category": "background",
+  "subcategory": "gradient",
+  "description": "CSS class from nimbus-demo",
+  "css": ".console-showcase {\n  position: relative;\n  min-height: 112svh;\n  padding: clamp(72px, 8vw, 120px) clamp(20px, 5vw, 72px);\n  overflow: hidden;\n  border-top: 1px solid rgba(255, 240, 199, 0.1);\n  background:\n    radial-gradient(circle at 82% 34%, rgba(151, 211, 235, 0.12), transparent 24rem),\n    #070a0b;\n}",
+  "tags": [
+    "nimbus-demo"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-demo",
+  "version": "1.0.0"
+}

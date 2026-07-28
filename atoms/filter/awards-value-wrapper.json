@@ -1,0 +1,16 @@
+{
+  "id": "awards-value-wrapper",
+  "name": "Awards Value Wrapper",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".awards-value-wrapper {\n      display: flex;\n      align-items: flex-start;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "word",
+  "name": "Word",
+  "category": "layout",
+  "subcategory": "flex",
+  "description": "CSS class from Scroll_Landing_Page",
+  "css": ".word { display: inline-block; white-space: pre; }",
+  "tags": [
+    "scroll_landing_page"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Scroll_Landing_Page",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "pricing-plan-name",
+  "name": "Pricing Plan Name",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".pricing-plan-name { font-size: 56px; font-weight: 500; line-height: 1; letter-spacing: -0.05em; text-align: center; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

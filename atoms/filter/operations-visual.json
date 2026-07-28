@@ -1,0 +1,16 @@
+{
+  "id": "operations-visual",
+  "name": "Operations Visual",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from nimbus-ops",
+  "css": ".operations-visual {\n  position: relative;\n  min-height: min(58vw, 620px);\n}",
+  "tags": [
+    "nimbus-ops"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-ops",
+  "version": "1.0.0"
+}

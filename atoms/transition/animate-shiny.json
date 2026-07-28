@@ -1,0 +1,16 @@
+{
+  "id": "animate-shiny",
+  "name": "Animate Shiny",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from AuraMail",
+  "css": ".animate-shiny {\n    animation: shiny 6s linear infinite;\n  }",
+  "tags": [
+    "auramail"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/AuraMail",
+  "version": "1.0.0"
+}

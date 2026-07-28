@@ -1,0 +1,16 @@
+{
+  "id": "site-footer__inner",
+  "name": "Site Footer__Inner",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".site-footer__inner { width: min(100% - 96px, var(--hero-max-width)); margin: 0 auto; padding: clamp(34px, 4vw, 66px) 0 clamp(18px, 2vw, 34px); }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

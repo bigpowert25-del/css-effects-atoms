@@ -1,0 +1,16 @@
+{
+  "id": "operations-core-cube",
+  "name": "Operations Core Cube",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from nimbus-ops",
+  "css": ".operations-core-cube {\n  transform: translate(-50%, -48%) rotateX(-16deg) rotateY(34deg) rotateZ(0deg);\n  animation: core-cube-float 6s ease-in-out infinite;\n  transition: transform 620ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 620ms ease;\n  filter: drop-shadow(0 34px 62px rgba(0, 0, 0, 0.48));\n}",
+  "tags": [
+    "nimbus-ops"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-ops",
+  "version": "1.0.0"
+}

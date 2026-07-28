@@ -1,0 +1,16 @@
+{
+  "id": "hero-container",
+  "name": "Hero Container",
+  "category": "lighting",
+  "subcategory": "shadow",
+  "description": "CSS class from Scenic_Travel",
+  "css": ".hero-container { position: relative; width: 100vw; height: 100vh; display: flex; }",
+  "tags": [
+    "scenic_travel"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Scenic_Travel",
+  "version": "1.0.0"
+}

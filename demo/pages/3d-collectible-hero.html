@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TOONHUB — 3D Collectible Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* ── Reset ── */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;height:100%;overflow:hidden}
+  body{font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:none}
+
+  /* ── Carousel item transitions ── */
+  .carousel-item {
+    position: absolute;
+    aspect-ratio: 0.6 / 1;
+    will-change: transform, filter, opacity, left, height, bottom;
+    transition:
+      transform 650ms cubic-bezier(0.4,0,0.2,1),
+      filter 650ms cubic-bezier(0.4,0,0.2,1),
+      opacity 650ms cubic-bezier(0.4,0,0.2,1),
+      left 650ms cubic-bezier(0.4,0,0.2,1),
+      height 650ms cubic-bezier(0.4,0,0.2,1),
+      bottom 650ms cubic-bezier(0.4,0,0.2,1);
+  }
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+    user-select: none;
+  }
+
+  /* ── Background transition ── */
+  .hero-bg {
+    transition: background-color 650ms cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* ── Grain overlay ── */
+  .grain-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    background-repeat: repeat;
+    opacity: 0.4;
+  }
+
+  /* ── Nav button hover ── */
+  .nav-btn {
+    transition: transform 150ms ease, background-color 150ms ease;
+  }
+  .nav-btn:hover {
+    transform: scale(1.08);
+    background-color: rgba(255,255,255,0.12);
+  }
+
+  /* ── Ghost text ── */
+  .ghost-text {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(90px, 28vw, 380px);
+    font-weight: 900;
+    color: white;
+    opacity: 1;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  /* ── Anton display text ── */
+  .font-anton {
+    font-family: 'Anton', sans-serif;
+  }
+
+  /* ── Bottom nav area ── */
+  .bottom-text-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: white;
+    opacity: 0.95;
+  }
+
+  .bottom-text-body {
+    color: white;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- HERO SECTION                                -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="hero" class="hero-bg relative w-full overflow-hidden" style="height:100vh;font-family:'Inter',sans-serif">
+  <div class="relative w-full" style="height:100vh;overflow:hidden">
+
+    <!-- 1. Grain overlay -->
+    <div class="grain-overlay absolute inset-0 pointer-events-none" style="z-index:50"></div>
+
+    <!-- 2. Giant ghost text -->
+    <div class="absolute inset-x-0 flex items-center justify-center pointer-events-none select-none" style="z-index:2;top:18%">
+      <span class="ghost-text">3D SHAPE</span>
+    </div>
+
+    <!-- 3. Top-left brand label -->
+    <div class="absolute top-6 left-4 sm:left-8" style="z-index:60">
+      <span class="text-xs font-semibold uppercase text-white tracking-[0.18em]" style="opacity:0.9">TOONHUB</span>
+    </div>
+
+    <!-- 4. Carousel images -->
+    <div id="carousel" class="absolute inset-0" style="z-index:3">
+      <div class="carousel-item" data-idx="0"><img src="https://fifth-gentle-45902158.figma.site/_components/v2/4de492f6d9cf8244ad5293233e5c6f52407d42fc/1.02464a56.png" draggable="false" alt="" /></div>
+      <div class="carousel-item" data-idx="1"><img src="https://fifth-gentle-45902158.figma.site/_components/v2/4de492f6d9cf8244ad5293233e5c6f52407d42fc/2.b977faab.png" draggable="false" alt="" /></div>
+      <div class="carousel-item" data-idx="2"><img src="https://fifth-gentle-45902158.figma.site/_components/v2/4de492f6d9cf8244ad5293233e5c6f52407d42fc/3.4df853b4.png" draggable="false" alt="" /></div>
+      <div class="carousel-item" data-idx="3"><img src="https://fifth-gentle-45902158.figma.site/_components/v2/4de492f6d9cf8244ad5293233e5c6f52407d42fc/4.4457fbce.png" draggable="false" alt="" /></div>
+    </div>
+
+    <!-- 5. Bottom-left text + nav buttons -->
+    <div id="bottom-nav" class="absolute bottom-6 left-4 sm:bottom-20 sm:left-24" style="z-index:60;max-width:320px">
+      <h1 class="bottom-text-title mb-2 sm:mb-3 text-base sm:text-[22px]" style="letter-spacing:0.02em">TOONHUB FIGURINES</h1>
+      <p class="bottom-text-body hidden sm:block text-xs sm:text-sm mb-4 sm:mb-5">
+        The artwork is stunning, shipped fully prepared. The finish is a vision, the 3D craft is flawless. Many thanks! Wishing you the win. Order now.
+      </p>
+      <div class="flex gap-3 sm:gap-4">
+        <button id="btn-prev" class="nav-btn w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-2 border-white text-white bg-transparent cursor-pointer" aria-label="Previous">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        </button>
+        <button id="btn-next" class="nav-btn w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-2 border-white text-white bg-transparent cursor-pointer" aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="m12 5 7 7-7 7"/><path d="M5 12h14"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 6. Bottom-right link -->
+    <a href="#" id="discover-link" class="absolute bottom-6 right-4 sm:bottom-20 sm:right-10 flex items-center gap-1 sm:gap-2 text-white no-underline font-anton uppercase" style="z-index:60;font-size:clamp(20px,4vw,56px);font-weight:400;letter-spacing:-0.02em;line-height:1;opacity:0.95;transition:opacity 200ms">
+      DISCOVER IT
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+
+  </div>
+</div>
+
+<script>
+(function() {
+  /* ── Image data ── */
+  const IMAGES = [
+    { src: 'https://fifth-gentle-45902158.figma.site/_components/v2/4de492f6d9cf8244ad5293233e5c6f52407d42fc/1.02464a56.png', bg: '#F4845F', panel: '#F79B7F' },
+    { src: 'https://fifth-gentle-45902158.figma.site/_components/v2/4de492f6d9cf8244ad5293233e5c6f52407d42fc/2.b977faab.png', bg: '#6BBF7A', panel: '#85CC92' },
+    { src: 'https://fifth-gentle-45902158.figma.site/_components/v2/4de492f6d9cf8244ad5293233e5c6f52407d42fc/3.4df853b4.png', bg: '#E882B4', panel: '#ED9DC4' },
+    { src: 'https://fifth-gentle-45902158.figma.site/_components/v2/4de492f6d9cf8244ad5293233e5c6f52407d42fc/4.4457fbce.png', bg: '#6EB5FF', panel: '#8DC4FF' },
+  ];
+
+  /* ── State ── */
+  let activeIndex = 0;
+  let isAnimating = false;
+  let isMobile = window.innerWidth < 640;
+
+  /* ── DOM refs ── */
+  const hero = document.getElementById('hero');
+  const items = Array.from(document.querySelectorAll('.carousel-item'));
+  const discoverLink = document.getElementById('discover-link');
+
+  /* ── Preload images ── */
+  IMAGES.forEach(function(img) {
+    var preload = new Image();
+    preload.src = img.src;
+  });
+
+  /* ── Apply item styles by role ── */
+  function applyItemStyles(el, role) {
+    var m = isMobile;
+    switch (role) {
+      case 'center':
+        el.style.transform = 'translateX(-50%) scale(' + (m ? 1.25 : 1.68) + ')';
+        el.style.filter = 'none';
+        el.style.opacity = '1';
+        el.style.zIndex = '20';
+        el.style.left = '50%';
+        el.style.height = m ? '60%' : '92%';
+        el.style.bottom = m ? '22%' : '0';
+        break;
+      case 'left':
+        el.style.transform = 'translateX(-50%) scale(1)';
+        el.style.filter = 'blur(2px)';
+        el.style.opacity = '0.85';
+        el.style.zIndex = '10';
+        el.style.left = m ? '20%' : '30%';
+        el.style.height = m ? '16%' : '28%';
+        el.style.bottom = m ? '32%' : '12%';
+        break;
+      case 'right':
+        el.style.transform = 'translateX(-50%) scale(1)';
+        el.style.filter = 'blur(2px)';
+        el.style.opacity = '0.85';
+        el.style.zIndex = '10';
+        el.style.left = m ? '80%' : '70%';
+        el.style.height = m ? '16%' : '28%';
+        el.style.bottom = m ? '32%' : '12%';
+        break;
+      case 'back':
+        el.style.transform = 'translateX(-50%) scale(1)';
+        el.style.filter = 'blur(4px)';
+        el.style.opacity = '1';
+        el.style.zIndex = '5';
+        el.style.left = '50%';
+        el.style.height = m ? '13%' : '22%';
+        el.style.bottom = m ? '32%' : '12%';
+        break;
+      default:
+        break;
+    }
+  }
+
+  /* ── Render all items based on activeIndex ── */
+  function render() {
+    var center = activeIndex;
+    var left  = (activeIndex + 3) % 4;
+    var right = (activeIndex + 1) % 4;
+    var back  = (activeIndex + 2) % 4;
+
+    items.forEach(function(el) {
+      var idx = parseInt(el.getAttribute('data-idx'), 10);
+      if (idx === center) applyItemStyles(el, 'center');
+      else if (idx === left) applyItemStyles(el, 'left');
+      else if (idx === right) applyItemStyles(el, 'right');
+      else if (idx === back) applyItemStyles(el, 'back');
+    });
+
+    /* Update background color */
+    hero.style.backgroundColor = IMAGES[activeIndex].bg;
+  }
+
+  /* ── Navigate ── */
+  function navigate(direction) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    if (direction === 'next') {
+      activeIndex = (activeIndex + 1) % 4;
+    } else {
+      activeIndex = (activeIndex + 3) % 4;
+    }
+
+    render();
+
+    setTimeout(function() {
+      isAnimating = false;
+    }, 650);
+  }
+
+  /* ── Handle resize ── */
+  function handleResize() {
+    isMobile = window.innerWidth < 640;
+    render();
+  }
+
+  /* ── Discover link hover ── */
+  discoverLink.addEventListener('mouseenter', function() {
+    discoverLink.style.opacity = '1';
+  });
+  discoverLink.addEventListener('mouseleave', function() {
+    discoverLink.style.opacity = '0.95';
+  });
+
+  /* ── Button handlers ── */
+  document.getElementById('btn-prev').addEventListener('click', function() { navigate('prev'); });
+  document.getElementById('btn-next').addEventListener('click', function() { navigate('next'); });
+
+  /* ── Keyboard navigation ── */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') { navigate('prev'); }
+    if (e.key === 'ArrowRight') { navigate('next'); }
+  });
+
+  /* ── Resize listener (debounced) ── */
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(handleResize, 100);
+  });
+
+  /* ── Initial render ── */
+  render();
+})();
+</script>
+
+</body>
+</html>

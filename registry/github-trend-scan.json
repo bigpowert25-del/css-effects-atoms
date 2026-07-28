@@ -1,0 +1,198 @@
+{
+  "checkedAt": "2026-07-27T22:56:00+08:00",
+  "method": "GitHub repository metadata and upstream license review",
+  "projects": [
+    {
+      "id": "three",
+      "name": "three.js",
+      "url": "https://github.com/mrdoob/three.js",
+      "stars": 114039,
+      "license": "MIT",
+      "reuseRisk": "low",
+      "levelFit": ["L2", "L3", "L4"],
+      "pattern": "3D scenes, shaders, particles and WebGPU-ready spatial work"
+    },
+    {
+      "id": "pixi",
+      "name": "PixiJS",
+      "url": "https://github.com/pixijs/pixijs",
+      "stars": 47895,
+      "license": "MIT",
+      "reuseRisk": "low",
+      "levelFit": ["L2", "L3"],
+      "pattern": "high-volume 2D rendering and interactive particle fields"
+    },
+    {
+      "id": "react-bits",
+      "name": "React Bits",
+      "url": "https://github.com/DavidHDev/react-bits",
+      "stars": 44271,
+      "license": "MIT with Commons Clause",
+      "reuseRisk": "high",
+      "levelFit": ["L1", "L2"],
+      "pattern": "configurable animated component gallery"
+    },
+    {
+      "id": "motion",
+      "name": "Motion",
+      "url": "https://github.com/motiondivision/motion",
+      "stars": 32976,
+      "license": "MIT",
+      "reuseRisk": "low",
+      "levelFit": ["L1", "L2", "L4"],
+      "pattern": "spring gestures, drag interactions and scroll timelines"
+    },
+    {
+      "id": "r3f",
+      "name": "React Three Fiber",
+      "url": "https://github.com/pmndrs/react-three-fiber",
+      "stars": 31539,
+      "license": "MIT",
+      "reuseRisk": "low",
+      "levelFit": ["L2", "L3", "L4"],
+      "pattern": "componentized Three.js scenes for React products"
+    },
+    {
+      "id": "gsap",
+      "name": "GSAP",
+      "url": "https://github.com/greensock/GSAP",
+      "stars": 27113,
+      "license": "GreenSock no-charge license",
+      "reuseRisk": "medium",
+      "levelFit": ["L1", "L3", "L4"],
+      "pattern": "cinematic timelines and scroll-driven storytelling"
+    },
+    {
+      "id": "p5",
+      "name": "p5.js",
+      "url": "https://github.com/processing/p5.js",
+      "stars": 23824,
+      "license": "LGPL-2.1",
+      "reuseRisk": "medium",
+      "levelFit": ["L1", "L2", "L3"],
+      "pattern": "creative coding, generative systems and learning-friendly sketches"
+    },
+    {
+      "id": "magic-ui",
+      "name": "Magic UI",
+      "url": "https://github.com/magicuidesign/magicui",
+      "stars": 21701,
+      "license": "MIT",
+      "reuseRisk": "low",
+      "levelFit": ["L0", "L1", "L2"],
+      "pattern": "copy-ready interface effects and polished micro-interactions"
+    },
+    {
+      "id": "lenis",
+      "name": "Lenis",
+      "url": "https://github.com/darkroomengineering/lenis",
+      "stars": 14997,
+      "license": "MIT",
+      "reuseRisk": "low",
+      "levelFit": ["L1", "L3", "L4"],
+      "pattern": "smooth scrolling infrastructure for narrative pages"
+    },
+    {
+      "id": "drei",
+      "name": "drei",
+      "url": "https://github.com/pmndrs/drei",
+      "stars": 9765,
+      "license": "MIT",
+      "reuseRisk": "low",
+      "levelFit": ["L2", "L3", "L4"],
+      "pattern": "reusable helpers for cameras, controls, loaders and spatial UI"
+    },
+    {
+      "id": "motion-primitives",
+      "name": "Motion Primitives",
+      "url": "https://github.com/ibelick/motion-primitives",
+      "stars": 5757,
+      "license": "MIT",
+      "reuseRisk": "medium",
+      "levelFit": ["L1", "L2"],
+      "pattern": "small composable motion components; upstream remains beta"
+    },
+    {
+      "id": "cobe",
+      "name": "COBE",
+      "url": "https://github.com/shuding/cobe",
+      "stars": 5507,
+      "license": "MIT",
+      "reuseRisk": "low",
+      "levelFit": ["L2", "L3"],
+      "pattern": "compact interactive globe as a focused visual object"
+    },
+    {
+      "id": "ogl",
+      "name": "OGL",
+      "url": "https://github.com/oframe/ogl",
+      "stars": 4588,
+      "license": "Unlicense",
+      "reuseRisk": "medium",
+      "levelFit": ["L2", "L3"],
+      "pattern": "small WebGL renderer for custom shader work"
+    },
+    {
+      "id": "uikit",
+      "name": "pmndrs/uikit",
+      "url": "https://github.com/pmndrs/uikit",
+      "stars": 3229,
+      "license": "MIT",
+      "reuseRisk": "low",
+      "levelFit": ["L2", "L3", "L4"],
+      "pattern": "spatial interface components inside Three.js scenes"
+    },
+    {
+      "id": "postprocessing",
+      "name": "postprocessing",
+      "url": "https://github.com/pmndrs/postprocessing",
+      "stars": 2818,
+      "license": "Zlib",
+      "reuseRisk": "low",
+      "levelFit": ["L2", "L3"],
+      "pattern": "production-minded WebGL effects and render pipelines"
+    }
+  ],
+  "directions": [
+    {
+      "id": "scroll-story",
+      "name": "滚动叙事",
+      "note": "Lenis + Motion / GSAP",
+      "projectIds": ["motion", "gsap", "lenis"],
+      "preferredLayers": ["L1", "L3", "L4"],
+      "buildFocus": "视频擦洗、章节吸附、镜头时间线"
+    },
+    {
+      "id": "media-shader",
+      "name": "媒体 Shader",
+      "note": "Three + postprocessing",
+      "projectIds": ["three", "postprocessing", "ogl"],
+      "preferredLayers": ["L2", "L3"],
+      "buildFocus": "光标揭示、图像形变、实时海报"
+    },
+    {
+      "id": "spatial-product",
+      "name": "空间产品场景",
+      "note": "Three + R3F + drei",
+      "projectIds": ["three", "r3f", "drei", "uikit"],
+      "preferredLayers": ["L2", "L3", "L4"],
+      "buildFocus": "产品旋转、热点标注、空间界面"
+    },
+    {
+      "id": "component-lab",
+      "name": "可配置组件实验室",
+      "note": "Motion + Magic UI",
+      "projectIds": ["motion", "magic-ui", "motion-primitives", "react-bits"],
+      "preferredLayers": ["L0", "L1", "L2"],
+      "buildFocus": "参数面板、现场预览、复制实现"
+    },
+    {
+      "id": "generative-field",
+      "name": "生成式生命场",
+      "note": "Canvas + Pixi + p5",
+      "projectIds": ["pixi", "p5", "three"],
+      "preferredLayers": ["L1", "L2", "L3"],
+      "buildFocus": "粒子邻近、流体跟随、物理文字"
+    }
+  ]
+}

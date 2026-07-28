@@ -1,0 +1,16 @@
+{
+  "id": "logo-pill-m",
+  "name": "Logo Pill M",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from neural-interface",
+  "css": ".logo-pill-m {\n  height: 36px; padding: 0 12px;\n  background: rgba(255,255,255,0.15);\n  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);\n  border-radius: 10px;\n  display: flex; align-items: center; gap: 6px;\n  cursor: pointer; flex-shrink: 0;\n  overflow: hidden; white-space: nowrap;\n  transition: width 0.35s cubic-bezier(0.22,1,0.36,1), opacity 0.35s, margin-right 0.35s, padding 0.35s;\n  width: 108px; margin-right: 6px;\n}",
+  "tags": [
+    "neural-interface"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/neural-interface",
+  "version": "1.0.0"
+}

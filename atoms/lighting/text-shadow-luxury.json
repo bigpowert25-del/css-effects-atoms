@@ -1,0 +1,16 @@
+{
+  "id": "text-shadow-luxury",
+  "name": "Text Shadow Luxury",
+  "category": "lighting",
+  "subcategory": "shadow",
+  "description": "CSS class from Crush",
+  "css": ".text-shadow-luxury { text-shadow: 0 4px 20px rgb(255 132 0); }",
+  "tags": [
+    "crush"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Crush",
+  "version": "1.0.0"
+}

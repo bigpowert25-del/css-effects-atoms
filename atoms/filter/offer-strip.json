@@ -1,0 +1,16 @@
+{
+  "id": "offer-strip",
+  "name": "Offer Strip",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".offer-strip { width: 100%; background: rgba(255,255,255,0.82); display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 52px 40px 32px; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

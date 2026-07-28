@@ -1,0 +1,16 @@
+{
+  "id": "c6-search",
+  "name": "C6 Search",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from Learnly",
+  "css": ".c6-search {\n  display: flex;\n  align-items: stretch;\n  gap: 0;\n  background: white;\n  box-shadow: 0 15px 45px rgba(0,0,0,0.08);\n  border: 1px solid #eee;\n  padding: 0;\n}",
+  "tags": [
+    "learnly"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Learnly",
+  "version": "1.0.0"
+}

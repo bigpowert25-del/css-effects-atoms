@@ -1,0 +1,16 @@
+{
+  "id": "card-bg",
+  "name": "Card Bg",
+  "category": "background",
+  "subcategory": "color",
+  "description": "CSS class from Cryptoniq_Hero",
+  "css": ".card-bg {\n  background-image: url('https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/crypto_bg_img.png');\n  background-size: cover;\n  background-position: center;\n  background-blend-mode: overlay;\n  @apply bg-black/80;\n}",
+  "tags": [
+    "cryptoniq_hero"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Cryptoniq_Hero",
+  "version": "1.0.0"
+}

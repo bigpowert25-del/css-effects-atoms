@@ -1,0 +1,16 @@
+{
+  "id": "hero-image-wrapper",
+  "name": "Hero Image Wrapper",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".hero-image-wrapper {\n      position: absolute;\n      top: 8%;\n      left: 50%;\n      transform: translateX(-50%);\n      z-index: 20;\n      width: 54%;\n      max-width: 760px;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

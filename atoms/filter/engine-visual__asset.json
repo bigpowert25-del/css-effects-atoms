@@ -1,0 +1,16 @@
+{
+  "id": "engine-visual__asset",
+  "name": "Engine Visual__Asset",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".engine-visual__asset {\n  display: block;\n  width: auto;\n  height: 100%;\n  max-width: 100%;\n  object-fit: contain;\n  object-position: center bottom;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

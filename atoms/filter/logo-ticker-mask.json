@@ -1,0 +1,16 @@
+{
+  "id": "logo-ticker-mask",
+  "name": "Logo Ticker Mask",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".logo-ticker-mask { position: absolute; inset: 0; z-index: 10; pointer-events: none; mask-image: linear-gradient(270deg, transparent 0%, black 4.7%, black 95.3%, transparent 100%); -webkit-mask-image: linear-gradient(270deg, transparent 0%, black 4.7%, black 95.3%, transparent 100%); }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

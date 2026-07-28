@@ -1,0 +1,16 @@
+{
+  "id": "hero-heading",
+  "name": "Hero Heading",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".hero-heading { font-size: 82px; line-height: 1.1; font-weight: 500; letter-spacing: -0.05em; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

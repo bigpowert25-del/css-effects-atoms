@@ -1,0 +1,16 @@
+{
+  "id": "animate-marquee",
+  "name": "Animate Marquee",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from glitch-pulse",
+  "css": ".animate-marquee {\n  display: flex;\n  width: max-content;\n  animation: marquee 10s linear infinite;\n}",
+  "tags": [
+    "glitch-pulse"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/glitch-pulse",
+  "version": "1.0.0"
+}

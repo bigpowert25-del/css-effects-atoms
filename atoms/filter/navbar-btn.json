@@ -1,0 +1,16 @@
+{
+  "id": "navbar-btn",
+  "name": "Navbar Btn",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".navbar-btn { width: 50px; height: 50px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

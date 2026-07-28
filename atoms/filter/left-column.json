@@ -1,0 +1,16 @@
+{
+  "id": "left-column",
+  "name": "Left Column",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".left-column {\n      position: absolute;\n      left: 0;\n      top: 42%;\n      bottom: 0;\n      z-index: 30;\n      width: calc(25.4% + 86px);\n      max-width: 451px;\n      display: flex;\n      flex-direction: column;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

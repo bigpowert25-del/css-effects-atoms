@@ -1,0 +1,16 @@
+{
+  "id": "header-left",
+  "name": "Header Left",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from neural-interface",
+  "css": ".header-left { display: flex; align-items: center; gap: 8px; }",
+  "tags": [
+    "neural-interface"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/neural-interface",
+  "version": "1.0.0"
+}

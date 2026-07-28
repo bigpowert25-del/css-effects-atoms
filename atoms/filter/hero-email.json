@@ -1,0 +1,16 @@
+{
+  "id": "hero-email",
+  "name": "Hero Email",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-driving-assistant",
+  "css": ".hero-email {\n  position: absolute; z-index: 10;\n  display: flex; flex-direction: column; gap: 13px;\n  left: var(--hero-pad-left); bottom: var(--header-pad-y);\n  will-change: opacity;\n}",
+  "tags": [
+    "ai-driving-assistant"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-driving-assistant",
+  "version": "1.0.0"
+}

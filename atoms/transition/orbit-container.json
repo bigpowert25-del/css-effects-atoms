@@ -1,0 +1,16 @@
+{
+  "id": "orbit-container",
+  "name": "Orbit Container",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from luxury-botanical",
+  "css": ".orbit-container {\n    position: relative;\n    margin-left: auto;\n    margin-right: auto;\n  }",
+  "tags": [
+    "luxury-botanical"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/luxury-botanical",
+  "version": "1.0.0"
+}

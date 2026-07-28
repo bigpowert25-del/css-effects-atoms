@@ -1,0 +1,16 @@
+{
+  "id": "card",
+  "name": "Card",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from lead-funnel",
+  "css": ".card {\n      --w: 24em;\n      --h: calc(var(--w) * 1);\n      --ba: calc(360deg / var(--n));\n      grid-area: 1/ 1;\n      width: var(--w);\n      height: var(--h);\n      object-fit: contain;\n      border-radius: 12px;\n      overflow: hidden;\n      backface-visibility: hidden;\n      transition: opacity 0.5s ease, filter 0.5s ease;\n      --card-rz: clamp(-20deg, calc(var(--vel, 0) * 1.0deg), 20deg);\n      --card-skew-x: clamp(-10deg, calc(var(--vel, 0) * 0.4deg), 10deg);\n      --card-z-offset: calc(var(--abs-vel, 0) * -2px);\n      --card-scale: calc(1 - var(--abs-vel, 0) * 0.0025);\n      transform:\n        rotateY(calc(var(--i) * var(--ba)))\n        translateZ(calc(var(--z-trans) + var(--card-z-offset)))\n        rotateZ(var(--card-rz))\n        skewX(var(--card-skew-x))\n        scale(var(--card-scale));\n      cursor: pointer;\n    }",
+  "tags": [
+    "lead-funnel"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/lead-funnel",
+  "version": "1.0.0"
+}

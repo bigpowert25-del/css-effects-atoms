@@ -1,0 +1,16 @@
+{
+  "id": "cube-particle",
+  "name": "Cube Particle",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from nimbus-ops",
+  "css": ".cube-particle {\n  --cube-size: clamp(142px, 18vw, 250px);\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: var(--cube-size);\n  height: var(--cube-size);\n  transform-style: preserve-3d;\n}",
+  "tags": [
+    "nimbus-ops"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-ops",
+  "version": "1.0.0"
+}

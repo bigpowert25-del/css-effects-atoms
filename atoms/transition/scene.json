@@ -1,0 +1,16 @@
+{
+  "id": "scene",
+  "name": "Scene",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from lead-funnel",
+  "css": ".scene {\n      overflow: hidden;\n      perspective: 35em;\n      width: 100vw;\n      height: 100vh;\n    }",
+  "tags": [
+    "lead-funnel"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/lead-funnel",
+  "version": "1.0.0"
+}

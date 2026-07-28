@@ -1,0 +1,16 @@
+{
+  "id": "orbit-scaling-container--responsive",
+  "name": "Orbit Scaling Container  Responsive",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from luxury-botanical",
+  "css": ".orbit-scaling-container--responsive {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    transform-origin: center center;\n  }",
+  "tags": [
+    "luxury-botanical"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/luxury-botanical",
+  "version": "1.0.0"
+}

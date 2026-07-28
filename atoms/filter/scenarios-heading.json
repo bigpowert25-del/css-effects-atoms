@@ -1,0 +1,16 @@
+{
+  "id": "scenarios-heading",
+  "name": "Scenarios Heading",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".scenarios-heading { font-size: 78px; font-weight: 500; line-height: 1.05; letter-spacing: -0.05em; color: #000; transition: opacity 0.5s, transform 0.5s; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

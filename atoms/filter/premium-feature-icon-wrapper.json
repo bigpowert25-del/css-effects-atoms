@@ -1,0 +1,16 @@
+{
+  "id": "premium-feature-icon-wrapper",
+  "name": "Premium Feature Icon Wrapper",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".premium-feature-icon-wrapper{margin-bottom:32px;color:#CB8DFF;display:flex;align-items:center;justify-content:center}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

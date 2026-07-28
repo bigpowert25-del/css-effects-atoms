@@ -1,0 +1,16 @@
+{
+  "id": "subtitle",
+  "name": "Subtitle",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from 3d-story",
+  "css": ".subtitle { font-size: 0.875rem; color: #9ca3af; margin-bottom: 1rem; letter-spacing: 0.05em; }",
+  "tags": [
+    "3d-story"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/3d-story",
+  "version": "1.0.0"
+}

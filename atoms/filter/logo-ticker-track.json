@@ -1,0 +1,16 @@
+{
+  "id": "logo-ticker-track",
+  "name": "Logo Ticker Track",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".logo-ticker-track { display: flex; align-items: center; gap: 30px; height: 100%; position: absolute; animation: ticker-scroll 15s linear infinite; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

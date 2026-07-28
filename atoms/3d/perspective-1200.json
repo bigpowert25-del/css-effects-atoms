@@ -1,0 +1,16 @@
+{
+  "id": "perspective-1200",
+  "name": "Perspective 1200",
+  "category": "3d",
+  "subcategory": "transform",
+  "description": "CSS class from Ashley",
+  "css": ".perspective-1200 { perspective: 1200px; }",
+  "tags": [
+    "ashley"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Ashley",
+  "version": "1.0.0"
+}

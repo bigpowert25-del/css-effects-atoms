@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CSS FX Immersive Scene</title>
+  <style>
+    :root { color-scheme: dark; --bg: #080913; --paper: #f5f1df; --accent: #83ffd3; --hot: #ff5b6e; }
+    * { box-sizing: border-box; }
+    html, body, main { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    body { background: var(--bg); color: var(--paper); font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+    main { position: relative; isolation: isolate; touch-action: none; background: var(--bg); }
+    canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .grain {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      opacity: .14;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+    .hud { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+    .topline {
+      position: absolute;
+      top: 20px;
+      left: 22px;
+      right: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+    .topline b { font-size: 13px; }
+    .topline span { color: color-mix(in srgb, var(--paper) 62%, transparent); }
+    .topline span::before { content: "●"; margin-right: 8px; color: var(--accent); }
+    .title {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+    }
+    .title h1 {
+      max-width: 9ch;
+      margin: 0;
+      font-size: clamp(42px, 10vw, 118px);
+      line-height: .76;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+    .title p { max-width: 28ch; margin: 0; font-size: 11px; line-height: 1.5; text-align: right; color: color-mix(in srgb, var(--paper) 68%, transparent); }
+    .axis { position: absolute; inset: 72px 22px 128px; border: 1px solid color-mix(in srgb, var(--paper) 10%, transparent); }
+    .axis::before, .axis::after { content: ""; position: absolute; background: color-mix(in srgb, var(--paper) 10%, transparent); }
+    .axis::before { width: 1px; top: 0; bottom: 0; left: 50%; }
+    .axis::after { height: 1px; left: 0; right: 0; top: 50%; }
+    .scene-index {
+      position: absolute;
+      top: 72px;
+      left: 22px;
+      display: grid;
+      gap: 4px;
+      color: color-mix(in srgb, var(--paper) 58%, transparent);
+      font: 8px/1.25 ui-monospace, monospace;
+      text-transform: uppercase;
+    }
+    .scene-index b { color: var(--accent); font-size: 21px; line-height: 1; }
+    .scene-spec {
+      position: absolute;
+      top: 72px;
+      right: 22px;
+      width: min(25vw, 180px);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 6px 12px;
+      padding-top: 8px;
+      border-top: 1px solid color-mix(in srgb, var(--paper) 26%, transparent);
+      color: color-mix(in srgb, var(--paper) 62%, transparent);
+      font: 8px/1 ui-monospace, monospace;
+      text-transform: uppercase;
+    }
+    .scene-spec b { color: var(--paper); font-weight: 600; }
+    .fallback {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      display: none;
+      place-items: center;
+      padding: 40px;
+      text-align: center;
+      background: var(--bg);
+    }
+    @media (max-width: 680px) {
+      .title { display: block; }
+      .title h1 { font-size: clamp(34px, 13vw, 72px); }
+      .title p { display: none; }
+      .axis { bottom: 110px; }
+      .scene-spec { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .grain { opacity: .08; }
+    }
+  </style>
+</head>
+<body>
+  <main id="scene">
+    <canvas id="canvas"></canvas>
+    <div class="axis" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="hud">
+      <div class="topline"><b>CSS·FX / IMMERSIVE</b><span id="engine">SCENE ENGINE</span></div>
+      <div class="scene-index"><span>SCENE / SELECTED</span><b id="sceneNumber">01</b><span id="sceneMotif">ORBIT FIELD</span></div>
+      <div class="scene-spec"><span>INPUT</span><b>POINTER</b><span>MODE</span><b id="sceneMode">AMBIENT</b><span>DEPTH</span><b>LIVE</b></div>
+      <div class="title"><h1 id="title">IMMERSIVE SCENE</h1><p id="note">MOVE TO DISTURB THE FIELD<br />POINTER / TOUCH · RESPONSIVE DPR</p></div>
+    </div>
+    <div class="fallback" id="fallback">场景已降级为静态构图</div>
+  </main>
+  <script type="module">
+    const params = new URLSearchParams(location.search);
+    const preset = params.get("preset") || "scene-cosmic-archive";
+    const coverMode = window.__FX_COVER__ === true || params.get("cover") === "1";
+    const PRESETS = {
+      "scene-cosmic-archive": ["宇宙档案馆", "three", "orbits", ["#080913", "#f5f1df", "#83ffd3", "#ff5b6e"]],
+      "scene-liquid-chrome": ["液态铬流场", "three", "ribbons", ["#08090b", "#d8e3e8", "#00d9ff", "#ff3d8d"]],
+      "scene-kinetic-museum": ["动力博物馆", "canvas", "gallery", ["#f2efe8", "#161819", "#f04438", "#356859"]],
+      "scene-audio-topography": ["声音地形", "canvas", "topography", ["#07131a", "#f6ce46", "#3ce6bd", "#e85d75"]],
+      "scene-orbit-commerce": ["轨道产品剧场", "three", "orbits", ["#10100e", "#f3f0e8", "#f04a3b", "#8cd7c1"]],
+      "scene-neon-traffic": ["霓虹交通流", "canvas", "grid", ["#07100f", "#6fffe9", "#ff5470", "#ffd166"]],
+      "scene-generative-garden": ["生成式光园", "canvas", "particles", ["#07130e", "#9ee37d", "#ffca6b", "#f6f4ea"]],
+      "scene-data-globe": ["全球数据脉冲", "three", "globe", ["#050b14", "#54c6ff", "#ffba49", "#ef476f"]],
+      "scene-typographic-storm": ["排版风暴", "canvas", "type", ["#f1eee7", "#171918", "#e43f35", "#276fbf"]],
+      "scene-image-depth-gallery": ["景深影像廊", "three", "gallery", ["#0a0a0b", "#f2ede3", "#dd4b39", "#4c9f70"]],
+      "scene-cyber-grid": ["赛博网格核心", "three", "grid", ["#030707", "#00f0c8", "#f72585", "#fee440"]],
+      "scene-constellation-portfolio": ["星座作品集", "canvas", "particles", ["#090b15", "#ddd7ff", "#ff6b6b", "#68d8d6"]],
+      "scene-ink-flow": ["数字墨流", "canvas", "ribbons", ["#eeeae1", "#151718", "#c83e3a", "#2c6e6f"]],
+      "scene-fragmented-product": ["碎片化产品剧场", "three", "fragments", ["#0a0c0d", "#e9e5dc", "#ff4d3d", "#7bdff2"]],
+      "scene-scroll-cinema": ["滚动电影片场", "canvas", "cinema", ["#0a0908", "#f2e8cf", "#d1495b", "#168aad"]],
+      "scene-spatial-dashboard": ["空间数据驾驶舱", "three", "grid", ["#071015", "#d8f3dc", "#ff7f51", "#4ea8de"]],
+      "scene-luminous-ribbons": ["流光缎带场", "three", "ribbons", ["#06070c", "#b8f2e6", "#ff70a6", "#ffca3a"]]
+    };
+    const SCENE_NOTES = {
+      orbits: "ARCHIVE NODES IN A LIVING ORBIT / MOVE TO SHIFT GRAVITY",
+      ribbons: "LIGHT THREADS FOLD THROUGH SPACE / MOVE TO BEND THE FLOW",
+      gallery: "A KINETIC EXHIBITION WITHOUT WALLS / MOVE TO CHANGE DEPTH",
+      topography: "FREQUENCY BECOMES LANDSCAPE / MOVE TO REDRAW THE PEAKS",
+      grid: "SIGNALS TRAVEL ACROSS A RESPONSIVE CITY / MOVE TO REDIRECT",
+      particles: "A FIELD THAT GROWS AROUND YOUR PRESENCE / MOVE TO CULTIVATE",
+      globe: "GLOBAL SIGNALS HELD IN ONE ORBIT / MOVE TO ROTATE THE SYSTEM",
+      type: "LANGUAGE AS WEATHER / MOVE TO DISTORT THE PRESSURE",
+      fragments: "FORM BREAKS APART AND REMEMBERS ITSELF / MOVE TO REASSEMBLE",
+      cinema: "A FILM SEQUENCE WITHOUT A TIMELINE / SCROLL OR MOVE TO CUT",
+    };
+
+    const config = PRESETS[preset];
+    const root = document.querySelector("#scene");
+    const canvas = document.querySelector("#canvas");
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
+    const cleanup = [];
+    let disposed = false;
+    let active = !coverMode;
+    let raf = 0;
+    let threeState = null;
+
+    function applyConfig() {
+      if (!config) throw new Error(`Unknown scene preset: ${preset}`);
+      const [label, engine, motif, palette] = config;
+      root.style.setProperty("--bg", palette[0]);
+      root.style.setProperty("--paper", palette[1]);
+      root.style.setProperty("--accent", palette[2]);
+      root.style.setProperty("--hot", palette[3]);
+      document.querySelector("#title").textContent = label;
+      document.querySelector("#engine").textContent = `${engine.toUpperCase()} / ${motif.toUpperCase()}`;
+      document.querySelector("#sceneNumber").textContent = String(Object.keys(PRESETS).indexOf(preset) + 1).padStart(2, "0");
+      document.querySelector("#sceneMotif").textContent = `${motif.toUpperCase()} FIELD`;
+      document.querySelector("#note").innerHTML = (SCENE_NOTES[motif] || "MOVE TO DISTURB THE FIELD").replace(" / ", "<br />");
+    }
+
+    function onPointer(event) {
+      const rect = root.getBoundingClientRect();
+      pointer.tx = (event.clientX - rect.left) / rect.width * 2 - 1;
+      pointer.ty = -((event.clientY - rect.top) / rect.height * 2 - 1);
+    }
+
+    function canvasScene() {
+      const context = canvas.getContext("2d");
+      const nodes = Array.from({ length: 110 }, (_, i) => ({
+        x: Math.random(), y: Math.random(), z: Math.random(), p: i * .781,
+      }));
+      const palette = config[3];
+      const motif = config[2];
+      function resize() {
+        const rect = root.getBoundingClientRect();
+        const dpr = Math.min(devicePixelRatio || 1, coverMode ? 1.25 : 2);
+        canvas.width = Math.max(1, Math.round(rect.width * dpr));
+        canvas.height = Math.max(1, Math.round(rect.height * dpr));
+        context.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      const observer = new ResizeObserver(resize);
+      observer.observe(root);
+      cleanup.push(() => observer.disconnect());
+      resize();
+
+      function draw(time) {
+        if (disposed) return;
+        pointer.x += (pointer.tx - pointer.x) * .045;
+        pointer.y += (pointer.ty - pointer.y) * .045;
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+        context.clearRect(0, 0, width, height);
+        context.fillStyle = palette[0];
+        context.fillRect(0, 0, width, height);
+
+        if (motif === "topography" || motif === "ribbons" || motif === "cinema") {
+          for (let line = 0; line < 22; line += 1) {
+            context.beginPath();
+            for (let x = -20; x <= width + 20; x += 8) {
+              const base = (line + 2) / 25 * height;
+              const wave = Math.sin(x * .012 + line * .52 + time * .00035) * (18 + line * .7);
+              const field = Math.exp(-Math.pow((x / width * 2 - 1) - pointer.x, 2) * 6) * pointer.y * 80;
+              const y = base + wave + field;
+              if (x === -20) context.moveTo(x, y); else context.lineTo(x, y);
+            }
+            context.strokeStyle = line % 5 === 0 ? palette[3] : palette[2];
+            context.globalAlpha = .18 + (line % 5 === 0 ? .45 : 0);
+            context.lineWidth = line % 5 === 0 ? 2 : 1;
+            context.stroke();
+          }
+        } else if (motif === "type") {
+          context.textAlign = "center";
+          context.textBaseline = "middle";
+          context.font = `900 ${Math.max(64, width * .18)}px system-ui`;
+          context.fillStyle = palette[1];
+          context.globalAlpha = .92;
+          context.save();
+          context.translate(width / 2 + pointer.x * 70, height / 2 - pointer.y * 40);
+          context.transform(1, pointer.x * .12, pointer.y * .08, 1, 0, 0);
+          context.fillText("TYPE", 0, 0);
+          context.strokeStyle = palette[2];
+          context.lineWidth = 2;
+          context.strokeText("STORM", 0, height * .17);
+          context.restore();
+        } else if (motif === "gallery") {
+          for (let i = 0; i < 9; i += 1) {
+            const w = width * .18;
+            const h = height * (.36 + (i % 3) * .1);
+            const x = ((i * w * 1.18 + time * .035) % (width + w * 2)) - w;
+            const y = height * .18 + (i % 3) * height * .08 + pointer.y * (i - 4) * 8;
+            context.fillStyle = i % 2 ? palette[2] : palette[3];
+            context.globalAlpha = .72;
+            context.fillRect(x, y, w, h);
+            context.strokeStyle = palette[1];
+            context.globalAlpha = .42;
+            context.strokeRect(x + 8, y + 8, w - 16, h - 16);
+          }
+        } else {
+          nodes.forEach((node, index) => {
+              const drift = reduced ? 0 : time * (active ? .00012 : .00004);
+            const x = (node.x * width + Math.sin(node.p + drift * 8) * 26 + pointer.x * (node.z - .5) * 90 + width) % width;
+            const y = (node.y * height + Math.cos(node.p + drift * 7) * 20 - pointer.y * (node.z - .5) * 70 + height) % height;
+            const radius = 1 + node.z * 3;
+            context.fillStyle = index % 9 === 0 ? palette[3] : palette[2];
+            context.globalAlpha = .25 + node.z * .7;
+            context.beginPath();
+            context.arc(x, y, radius, 0, Math.PI * 2);
+            context.fill();
+            if (index % 3 === 0) {
+              const next = nodes[(index + 7) % nodes.length];
+              context.strokeStyle = palette[2];
+              context.globalAlpha = .08;
+              context.beginPath();
+              context.moveTo(x, y);
+              context.lineTo(next.x * width, next.y * height);
+              context.stroke();
+            }
+          });
+        }
+        context.globalAlpha = 1;
+        if (!reduced) raf = requestAnimationFrame(draw);
+      }
+      draw(0);
+    }
+
+    async function threeScene() {
+      try {
+        const THREE = await import("https://cdn.jsdelivr.net/npm/three@0.185.0/build/three.module.js");
+        if (disposed) return;
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+      renderer.setPixelRatio(Math.min(devicePixelRatio || 1, coverMode ? 1.25 : 2));
+      renderer.setClearColor(config[3][0], 1);
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.Fog(config[3][0], 5, 18);
+      const camera = new THREE.PerspectiveCamera(42, 1, .1, 50);
+      camera.position.set(0, 0, 8);
+      const group = new THREE.Group();
+      scene.add(group);
+      const geometries = [];
+      const materials = [];
+      const motif = config[2];
+      const colorA = new THREE.Color(config[3][2]);
+      const colorB = new THREE.Color(config[3][3]);
+
+      if (motif === "ribbons") {
+        for (let line = 0; line < 15; line += 1) {
+          const points = Array.from({ length: 80 }, (_, i) => {
+            const x = (i / 79 - .5) * 11;
+            return new THREE.Vector3(x, Math.sin(i * .24 + line) * .5 + (line - 7) * .18, Math.cos(i * .12 + line) * 1.4);
+          });
+          const geometry = new THREE.BufferGeometry().setFromPoints(points);
+          const material = new THREE.LineBasicMaterial({ color: line % 3 ? colorA : colorB, transparent: true, opacity: .62 });
+          const mesh = new THREE.Line(geometry, material);
+          group.add(mesh); geometries.push(geometry); materials.push(material);
+        }
+      } else {
+        const count = motif === "fragments" ? 900 : 1400;
+        const positions = new Float32Array(count * 3);
+        const colors = new Float32Array(count * 3);
+        for (let i = 0; i < count; i += 1) {
+          const radius = motif === "globe" ? 2.4 : 1.4 + Math.random() * 4.2;
+          const phi = Math.acos(2 * Math.random() - 1);
+          const theta = Math.random() * Math.PI * 2;
+          positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+          positions[i * 3 + 1] = radius * Math.cos(phi);
+          positions[i * 3 + 2] = radius * Math.sin(phi) * Math.sin(theta);
+          const color = i % 7 ? colorA : colorB;
+          colors.set([color.r, color.g, color.b], i * 3);
+        }
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+        geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+        const material = new THREE.PointsMaterial({ size: motif === "fragments" ? .055 : .035, vertexColors: true, transparent: true, opacity: .86 });
+        group.add(new THREE.Points(geometry, material));
+        geometries.push(geometry); materials.push(material);
+
+        for (let ring = 0; ring < 7; ring += 1) {
+          const geometryRing = new THREE.TorusGeometry(1.8 + ring * .48, .008, 4, 120);
+          const materialRing = new THREE.MeshBasicMaterial({ color: ring % 2 ? colorA : colorB, transparent: true, opacity: .22 });
+          const mesh = new THREE.Mesh(geometryRing, materialRing);
+          mesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
+          group.add(mesh); geometries.push(geometryRing); materials.push(materialRing);
+        }
+      }
+
+      function resize() {
+        const width = root.clientWidth;
+        const height = root.clientHeight;
+        renderer.setSize(width, height, false);
+        camera.aspect = width / Math.max(1, height);
+        camera.updateProjectionMatrix();
+      }
+      const observer = new ResizeObserver(resize);
+      observer.observe(root);
+      cleanup.push(() => observer.disconnect());
+      resize();
+      threeState = { renderer, scene, group, geometries, materials };
+
+      function draw(time) {
+        if (disposed) return;
+        pointer.x += (pointer.tx - pointer.x) * .035;
+        pointer.y += (pointer.ty - pointer.y) * .035;
+        const speed = active ? 1 : .32;
+        group.rotation.y = pointer.x * .28 + (reduced ? 0 : time * .00009 * speed);
+        group.rotation.x = -pointer.y * .18 + Math.sin(time * .00015 * speed) * .08;
+        group.position.x = pointer.x * .25;
+        group.position.y = pointer.y * .18;
+        renderer.render(scene, camera);
+        if (!reduced) raf = requestAnimationFrame(draw);
+      }
+        draw(0);
+      } catch (error) {
+        if (disposed) return;
+        canvasScene();
+        document.querySelector("#engine").textContent += " / CANVAS FALLBACK";
+      }
+    }
+
+    function dispose() {
+      if (disposed) return;
+      disposed = true;
+      cancelAnimationFrame(raf);
+      cleanup.splice(0).forEach((fn) => fn());
+      if (threeState) {
+        threeState.geometries.forEach((item) => item.dispose());
+        threeState.materials.forEach((item) => item.dispose());
+        threeState.renderer.dispose();
+        threeState = null;
+      }
+      root.removeEventListener("pointermove", onPointer);
+    }
+
+    try {
+      applyConfig();
+      root.addEventListener("pointermove", onPointer);
+      if (config[1] === "three") await threeScene();
+      else canvasScene();
+    } catch (error) {
+      document.querySelector("#fallback").style.display = "grid";
+      document.querySelector("#fallback").textContent = `场景不可用：${error.message}`;
+    }
+    addEventListener("message", (event) => {
+      if (event.data?.type === "fx:activate") {
+        active = true;
+        document.querySelector("#sceneMode").textContent = "INTERACTIVE";
+      }
+      if (event.data?.type === "fx:deactivate") {
+        active = false;
+        document.querySelector("#sceneMode").textContent = "AMBIENT";
+      }
+      if (event.data?.type === "fx:dispose") dispose();
+    });
+    addEventListener("pagehide", dispose);
+  </script>
+</body>
+</html>

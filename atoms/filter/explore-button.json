@@ -1,0 +1,16 @@
+{
+  "id": "explore-button",
+  "name": "Explore Button",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".explore-button {\n      width: calc(100% - 86px);\n      height: 88px;\n      background: black;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      cursor: pointer;\n      flex-shrink: 0;\n      transition: background-color 0.2s;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

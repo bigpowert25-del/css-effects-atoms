@@ -1,0 +1,16 @@
+{
+  "id": "showcase__panel",
+  "name": "Showcase__Panel",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".showcase__panel {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  opacity: 0;\n  transform: translateY(16px);\n  transition:\n    opacity 460ms cubic-bezier(0.4, 0, 0.2, 1),\n    transform 460ms cubic-bezier(0.4, 0, 0.2, 1);\n  pointer-events: none;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

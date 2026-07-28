@@ -1,0 +1,16 @@
+{
+  "id": "stat-title",
+  "name": "Stat Title",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from neural-interface",
+  "css": ".stat-title {\n  font-family: \"Space Mono\", monospace;\n  font-size: 11px; font-weight: 700;\n  text-transform: uppercase; letter-spacing: 0.08em;\n  color: #fff; opacity: 0.8;\n}",
+  "tags": [
+    "neural-interface"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/neural-interface",
+  "version": "1.0.0"
+}

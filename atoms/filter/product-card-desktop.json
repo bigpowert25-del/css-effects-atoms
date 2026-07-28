@@ -1,0 +1,16 @@
+{
+  "id": "product-card-desktop",
+  "name": "Product Card Desktop",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".product-card-desktop {\n      position: absolute;\n      right: 0;\n      bottom: 0;\n      z-index: 30;\n      width: 25.4%;\n      max-width: 365px;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

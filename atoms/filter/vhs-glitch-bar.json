@@ -1,0 +1,16 @@
+{
+  "id": "vhs-glitch-bar",
+  "name": "Vhs Glitch Bar",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from Velorah_Focus",
+  "css": ".vhs-glitch-bar {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  height: 40px;\n  background: rgba(255, 255, 255, 0.03);\n  backdrop-filter: blur(2px) hue-rotate(5deg);\n  -webkit-backdrop-filter: blur(2px) hue-rotate(5deg);\n  z-index: 52;\n  pointer-events: none;\n  animation: glitch-bar-anim 4s linear infinite;\n  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);\n  border-top: 1px solid rgba(255,255,255,0.05);\n  border-bottom: 1px solid rgba(255,255,255,0.05);\n}",
+  "tags": [
+    "velorah_focus"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Velorah_Focus",
+  "version": "1.0.0"
+}

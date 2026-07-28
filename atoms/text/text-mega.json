@@ -1,0 +1,16 @@
+{
+  "id": "text-mega",
+  "name": "Text Mega",
+  "category": "text",
+  "subcategory": "glow",
+  "description": "CSS class from Neo_Museum",
+  "css": ".text-mega {\n    font-size: 21vw;\n    line-height: 0.75;\n    letter-spacing: -0.04em;\n  }",
+  "tags": [
+    "neo_museum"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Neo_Museum",
+  "version": "1.0.0"
+}

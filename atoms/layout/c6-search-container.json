@@ -1,0 +1,16 @@
+{
+  "id": "c6-search-container",
+  "name": "C6 Search Container",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from Learnly",
+  "css": ".c6-search-container {\n  position: relative;\n  width: 100%;\n  max-width: 500px;\n  z-index: 5;\n}",
+  "tags": [
+    "learnly"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Learnly",
+  "version": "1.0.0"
+}

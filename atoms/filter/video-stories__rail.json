@@ -1,0 +1,16 @@
+{
+  "id": "video-stories__rail",
+  "name": "Video Stories__Rail",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".video-stories__rail {\n  display: grid;\n  grid-auto-flow: column;\n  grid-auto-columns: minmax(520px, 34vw);\n  gap: clamp(28px, 3vw, 54px);\n  overflow-x: auto;\n  overscroll-behavior-x: contain;\n  scroll-snap-type: x mandatory;\n  padding: 0 max(48px, calc((100vw - var(--hero-max-width)) / 2 + 48px)) 36px;\n  scrollbar-width: none;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

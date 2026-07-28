@@ -1,0 +1,16 @@
+{
+  "id": "animate-cursor-blink",
+  "name": "Animate Cursor Blink",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from lead-funnel",
+  "css": ".animate-cursor-blink {\n      animation: cursor-blink 1.0s step-end infinite;\n    }",
+  "tags": [
+    "lead-funnel"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/lead-funnel",
+  "version": "1.0.0"
+}

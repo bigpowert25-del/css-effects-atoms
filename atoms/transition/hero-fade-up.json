@@ -1,0 +1,16 @@
+{
+  "id": "hero-fade-up",
+  "name": "Hero Fade Up",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from golden-portal",
+  "css": ".hero-fade-up {\n  opacity: 0;\n  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;\n}",
+  "tags": [
+    "golden-portal"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/golden-portal",
+  "version": "1.0.0"
+}

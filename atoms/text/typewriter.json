@@ -1,0 +1,23 @@
+{
+  "id": "typewriter",
+  "name": "打字机效果",
+  "category": "text",
+  "subcategory": "reveal",
+  "description": "逐字显示文字，带闪烁光标",
+  "css": ".fx-typewriter{overflow:hidden;border-right:2px solid #0fa;white-space:nowrap;animation:fx-typing 3s steps(30) 1s forwards,fx-blink 0.75s step-end infinite;width:0}\n@keyframes fx-typing{from{width:0}to{width:100%}}\n@keyframes fx-blink{50%{border-color:transparent}}",
+  "tags": [
+    "typewriter",
+    "text-reveal",
+    "cursor"
+  ],
+  "keywords": [
+    "打字机",
+    "逐字显示"
+  ],
+  "dependencies": [],
+  "source": "motionsites/crafted",
+  "version": "1.0.0",
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "html": "",
+  "js": ""
+}

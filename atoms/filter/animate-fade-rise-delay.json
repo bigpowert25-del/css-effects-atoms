@@ -1,0 +1,16 @@
+{
+  "id": "animate-fade-rise-delay",
+  "name": "Animate Fade Rise Delay",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from Velorah_Focus",
+  "css": ".animate-fade-rise-delay { animation: fade-rise 0.8s ease-out 0.2s both; }",
+  "tags": [
+    "velorah_focus"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Velorah_Focus",
+  "version": "1.0.0"
+}

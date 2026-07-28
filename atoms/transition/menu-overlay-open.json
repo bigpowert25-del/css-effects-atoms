@@ -1,0 +1,16 @@
+{
+  "id": "menu-overlay-open",
+  "name": "Menu Overlay Open",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from investment-hero",
+  "css": ".menu-overlay-open {\n  animation: fadeIn 0.3s ease forwards;\n}",
+  "tags": [
+    "investment-hero"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/investment-hero",
+  "version": "1.0.0"
+}

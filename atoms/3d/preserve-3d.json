@@ -1,0 +1,16 @@
+{
+  "id": "preserve-3d",
+  "name": "Preserve 3D",
+  "category": "3d",
+  "subcategory": "transform",
+  "description": "CSS class from Ashley",
+  "css": ".preserve-3d { transform-style: preserve-3d; }",
+  "tags": [
+    "ashley"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Ashley",
+  "version": "1.0.0"
+}

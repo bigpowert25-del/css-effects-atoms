@@ -1,0 +1,16 @@
+{
+  "id": "cube-face",
+  "name": "Cube Face",
+  "category": "lighting",
+  "subcategory": "shadow",
+  "description": "CSS class from nimbus-ops",
+  "css": ".cube-face {\n  position: absolute;\n  inset: 0;\n  border: 1px solid rgba(255, 247, 222, 0.18);\n  border-radius: 18px;\n  background:\n    radial-gradient(circle at 48% 44%, rgba(255, 216, 121, 0.98) 0 11%, rgba(255, 216, 121, 0.32) 22%, transparent 48%),\n    radial-gradient(circle at 18% 15%, rgba(255, 247, 222, 0.92), transparent 30%),\n    linear-gradient(135deg, rgba(151, 211, 235, 0.46), rgba(234, 208, 154, 0.78) 38%, rgba(43, 35, 19, 0.92) 100%);\n  box-shadow:\n    inset 0 2px 6px rgba(255, 247, 222, 0.38),\n    inset -22px -28px 36px rgba(0, 0, 0, 0.34),\n    inset 18px 12px 28px rgba(151, 211, 235, 0.18);\n  opacity: 0.98;\n  backface-visibility: hidden;\n}",
+  "tags": [
+    "nimbus-ops"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-ops",
+  "version": "1.0.0"
+}

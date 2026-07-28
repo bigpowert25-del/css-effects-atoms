@@ -1,0 +1,16 @@
+{
+  "id": "mission-pill",
+  "name": "Mission Pill",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".mission-pill{display:inline-block;padding:2px 16px;margin:0 6px;background:#CB8DFF;color:#fff;border-radius:9999px;vertical-align:middle;font-family:\"Instrument Serif\",Georgia,serif}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

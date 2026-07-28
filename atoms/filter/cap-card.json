@@ -1,0 +1,16 @@
+{
+  "id": "cap-card",
+  "name": "Cap Card",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".cap-card {\n  position: relative;\n  overflow: hidden;\n  border: 1px solid rgb(18 35 35 / 0.09);\n  border-radius: 18px;\n  background: #ffffff;\n  box-shadow: 0 22px 60px rgb(21 34 34 / 0.08);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

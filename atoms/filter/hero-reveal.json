@@ -1,0 +1,16 @@
+{
+  "id": "hero-reveal",
+  "name": "Hero Reveal",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from interactive-discovery",
+  "css": ".hero-reveal { animation-name:heroReveal; animation-duration:1.1s; }",
+  "tags": [
+    "interactive-discovery"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/interactive-discovery",
+  "version": "1.0.0"
+}

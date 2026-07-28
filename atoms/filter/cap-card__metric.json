@@ -1,0 +1,16 @@
+{
+  "id": "cap-card__metric",
+  "name": "Cap Card__Metric",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".cap-card__metric {\n  position: absolute;\n  inset: 0;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  text-shadow: 0 12px 32px rgb(0 0 0 / 0.3);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

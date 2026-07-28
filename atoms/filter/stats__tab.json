@@ -1,0 +1,16 @@
+{
+  "id": "stats__tab",
+  "name": "Stats__Tab",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".stats__tab {\n  position: relative;\n  min-height: 58px;\n  padding: 0 20px 18px 0;\n  border: 0;\n  background: transparent;\n  color: rgb(247 248 248 / 0.5);\n  font: inherit;\n  font-size: clamp(14px, 1.22vw, 22px);\n  font-weight: 430;\n  letter-spacing: 0;\n  text-align: left;\n  cursor: pointer;\n  transition: color 220ms ease;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

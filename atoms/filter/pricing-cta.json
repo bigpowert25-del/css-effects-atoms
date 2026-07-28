@@ -1,0 +1,16 @@
+{
+  "id": "pricing-cta",
+  "name": "Pricing Cta",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".pricing-cta { display: flex; align-items: center; justify-content: center; gap: 10px; height: 66px; width: 100%; border-radius: 20px; padding: 0 28px; cursor: pointer; transition: transform 0.2s, box-shadow 0.3s; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

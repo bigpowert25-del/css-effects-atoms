@@ -1,0 +1,16 @@
+{
+  "id": "cap-card__label--left",
+  "name": "Cap Card__Label  Left",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".cap-card__label--left { justify-content: flex-start; padding: 0; color: #758080; }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

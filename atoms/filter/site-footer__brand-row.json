@@ -1,0 +1,16 @@
+{
+  "id": "site-footer__brand-row",
+  "name": "Site Footer__Brand Row",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".site-footer__brand-row { width: 100%; margin-top: clamp(18px, 3vw, 46px); }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

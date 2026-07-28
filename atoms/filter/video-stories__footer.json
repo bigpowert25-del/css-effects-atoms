@@ -1,0 +1,16 @@
+{
+  "id": "video-stories__footer",
+  "name": "Video Stories__Footer",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".video-stories__footer { display: flex; align-items: center; gap: 8px; width: min(100% - 96px, 900px); margin: 28px auto 0; }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

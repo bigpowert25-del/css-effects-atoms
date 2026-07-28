@@ -1,0 +1,25 @@
+{
+  "id": "neon-glow",
+  "name": "霓虹发光文字",
+  "category": "text",
+  "subcategory": "glow",
+  "description": "RGB霓虹灯管效果 — 多层text-shadow叠加",
+  "css": ".fx-neon{color:#fff;text-shadow:0 0 7px #fff,0 0 10px #fff,0 0 21px #fff,0 0 42px #0fa,0 0 82px #0fa,0 0 92px #0fa,0 0 102px #0fa,0 0 151px #0fa;animation:fx-neon-pulse 1.5s ease-in-out infinite alternate}\n@keyframes fx-neon-pulse{from{text-shadow:0 0 4px #fff,0 0 11px #fff,0 0 19px #fff,0 0 40px #0fa,0 0 80px #0fa}to{text-shadow:0 0 6px #fff,0 0 14px #fff,0 0 24px #fff,0 0 50px #0fa,0 0 100px #0fa}}",
+  "tags": [
+    "neon",
+    "glow",
+    "text",
+    "cyberpunk"
+  ],
+  "keywords": [
+    "霓虹",
+    "发光文字",
+    "灯管"
+  ],
+  "dependencies": [],
+  "browserSupport": "Chrome 4+, all",
+  "source": "motionsites/crafted",
+  "version": "1.0.0",
+  "html": "",
+  "js": ""
+}

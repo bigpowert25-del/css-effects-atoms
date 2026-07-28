@@ -1,0 +1,16 @@
+{
+  "id": "video-stories",
+  "name": "Video Stories",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".video-stories {\n  position: relative;\n  z-index: 90;\n  min-height: 100vh;\n  padding: clamp(46px, 5vw, 88px) 0 clamp(44px, 4vw, 74px);\n  overflow: hidden;\n  background: #f7f8f8;\n  color: #111111;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

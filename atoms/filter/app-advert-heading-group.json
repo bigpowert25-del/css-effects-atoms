@@ -1,0 +1,16 @@
+{
+  "id": "app-advert-heading-group",
+  "name": "App Advert Heading Group",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".app-advert-heading-group { display: flex; flex-direction: column; gap: 36px; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

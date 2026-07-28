@@ -1,0 +1,16 @@
+{
+  "id": "c6-vertical-text",
+  "name": "C6 Vertical Text",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from Learnly",
+  "css": ".c6-vertical-text {\n  writing-mode: vertical-rl;\n  transform: rotate(180deg);\n  font-size: 1.8rem;\n  font-weight: 600;\n  white-space: nowrap;\n  color: white;\n  text-transform: capitalize;\n  padding: 20px 10px;\n  position: relative;\n  background: linear-gradient(to top, transparent 50%, #1C1D2D 50%);\n  border-radius: 0;\n}",
+  "tags": [
+    "learnly"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Learnly",
+  "version": "1.0.0"
+}

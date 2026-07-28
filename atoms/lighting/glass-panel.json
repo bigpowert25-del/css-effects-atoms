@@ -1,0 +1,16 @@
+{
+  "id": "glass-panel",
+  "name": "Glass Panel",
+  "category": "lighting",
+  "subcategory": "shadow",
+  "description": "CSS class from Crush",
+  "css": ".glass-panel { @apply bg-charcoal/40 backdrop-blur-md border border-white/10 shadow-2xl; }",
+  "tags": [
+    "crush"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Crush",
+  "version": "1.0.0"
+}

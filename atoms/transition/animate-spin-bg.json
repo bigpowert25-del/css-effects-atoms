@@ -1,0 +1,16 @@
+{
+  "id": "animate-spin-bg",
+  "name": "Animate Spin Bg",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from bio-age-dashboard",
+  "css": ".animate-spin-bg { animation: spin-slow 30s linear infinite; }",
+  "tags": [
+    "bio-age-dashboard"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bio-age-dashboard",
+  "version": "1.0.0"
+}

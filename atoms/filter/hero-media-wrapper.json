@@ -1,0 +1,16 @@
+{
+  "id": "hero-media-wrapper",
+  "name": "Hero Media Wrapper",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-driving-assistant",
+  "css": ".hero-media-wrapper {\n  position: absolute; z-index: 20; pointer-events: none;\n  overflow: hidden; background: rgba(0,0,0,0.4);\n  top: 0; left: 0;\n  width: var(--hero-media-w); aspect-ratio: var(--hero-media-aspect);\n  border-radius: 12px; opacity: 0;\n  will-change: top, left, width, height, border-radius;\n}",
+  "tags": [
+    "ai-driving-assistant"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-driving-assistant",
+  "version": "1.0.0"
+}

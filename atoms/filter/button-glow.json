@@ -1,0 +1,16 @@
+{
+  "id": "button-glow",
+  "name": "Button Glow",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from celestial-renewal",
+  "css": ".button-glow {\n  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.1);\n}",
+  "tags": [
+    "celestial-renewal"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/celestial-renewal",
+  "version": "1.0.0"
+}

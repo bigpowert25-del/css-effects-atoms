@@ -1,0 +1,16 @@
+{
+  "id": "navbar-logo",
+  "name": "Navbar Logo",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".navbar-logo { width: 60px; height: 60px; border-radius: 20px; overflow: hidden; flex-shrink: 0; box-shadow: 15px 25px 45px rgba(0,0,0,0.25); }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "fb-btn",
+  "name": "Fb Btn",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".fb-btn{width:100%;padding:14px 24px;background:#CB8DFF;color:#fff;border:none;cursor:pointer;font-family:\"Space Grotesk\",sans-serif;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;transition:all .3s ease}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

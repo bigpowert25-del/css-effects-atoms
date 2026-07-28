@@ -1,0 +1,16 @@
+{
+  "id": "header-login",
+  "name": "Header Login",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-driving-assistant",
+  "css": ".header-login {\n  display: flex; align-items: center; border-radius: 8px;\n  background: #F0F1F3; padding: 9px 16px; border: none; cursor: pointer;\n}",
+  "tags": [
+    "ai-driving-assistant"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-driving-assistant",
+  "version": "1.0.0"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "border-glow-pulse",
+  "name": "边框脉冲发光",
+  "category": "lighting",
+  "subcategory": "border",
+  "description": "卡片边框呼吸式脉冲发光",
+  "css": ".fx-border-pulse{border:2px solid transparent;border-radius:12px;position:relative}\n.fx-border-pulse::before{content:'';position:absolute;inset:-2px;border-radius:inherit;padding:2px;background:conic-gradient(from 0deg,#0ea5e9,#06b6d4,#0ea5e9);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite: xor;mask-composite:exclude;animation:fx-spin-slow 4s linear infinite}\n@keyframes fx-spin-slow{to{transform:rotate(360deg)}}",
+  "tags": [
+    "border",
+    "glow",
+    "pulse",
+    "card"
+  ],
+  "keywords": [
+    "边框发光",
+    "旋转光晕"
+  ],
+  "dependencies": [],
+  "source": "motionsites/crafted",
+  "version": "1.0.0",
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "html": "",
+  "js": ""
+}

@@ -1,0 +1,16 @@
+{
+  "id": "stats__spark--2",
+  "name": "Stats__Spark  2",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".stats__spark--2 { --spark-rotate: -18deg; width: 11px; height: 11px; }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

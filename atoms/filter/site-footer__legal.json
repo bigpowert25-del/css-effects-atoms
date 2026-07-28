@@ -1,0 +1,16 @@
+{
+  "id": "site-footer__legal",
+  "name": "Site Footer__Legal",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".site-footer__legal { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px 18px; margin-top: clamp(14px, 1.4vw, 24px); color: rgb(255 255 255 / 0.52); font-size: 9px; line-height: 1.35; }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

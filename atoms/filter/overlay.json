@@ -1,0 +1,16 @@
+{
+  "id": "overlay",
+  "name": "Overlay",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from 3d-story",
+  "css": ".overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.2); }",
+  "tags": [
+    "3d-story"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/3d-story",
+  "version": "1.0.0"
+}

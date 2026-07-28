@@ -1,0 +1,16 @@
+{
+  "id": "site-footer__nav",
+  "name": "Site Footer__Nav",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".site-footer__nav { display: flex; flex-direction: column; align-items: flex-start; gap: clamp(14px, 1.35vw, 22px); }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

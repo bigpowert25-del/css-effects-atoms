@@ -1,0 +1,16 @@
+{
+  "id": "code-box",
+  "name": "Code Box",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from 3d-story",
+  "css": ".code-box {\n  display: flex; align-items: center; gap: 0.5rem;\n  background: #1a1a1a; border: 1px solid rgba(55,65,81,0.5);\n  border-radius: 0.5rem; padding: 0.875rem 2rem;\n}",
+  "tags": [
+    "3d-story"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/3d-story",
+  "version": "1.0.0"
+}

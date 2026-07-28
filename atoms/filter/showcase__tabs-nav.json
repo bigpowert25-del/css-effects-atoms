@@ -1,0 +1,16 @@
+{
+  "id": "showcase__tabs-nav",
+  "name": "Showcase__Tabs Nav",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".showcase__tabs-nav {\n  grid-column: 2;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  gap: clamp(10px, 0.9vw, 20px);\n  padding-left: clamp(36px, 5vw, 120px);\n  pointer-events: auto;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

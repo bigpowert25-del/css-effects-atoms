@@ -1,0 +1,16 @@
+{
+  "id": "dot-grid",
+  "name": "Dot Grid",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from neural-interface",
+  "css": ".dot-grid {\n  position: absolute; inset: 0;\n  background-image: radial-gradient(#fff 1px, transparent 1px);\n  background-size: 24px 24px;\n  opacity: 0.05; pointer-events: none;\n}",
+  "tags": [
+    "neural-interface"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/neural-interface",
+  "version": "1.0.0"
+}

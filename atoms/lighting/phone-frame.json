@@ -1,0 +1,16 @@
+{
+  "id": "phone-frame",
+  "name": "Phone Frame",
+  "category": "lighting",
+  "subcategory": "shadow",
+  "description": "CSS class from movie-premiere",
+  "css": ".phone-frame {\n  border-radius: 52px;\n  box-shadow:\n    inset 0 0 0 2px rgba(255, 255, 255, 0.08),\n    0 0 0 1px rgba(0, 0, 0, 0.6),\n    0 0 0 10px #1a1a1e,\n    0 0 0 11px rgba(255, 255, 255, 0.06),\n    0 0 60px rgba(0, 0, 0, 0.5);\n}",
+  "tags": [
+    "movie-premiere"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/movie-premiere",
+  "version": "1.0.0"
+}

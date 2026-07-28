@@ -1,0 +1,16 @@
+{
+  "id": "gem-card",
+  "name": "Gem Card",
+  "category": "lighting",
+  "subcategory": "shadow",
+  "description": "CSS class from Scenic_Travel",
+  "css": ".gem-card { position: relative; z-index: 30; background: white; border-radius: 32px; padding: 16px; display: flex; gap: 24px; width: 100%; height: 200px; box-shadow: 0 25px 60px -15px rgba(0,0,0,0.15); }",
+  "tags": [
+    "scenic_travel"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Scenic_Travel",
+  "version": "1.0.0"
+}

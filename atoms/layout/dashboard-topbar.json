@@ -1,0 +1,16 @@
+{
+  "id": "dashboard-topbar",
+  "name": "Dashboard Topbar",
+  "category": "layout",
+  "subcategory": "flex",
+  "description": "CSS class from nimbus-demo",
+  "css": ".dashboard-topbar {\n  display: flex;\n  align-items: center;\n  gap: 9px;\n  height: 58px;\n  padding: 0 18px;\n  border-bottom: 1px solid rgba(151, 211, 235, 0.14);\n}",
+  "tags": [
+    "nimbus-demo"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-demo",
+  "version": "1.0.0"
+}

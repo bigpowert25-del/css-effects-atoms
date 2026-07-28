@@ -1,0 +1,16 @@
+{
+  "id": "hero-video-slot",
+  "name": "Hero Video Slot",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-driving-assistant",
+  "css": ".hero-video-slot {\n  position: absolute; pointer-events: none; visibility: hidden;\n  width: var(--hero-media-w); aspect-ratio: var(--hero-media-aspect);\n  left: calc(50% - var(--hero-media-w) / 2);\n  top: calc(50% - (var(--hero-media-w) / (var(--hero-media-aspect))) / 2 + var(--hero-center-shift, 0px));\n}",
+  "tags": [
+    "ai-driving-assistant"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-driving-assistant",
+  "version": "1.0.0"
+}

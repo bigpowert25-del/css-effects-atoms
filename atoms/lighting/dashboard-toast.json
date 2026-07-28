@@ -1,0 +1,16 @@
+{
+  "id": "dashboard-toast",
+  "name": "Dashboard Toast",
+  "category": "lighting",
+  "subcategory": "shadow",
+  "description": "CSS class from nimbus-demo",
+  "css": ".dashboard-toast {\n  position: absolute;\n  right: clamp(28px, 7vw, 90px);\n  bottom: 58px;\n  width: min(330px, 34vw);\n  padding: 18px 20px;\n  border: 1px solid rgba(151, 211, 235, 0.22);\n  border-radius: 4px;\n  color: #97d3eb;\n  background: rgba(8, 34, 42, 0.92);\n  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.34);\n}",
+  "tags": [
+    "nimbus-demo"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-demo",
+  "version": "1.0.0"
+}

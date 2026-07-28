@@ -1,0 +1,16 @@
+{
+  "id": "gradient",
+  "name": "Gradient",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".gradient { background: linear-gradient(165deg, rgba(122,50,227,1) 0%, rgba(253,135,61,1) 100%); }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

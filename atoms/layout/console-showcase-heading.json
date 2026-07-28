@@ -1,0 +1,16 @@
+{
+  "id": "console-showcase-heading",
+  "name": "Console Showcase Heading",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from nimbus-demo",
+  "css": ".console-showcase-heading {\n  position: relative;\n  z-index: 2;\n  display: grid;\n  grid-template-columns: minmax(0, 720px) minmax(220px, 360px);\n  justify-content: space-between;\n  gap: clamp(32px, 6vw, 86px);\n  width: 100%;\n}",
+  "tags": [
+    "nimbus-demo"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-demo",
+  "version": "1.0.0"
+}

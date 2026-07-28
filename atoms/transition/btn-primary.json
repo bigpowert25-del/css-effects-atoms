@@ -1,0 +1,16 @@
+{
+  "id": "btn-primary",
+  "name": "Btn Primary",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from Luxury_Ecommerce_Design",
+  "css": ".btn-primary {\n  position: relative;\n  overflow: hidden;\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n}",
+  "tags": [
+    "luxury_ecommerce_design"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Luxury_Ecommerce_Design",
+  "version": "1.0.0"
+}

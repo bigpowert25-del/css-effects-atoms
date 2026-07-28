@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARAISE — Grow Your Wealth With Confidence</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
+      colors: { gold: { DEFAULT:'#DBA85A', dark:'#C99849' } }
+    }
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: #000; color: #fff; font-family: 'Inter', system-ui, sans-serif; }
+  ::selection { background: #DBA85A; color: #000; }
+
+  /* Fade-in animations */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.16,1,0.3,1); }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  .fade-in { opacity: 0; transition: opacity 0.7s ease; }
+  .fade-in.visible { opacity: 1; }
+
+  /* Glow pulse */
+  @keyframes glowPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+  }
+  .glow-pulse { animation: glowPulse 4s ease-in-out infinite; }
+
+  /* Float */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  .coin-float { animation: float 6s ease-in-out infinite; }
+
+  /* Mobile nav */
+  .mobile-nav { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .mobile-nav.open { max-height: 400px; }
+
+  /* Smooth card hover */
+  .card-hover { transition: all 0.3s ease; }
+  .card-hover:hover { transform: translateY(-4px); }
+
+  /* Pricing card glow */
+  .pricing-glow { transition: all 0.3s ease; }
+
+  /* Form focus */
+  input:focus, textarea:focus { outline: none; }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ===== NAVBAR ===== -->
+<nav class="absolute top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+    <!-- Brand -->
+    <a href="#" class="flex items-center gap-3 group">
+      <div class="flex items-end gap-[3px]">
+        <span class="block w-1.5 h-3 bg-[#DBA85A] rounded-sm"></span>
+        <span class="block w-1.5 h-5 bg-[#DBA85A] rounded-sm"></span>
+        <span class="block w-1.5 h-7 bg-[#DBA85A] rounded-sm"></span>
+      </div>
+      <span class="text-xl font-bold text-white tracking-tight">ARAISE</span>
+    </a>
+
+    <!-- Desktop Links -->
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="#home" class="relative text-sm font-medium text-white pb-2">Home<span class="absolute bottom-[-2px] left-0 h-0.5 w-full bg-[#DBA85A]"></span></a>
+      <a href="#about" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">About</a>
+      <a href="#services" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Services</a>
+      <a href="#pricing" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Pricing</a>
+      <a href="#contact" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Contact</a>
+    </div>
+
+    <!-- Desktop CTA -->
+    <a href="#contact" class="hidden lg:inline-flex bg-[#DBA85A] hover:bg-[#C99849] text-black px-6 py-2.5 rounded-md font-semibold text-sm transition-all duration-300 hover:scale-105">
+      Get Started
+    </a>
+
+    <!-- Mobile Toggle -->
+    <button id="menuBtn" class="lg:hidden text-white p-2" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="4" y1="6" x2="20" y2="6"></line>
+        <line x1="4" y1="12" x2="20" y2="12"></line>
+        <line x1="4" y1="18" x2="20" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="mobileNav" class="mobile-nav lg:hidden">
+    <div class="bg-[#0A0A0A] border-t border-gray-800 mx-4 rounded-b-2xl px-6 py-4 flex flex-col gap-3">
+      <a href="#home" class="text-sm font-medium text-white py-2">Home</a>
+      <a href="#about" class="text-sm font-medium text-gray-400 hover:text-white transition-colors py-2">About</a>
+      <a href="#services" class="text-sm font-medium text-gray-400 hover:text-white transition-colors py-2">Services</a>
+      <a href="#pricing" class="text-sm font-medium text-gray-400 hover:text-white transition-colors py-2">Pricing</a>
+      <a href="#contact" class="text-sm font-medium text-gray-400 hover:text-white transition-colors py-2">Contact</a>
+      <a href="#contact" class="inline-flex justify-center bg-[#DBA85A] hover:bg-[#C99849] text-black px-6 py-2.5 rounded-md font-semibold text-sm transition-all duration-300 mt-2">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO SECTION ===== -->
+<section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+  <!-- Background Glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#DBA85A]/10 blur-[120px] rounded-full glow-pulse pointer-events-none"></div>
+  <div class="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-[#DBA85A]/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Left Content -->
+      <div class="max-w-xl">
+        <span class="inline-block text-sm font-semibold tracking-[0.2em] uppercase text-[#DBA85A] mb-6">Premium Finance</span>
+        <h1 class="text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-white mb-8">
+          Grow Your Wealth<br>With Confidence
+        </h1>
+        <p class="text-gray-400 text-lg leading-relaxed mb-10 max-w-lg">
+          Expert financial strategies tailored to your goals. We combine data-driven insights with personalized guidance to help you build lasting wealth.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="inline-flex items-center gap-2 bg-[#DBA85A] hover:bg-[#C99849] text-black px-8 py-3.5 rounded-lg font-semibold text-base transition-all duration-300 hover:scale-105">
+            Get Started
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#about" class="inline-flex items-center gap-2 border border-[#DBA85A] text-[#DBA85A] hover:bg-[#DBA85A]/10 px-8 py-3.5 rounded-lg font-semibold text-base transition-all duration-300">
+            Learn More
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column - Video -->
+      <div class="flex justify-center lg:justify-end">
+        <div class="relative w-full max-w-[440px] aspect-square lg:aspect-[4/3] coin-float">
+          <video autoplay loop muted playsinline class="w-full h-full object-contain mix-blend-screen"
+            src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/finance_coin_animation.mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ROW ===== -->
+<section class="relative z-10 -mt-12 pb-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="bg-[#141414] border border-gray-800 rounded-3xl p-8 lg:p-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Feature 1 -->
+        <div class="group">
+          <div class="w-12 h-12 bg-[#DBA85A]/10 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110">
+            <svg class="w-6 h-6 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2 transition-colors duration-300 group-hover:text-[#DBA85A]">Strategic Planning</h4>
+          <p class="text-gray-400 text-sm leading-relaxed">Custom roadmaps designed around your financial goals and timeline.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="group">
+          <div class="w-12 h-12 bg-[#DBA85A]/10 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110">
+            <svg class="w-6 h-6 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2 transition-colors duration-300 group-hover:text-[#DBA85A]">Risk Management</h4>
+          <p class="text-gray-400 text-sm leading-relaxed">Protect your assets with proactive risk assessment and mitigation.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="group">
+          <div class="w-12 h-12 bg-[#DBA85A]/10 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110">
+            <svg class="w-6 h-6 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2 transition-colors duration-300 group-hover:text-[#DBA85A]">Investment Insights</h4>
+          <p class="text-gray-400 text-sm leading-relaxed">Data-backed market analysis to uncover high-potential opportunities.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="group">
+          <div class="w-12 h-12 bg-[#DBA85A]/10 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110">
+            <svg class="w-6 h-6 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2 transition-colors duration-300 group-hover:text-[#DBA85A]">Personalized Support</h4>
+          <p class="text-gray-400 text-sm leading-relaxed">Dedicated advisors who understand your unique financial situation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section id="about" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Left Column - Trust Card -->
+      <div class="relative">
+        <div class="absolute -inset-4 bg-gradient-to-tr from-[#DBA85A]/20 to-transparent blur-lg rounded-3xl rotate-3 pointer-events-none"></div>
+        <div class="relative bg-[#0A0A0A] border border-gray-800 rounded-3xl p-10">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 bg-[#141414] rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <span class="text-xl font-bold text-white">Trusted Results</span>
+          </div>
+          <div class="space-y-5">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-[#141414] rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <span class="text-white font-semibold text-sm">Precision Strategies</span>
+                <p class="text-gray-400 text-xs">Data-driven planning with measurable outcomes.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-[#141414] rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <span class="text-white font-semibold text-sm">Consistent Growth</span>
+                <p class="text-gray-400 text-xs">Sustainable returns through disciplined investing.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-[#141414] rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <span class="text-white font-semibold text-sm">Secure Assets</span>
+                <p class="text-gray-400 text-xs">Enterprise-grade security protecting your wealth.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - About Content -->
+      <div>
+        <span class="text-sm font-semibold tracking-[0.2em] uppercase text-[#DBA85A]">About Us</span>
+        <h2 class="text-4xl lg:text-5xl font-bold text-white mt-4 mb-6">Empowering Your<br>Financial Journey</h2>
+        <p class="text-gray-400 text-lg leading-relaxed mb-5">
+          Since 2012, ARAISE has helped over 15,000 clients build and protect their wealth. Our team of certified financial advisors combines decades of experience with cutting-edge analytics.
+        </p>
+        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+          We believe wealth management should be transparent, accessible, and personalized. Every strategy we design is built around your unique goals.
+        </p>
+        <a href="#services" class="inline-flex items-center gap-2 border border-[#DBA85A] text-[#DBA85A] hover:bg-[#DBA85A]/10 px-8 py-3 rounded-lg font-semibold text-base transition-all duration-300">
+          Explore Services
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES SECTION ===== -->
+<section id="services" class="py-24" style="background:#050505;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-sm font-semibold tracking-[0.2em] uppercase text-[#DBA85A]">Our Services</span>
+      <h2 class="text-4xl lg:text-5xl font-bold text-white mt-4 mb-6">Comprehensive Wealth<br>Management Solutions</h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">From portfolio optimization to retirement planning, we cover every aspect of your financial life.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Service 1 -->
+      <div class="group bg-[#0A0A0A] border border-gray-800 hover:border-[#DBA85A]/50 rounded-3xl p-8 relative overflow-hidden transition-all duration-300">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-[#DBA85A]/5 blur-3xl rounded-full transition-opacity duration-300 group-hover:opacity-100 opacity-0"></div>
+        <div class="relative z-10">
+          <div class="w-14 h-14 bg-[#DBA85A]/10 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+            <svg class="w-7 h-7 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-3">Portfolio Management</h4>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Dynamic asset allocation and rebalancing to maximize returns while managing risk exposure.</p>
+          <a href="#" class="inline-flex items-center gap-2 text-[#DBA85A] text-sm font-semibold group/link">
+            Learn more
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="group bg-[#0A0A0A] border border-gray-800 hover:border-[#DBA85A]/50 rounded-3xl p-8 relative overflow-hidden transition-all duration-300">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-[#DBA85A]/5 blur-3xl rounded-full transition-opacity duration-300 group-hover:opacity-100 opacity-0"></div>
+        <div class="relative z-10">
+          <div class="w-14 h-14 bg-[#DBA85A]/10 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+            <svg class="w-7 h-7 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-3">Retirement Planning</h4>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Build a secure retirement with tax-advantaged strategies and long-term growth projections.</p>
+          <a href="#" class="inline-flex items-center gap-2 text-[#DBA85A] text-sm font-semibold group/link">
+            Learn more
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="group bg-[#0A0A0A] border border-gray-800 hover:border-[#DBA85A]/50 rounded-3xl p-8 relative overflow-hidden transition-all duration-300">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-[#DBA85A]/5 blur-3xl rounded-full transition-opacity duration-300 group-hover:opacity-100 opacity-0"></div>
+        <div class="relative z-10">
+          <div class="w-14 h-14 bg-[#DBA85A]/10 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+            <svg class="w-7 h-7 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-3">Tax Optimization</h4>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Strategic tax planning to minimize liabilities and keep more of what you earn working for you.</p>
+          <a href="#" class="inline-flex items-center gap-2 text-[#DBA85A] text-sm font-semibold group/link">
+            Learn more
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="group bg-[#0A0A0A] border border-gray-800 hover:border-[#DBA85A]/50 rounded-3xl p-8 relative overflow-hidden transition-all duration-300">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-[#DBA85A]/5 blur-3xl rounded-full transition-opacity duration-300 group-hover:opacity-100 opacity-0"></div>
+        <div class="relative z-10">
+          <div class="w-14 h-14 bg-[#DBA85A]/10 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+            <svg class="w-7 h-7 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-3">Wealth Advisory</h4>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">One-on-one guidance from certified advisors who understand your complete financial picture.</p>
+          <a href="#" class="inline-flex items-center gap-2 text-[#DBA85A] text-sm font-semibold group/link">
+            Learn more
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="group bg-[#0A0A0A] border border-gray-800 hover:border-[#DBA85A]/50 rounded-3xl p-8 relative overflow-hidden transition-all duration-300">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-[#DBA85A]/5 blur-3xl rounded-full transition-opacity duration-300 group-hover:opacity-100 opacity-0"></div>
+        <div class="relative z-10">
+          <div class="w-14 h-14 bg-[#DBA85A]/10 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+            <svg class="w-7 h-7 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-3">Market Intelligence</h4>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Real-time market analysis and trend forecasting to keep you ahead of the curve.</p>
+          <a href="#" class="inline-flex items-center gap-2 text-[#DBA85A] text-sm font-semibold group/link">
+            Learn more
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="group bg-[#0A0A0A] border border-gray-800 hover:border-[#DBA85A]/50 rounded-3xl p-8 relative overflow-hidden transition-all duration-300">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-[#DBA85A]/5 blur-3xl rounded-full transition-opacity duration-300 group-hover:opacity-100 opacity-0"></div>
+        <div class="relative z-10">
+          <div class="w-14 h-14 bg-[#DBA85A]/10 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+            <svg class="w-7 h-7 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect x="3" y="4" width="18" height="18" rx="2"/><circle cx="12" cy="10" r="2"/><path d="M8 2v2"/><path d="M16 2v2"/></svg>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-3">Estate Planning</h4>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Preserve your legacy with comprehensive estate and succession planning strategies.</p>
+          <a href="#" class="inline-flex items-center gap-2 text-[#DBA85A] text-sm font-semibold group/link">
+            Learn more
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING SECTION ===== -->
+<section id="pricing" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-sm font-semibold tracking-[0.2em] uppercase text-[#DBA85A]">Pricing</span>
+      <h2 class="text-4xl lg:text-5xl font-bold text-white mt-4 mb-6">Choose Your<br>Wealth Plan</h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">Transparent pricing with no hidden fees. Start building your financial future today.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8 items-end max-w-5xl mx-auto">
+      <!-- Tier 1: Starter -->
+      <div class="bg-[#0A0A0A] border border-gray-800 rounded-3xl p-8 lg:p-10 transition-all duration-300 hover:border-[#DBA85A]/30">
+        <h4 class="text-xl font-bold text-white mb-2">Starter</h4>
+        <p class="text-gray-400 text-sm mb-6">For individuals starting their wealth journey.</p>
+        <div class="mb-6">
+          <span class="text-5xl font-bold text-white">$49</span>
+          <span class="text-gray-400">/month</span>
+        </div>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3 text-sm text-gray-400">
+            <svg class="w-5 h-5 text-[#DBA85A] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Basic portfolio analysis
+          </li>
+          <li class="flex items-start gap-3 text-sm text-gray-400">
+            <svg class="w-5 h-5 text-[#DBA85A] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Monthly market reports
+          </li>
+          <li class="flex items-start gap-3 text-sm text-gray-400">
+            <svg class="w-5 h-5 text-[#DBA85A] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Email support
+          </li>
+        </ul>
+        <a href="#" class="block text-center border border-[#DBA85A] text-[#DBA85A] hover:bg-[#DBA85A] hover:text-black px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300">Get Started</a>
+      </div>
+
+      <!-- Tier 2: Professional (Highlighted) -->
+      <div class="bg-[#141414] border-2 border-[#DBA85A] rounded-3xl p-8 lg:p-10 relative lg:-translate-y-4 shadow-2xl pricing-glow" style="box-shadow: 0 20px 60px rgba(219,168,90,0.1);">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#DBA85A] text-black text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap tracking-wide">MOST POPULAR</div>
+        <h4 class="text-xl font-bold text-white mb-2">Professional</h4>
+        <p class="text-gray-400 text-sm mb-6">For serious investors seeking active management.</p>
+        <div class="mb-6">
+          <span class="text-5xl font-bold text-white">$149</span>
+          <span class="text-gray-400">/month</span>
+        </div>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3 text-sm text-gray-300">
+            <svg class="w-5 h-5 text-[#DBA85A] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Everything in Starter
+          </li>
+          <li class="flex items-start gap-3 text-sm text-gray-300">
+            <svg class="w-5 h-5 text-[#DBA85A] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Dedicated financial advisor
+          </li>
+          <li class="flex items-start gap-3 text-sm text-gray-300">
+            <svg class="w-5 h-5 text-[#DBA85A] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Active portfolio management
+          </li>
+          <li class="flex items-start gap-3 text-sm text-gray-300">
+            <svg class="w-5 h-5 text-[#DBA85A] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Tax optimization strategies
+          </li>
+          <li class="flex items-start gap-3 text-sm text-gray-300">
+            <svg class="w-5 h-5 text-[#DBA85A] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Priority support
+          </li>
+        </ul>
+        <a href="#" class="block text-center bg-[#DBA85A] hover:bg-[#C99849] text-black px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105">Get Started</a>
+      </div>
+
+      <!-- Tier 3: Enterprise -->
+      <div class="bg-[#0A0A0A] border border-gray-800 rounded-3xl p-8 lg:p-10 transition-all duration-300 hover:border-[#DBA85A]/30">
+        <h4 class="text-xl font-bold text-white mb-2">Enterprise</h4>
+        <p class="text-gray-400 text-sm mb-6">For high-net-worth families and institutions.</p>
+        <div class="mb-6">
+          <span class="text-5xl font-bold text-white">Custom</span>
+        </div>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3 text-sm text-gray-400">
+            <svg class="w-5 h-5 text-[#DBA85A] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Everything in Professional
+          </li>
+          <li class="flex items-start gap-3 text-sm text-gray-400">
+            <svg class="w-5 h-5 text-[#DBA85A] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Family office services
+          </li>
+          <li class="flex items-start gap-3 text-sm text-gray-400">
+            <svg class="w-5 h-5 text-[#DBA85A] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Estate & legacy planning
+          </li>
+        </ul>
+        <a href="#" class="block text-center border border-[#DBA85A] text-[#DBA85A] hover:bg-[#DBA85A] hover:text-black px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT SECTION ===== -->
+<section id="contact" class="py-24" style="background:#050505;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-sm font-semibold tracking-[0.2em] uppercase text-[#DBA85A]">Contact</span>
+      <h2 class="text-4xl lg:text-5xl font-bold text-white mt-4 mb-6">Let's Start a<br>Conversation</h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">Ready to take control of your financial future? Reach out and we'll craft a plan together.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+      <!-- Left: Info Card -->
+      <div class="bg-[#0A0A0A] border border-gray-800 rounded-3xl p-10 flex flex-col justify-center">
+        <div class="space-y-8">
+          <div class="flex items-center gap-5">
+            <div class="w-12 h-12 bg-[#141414] rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <p class="text-gray-400 text-sm">Email</p>
+              <p class="text-white font-semibold">hello@araise.com</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-5">
+            <div class="w-12 h-12 bg-[#141414] rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <p class="text-gray-400 text-sm">Phone</p>
+              <p class="text-white font-semibold">+1 (555) 123-4567</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-5">
+            <div class="w-12 h-12 bg-[#141414] rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-[#DBA85A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <p class="text-gray-400 text-sm">Location</p>
+              <p class="text-white font-semibold">New York, NY 10013</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="bg-[#0A0A0A] border border-gray-800 rounded-3xl p-10">
+        <form class="space-y-5" onsubmit="event.preventDefault(); alert('Message sent! We will get back to you soon.');">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <input type="text" placeholder="First Name" aria-label="First name" class="w-full bg-[#141414] border border-gray-800 rounded-xl px-4 py-3 text-white text-sm transition-all duration-300 focus:border-[#DBA85A] focus:ring-1 focus:ring-[#DBA85A]" required>
+            <input type="text" placeholder="Last Name" aria-label="Last name" class="w-full bg-[#141414] border border-gray-800 rounded-xl px-4 py-3 text-white text-sm transition-all duration-300 focus:border-[#DBA85A] focus:ring-1 focus:ring-[#DBA85A]" required>
+          </div>
+          <input type="email" placeholder="Email Address" aria-label="Email address" class="w-full bg-[#141414] border border-gray-800 rounded-xl px-4 py-3 text-white text-sm transition-all duration-300 focus:border-[#DBA85A] focus:ring-1 focus:ring-[#DBA85A]" required>
+          <input type="text" placeholder="Subject" aria-label="Subject" class="w-full bg-[#141414] border border-gray-800 rounded-xl px-4 py-3 text-white text-sm transition-all duration-300 focus:border-[#DBA85A] focus:ring-1 focus:ring-[#DBA85A]">
+          <textarea rows="4" placeholder="Your Message" aria-label="Your message" class="w-full bg-[#141414] border border-gray-800 rounded-xl px-4 py-3 text-white text-sm transition-all duration-300 focus:border-[#DBA85A] focus:ring-1 focus:ring-[#DBA85A] resize-none" required></textarea>
+          <button type="submit" class="w-full bg-[#DBA85A] hover:bg-[#C99849] text-black px-6 py-3.5 rounded-xl font-semibold text-base transition-all duration-300 hover:scale-[1.02]">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-[#0A0A0A] pt-20 pb-8">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Top Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+      <!-- Brand -->
+      <div class="sm:col-span-2 lg:col-span-1">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="flex items-end gap-[3px]">
+            <span class="block w-1.5 h-3 bg-[#DBA85A] rounded-sm"></span>
+            <span class="block w-1.5 h-5 bg-[#DBA85A] rounded-sm"></span>
+            <span class="block w-1.5 h-7 bg-[#DBA85A] rounded-sm"></span>
+          </div>
+          <span class="text-xl font-bold text-white tracking-tight">ARAISE</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Empowering individuals and families to achieve financial freedom through expert guidance and innovative strategies.</p>
+      </div>
+
+      <!-- Company Links -->
+      <div>
+        <h4 class="text-white font-semibold mb-5">Company</h4>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-gray-400 text-sm hover:text-white transition-colors">About</a></li>
+          <li><a href="#" class="text-gray-400 text-sm hover:text-white transition-colors">Careers</a></li>
+          <li><a href="#" class="text-gray-400 text-sm hover:text-white transition-colors">Press</a></li>
+          <li><a href="#" class="text-gray-400 text-sm hover:text-white transition-colors">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources Links -->
+      <div>
+        <h4 class="text-white font-semibold mb-5">Resources</h4>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-gray-400 text-sm hover:text-white transition-colors">Help Center</a></li>
+          <li><a href="#" class="text-gray-400 text-sm hover:text-white transition-colors">Market Reports</a></li>
+          <li><a href="#" class="text-gray-400 text-sm hover:text-white transition-colors">Calculators</a></li>
+          <li><a href="#" class="text-gray-400 text-sm hover:text-white transition-colors">Webinars</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h4 class="text-white font-semibold mb-5">Newsletter</h4>
+        <p class="text-gray-400 text-sm mb-4">Get weekly market insights and tips.</p>
+        <form class="flex gap-2" onsubmit="event.preventDefault();">
+          <input type="email" placeholder="Your email" aria-label="Newsletter email" class="flex-1 bg-[#141414] border border-gray-800 rounded-lg px-4 py-2.5 text-white text-sm transition-all duration-300 focus:border-[#DBA85A] focus:ring-1 focus:ring-[#DBA85A]" required>
+          <button type="submit" class="bg-[#DBA85A] hover:bg-[#C99849] text-black px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 flex-shrink-0">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-gray-500 text-sm">&copy; 2024 ARAISE. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="w-10 h-10 bg-[#141414] hover:bg-[#DBA85A]/20 rounded-full flex items-center justify-center transition-all duration-300 group">
+          <svg class="w-4 h-4 text-gray-400 group-hover:text-[#DBA85A] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </a>
+        <a href="#" class="w-10 h-10 bg-[#141414] hover:bg-[#DBA85A]/20 rounded-full flex items-center justify-center transition-all duration-300 group">
+          <svg class="w-4 h-4 text-gray-400 group-hover:text-[#DBA85A] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </a>
+        <a href="#" class="w-10 h-10 bg-[#141414] hover:bg-[#DBA85A]/20 rounded-full flex items-center justify-center transition-all duration-300 group">
+          <svg class="w-4 h-4 text-gray-400 group-hover:text-[#DBA85A] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== SCROLL REVEAL + MOBILE NAV ===== -->
+<script>
+// Intersection Observer for fade-up animations
+const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -60px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-up, .fade-in').forEach(el => observer.observe(el));
+
+// Mobile nav toggle
+document.getElementById('menuBtn').addEventListener('click', () => {
+  document.getElementById('mobileNav').classList.toggle('open');
+});
+
+// Close mobile nav on link click
+document.querySelectorAll('#mobileNav a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('mobileNav').classList.remove('open');
+  });
+});
+</script>
+
+</body>
+</html>

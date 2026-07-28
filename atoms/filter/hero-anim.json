@@ -1,0 +1,16 @@
+{
+  "id": "hero-anim",
+  "name": "Hero Anim",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from interactive-discovery",
+  "css": ".hero-anim { opacity:0; animation-fill-mode:forwards; animation-timing-function:cubic-bezier(0.16,1,0.3,1); }",
+  "tags": [
+    "interactive-discovery"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/interactive-discovery",
+  "version": "1.0.0"
+}

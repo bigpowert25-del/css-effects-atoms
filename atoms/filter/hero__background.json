@@ -1,0 +1,16 @@
+{
+  "id": "hero__background",
+  "name": "Hero__Background",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".hero__background {\n  position: sticky;\n  top: 0;\n  z-index: 0;\n  height: 100vh;\n  overflow: hidden;\n  background:\n    linear-gradient(\n      180deg,\n      var(--hero-top, #7191d0) 0%,\n      var(--hero-mid, #aab8d5) 55%,\n      var(--hero-bottom, #ece9e6) 100%\n    );\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

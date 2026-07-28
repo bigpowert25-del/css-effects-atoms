@@ -1,0 +1,16 @@
+{
+  "id": "font-serif-italic",
+  "name": "Font Serif Italic",
+  "category": "3d",
+  "subcategory": "transform",
+  "description": "CSS class from luminara",
+  "css": ".font-serif-italic {\n  font-family: 'Instrument Serif', serif;\n  font-style: italic;\n}",
+  "tags": [
+    "luminara"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/luminara",
+  "version": "1.0.0"
+}

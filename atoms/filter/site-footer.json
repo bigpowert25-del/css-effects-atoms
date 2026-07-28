@@ -1,0 +1,16 @@
+{
+  "id": "site-footer",
+  "name": "Site Footer",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".site-footer { position: relative; z-index: 100; overflow: hidden; background: #000000; color: #ffffff; }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

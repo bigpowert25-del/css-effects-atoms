@@ -1,0 +1,16 @@
+{
+  "id": "error-title",
+  "name": "Error Title",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".error-title{color:#ef4444;font-family:\"JetBrains Mono\",monospace;font-size:14px;margin:0 0 8px 0}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

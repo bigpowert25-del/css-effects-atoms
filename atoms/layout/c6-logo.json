@@ -1,0 +1,16 @@
+{
+  "id": "c6-logo",
+  "name": "C6 Logo",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from Learnly",
+  "css": ".c6-logo {\n  font-size: 1.8rem;\n  font-weight: 700;\n  letter-spacing: -0.5px;\n  z-index: 101;\n}",
+  "tags": [
+    "learnly"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Learnly",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "hero",
+  "name": "Hero",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".hero {\n  position: relative;\n  height: 180vh;\n  min-height: 1238px;\n  overflow: clip;\n  background: var(--hero-blue);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

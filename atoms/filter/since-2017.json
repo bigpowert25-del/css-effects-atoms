@@ -1,0 +1,16 @@
+{
+  "id": "since-2017",
+  "name": "Since 2017",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".since-2017 {\n      position: absolute;\n      right: 24px;\n      top: 60%;\n      z-index: 30;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

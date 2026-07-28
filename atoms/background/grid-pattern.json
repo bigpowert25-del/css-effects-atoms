@@ -1,0 +1,26 @@
+{
+  "id": "grid-pattern",
+  "name": "科技网格背景",
+  "category": "background",
+  "subcategory": "pattern",
+  "description": "CSS纯代码实现科技感点阵网格背景",
+  "css": ".fx-grid-bg{background-color:#0a0e17;background-image:radial-gradient(circle,rgba(59,130,246,0.15) 1px,transparent 1px);background-size:32px 32px}",
+  "tags": [
+    "grid",
+    "dot",
+    "tech",
+    "background"
+  ],
+  "keywords": [
+    "网格",
+    "点阵",
+    "科技感",
+    "背景"
+  ],
+  "dependencies": [],
+  "source": "motionsites/crafted",
+  "version": "1.0.0",
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "html": "",
+  "js": ""
+}

@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS FX Interaction Runner</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #111415;
+        --ink: #f4f1e9;
+        --muted: #a5aaa8;
+        --line: rgba(244, 241, 233, 0.2);
+        --red: #ff5b50;
+        --teal: #49c4b5;
+        --yellow: #efb948;
+      }
+      * { box-sizing: border-box; }
+      html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+        letter-spacing: 0;
+        user-select: none;
+      }
+      button { font: inherit; }
+      #stage {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        touch-action: none;
+        cursor: crosshair;
+        background:
+          repeating-linear-gradient(90deg, transparent 0 79px, rgba(255,255,255,.04) 79px 80px),
+          repeating-linear-gradient(0deg, transparent 0 79px, rgba(255,255,255,.04) 79px 80px),
+          var(--bg);
+      }
+      .hud {
+        position: fixed;
+        z-index: 20;
+        left: 14px;
+        top: 12px;
+        pointer-events: none;
+      }
+      .hud b {
+        display: block;
+        font: 700 10px/1 ui-monospace, monospace;
+        color: var(--red);
+        text-transform: uppercase;
+      }
+      .hud span {
+        display: block;
+        max-width: 34ch;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 9px;
+      }
+      .center { position: absolute; inset: 0; display: grid; place-items: center; }
+      .magnet-set { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; padding: 70px 30px 30px; }
+      .magnet {
+        width: 84px;
+        height: 84px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: transparent;
+        color: var(--ink);
+        transition: transform 320ms cubic-bezier(.2,.8,.2,1), background 180ms ease;
+        will-change: transform;
+      }
+      .magnet:hover { background: var(--red); border-color: var(--red); }
+      .spotlight-surface {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        --x: 50%;
+        --y: 50%;
+        background:
+          radial-gradient(circle 110px at var(--x) var(--y), rgba(244,241,233,.95), rgba(73,196,181,.3) 44%, transparent 72%),
+          #121516;
+      }
+      .spotlight-surface strong {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(244,241,233,.36);
+        font: 600 clamp(42px, 12vw, 90px)/.9 Georgia, serif;
+      }
+      .reveal {
+        position: absolute;
+        inset: 0;
+        --x: 50%;
+        --y: 50%;
+        background:
+          linear-gradient(145deg, rgba(239,185,72,.8), transparent 60%),
+          repeating-linear-gradient(20deg, #28302e 0 18px, #202725 18px 36px);
+      }
+      .reveal::after {
+        content: "SECOND LAYER";
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: #111415;
+        font: 800 clamp(20px, 6vw, 46px)/1 ui-monospace, monospace;
+        background:
+          repeating-linear-gradient(-30deg, #f4f1e9 0 14px, #49c4b5 14px 28px);
+        clip-path: circle(92px at var(--x) var(--y));
+      }
+      .kinetic-line {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        width: 100%;
+        padding: 50px 12px 0;
+        font: 700 clamp(36px, 13vw, 86px)/1 "Arial Narrow", sans-serif;
+      }
+      .kinetic-line span {
+        min-width: .72em;
+        text-align: center;
+        transition: transform 120ms linear, font-weight 120ms linear, color 120ms linear;
+      }
+      canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+      .trail-card {
+        position: absolute;
+        width: 84px;
+        aspect-ratio: 4 / 5;
+        display: grid;
+        place-items: end start;
+        padding: 7px;
+        border: 1px solid rgba(255,255,255,.38);
+        color: white;
+        font: 700 9px/1 ui-monospace, monospace;
+        transform: translate(-50%, -50%) rotate(var(--r));
+        background: var(--c);
+        pointer-events: none;
+        animation: trail-life 900ms ease forwards;
+      }
+      @keyframes trail-life {
+        0% { opacity: 0; transform: translate(-50%,-40%) rotate(var(--r)) scale(.72); }
+        18% { opacity: 1; }
+        100% { opacity: 0; transform: translate(-50%,-72%) rotate(var(--r)) scale(1); }
+      }
+      .scrub-ui {
+        width: min(520px, calc(100% - 36px));
+        display: grid;
+        gap: 18px;
+        padding-top: 36px;
+      }
+      .frame-display {
+        position: relative;
+        aspect-ratio: 16 / 8;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #1d2222;
+      }
+      .frame-display::before {
+        content: "";
+        position: absolute;
+        width: 48%;
+        aspect-ratio: 1;
+        left: var(--p);
+        top: 50%;
+        border: 28px solid var(--red);
+        transform: translate(-50%,-50%) rotate(calc(var(--n) * 1deg));
+        transition: left 80ms linear;
+      }
+      .frame-number {
+        position: absolute;
+        right: 12px;
+        bottom: 10px;
+        font: 700 28px/1 ui-monospace, monospace;
+      }
+      .scrub-track {
+        height: 28px;
+        position: relative;
+        border-top: 1px solid var(--line);
+        cursor: ew-resize;
+      }
+      .scrub-fill { height: 3px; width: var(--p); margin-top: -2px; background: var(--red); }
+      .scrub-track span { display: block; margin-top: 8px; color: var(--muted); font: 9px/1 ui-monospace, monospace; }
+      .card-stack { position: relative; width: min(420px, 82vw); height: 230px; margin-top: 42px; }
+      .drag-card {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        align-content: end;
+        padding: 20px;
+        border: 1px solid var(--line);
+        background: var(--c);
+        transform: translateX(var(--x)) translateY(var(--y)) rotate(var(--r)) scale(var(--s));
+        transform-origin: 50% 90%;
+        transition: transform 400ms cubic-bezier(.2,.8,.2,1);
+        cursor: grab;
+      }
+      .drag-card:active { cursor: grabbing; }
+      .drag-card b { font: 700 12px/1 ui-monospace, monospace; }
+      .media-deck {
+        width: min(560px, calc(100% - 30px));
+        display: grid;
+        grid-template-columns: 42px 1fr 42px;
+        align-items: center;
+        gap: 8px;
+        margin-top: 38px;
+      }
+      .media-deck button {
+        width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 50%;
+        background: transparent; color: var(--ink); cursor: pointer;
+      }
+      .media-stage {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+      }
+      .media-slide {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-content: center;
+        gap: 6px;
+        background: var(--c);
+        transform: translateX(calc((var(--i) - var(--active)) * 100%));
+        transition: transform 460ms cubic-bezier(.2,.8,.2,1);
+      }
+      .media-slide b { font: 700 28px/1 ui-monospace, monospace; }
+      .media-slide span { text-align: center; font-size: 10px; }
+      .three-fallback {
+        position: absolute; inset: 0; display: grid; place-items: center; perspective: 800px;
+      }
+      .three-fallback span {
+        width: 110px; aspect-ratio: 1; border: 2px solid var(--teal);
+        transform: rotateX(58deg) rotateZ(42deg); animation: fallback-spin 4s linear infinite;
+      }
+      @keyframes fallback-spin { to { transform: rotateX(58deg) rotateZ(402deg); } }
+      @media (prefers-reduced-motion: reduce) {
+        .trail-card, .three-fallback span { animation: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="stage" aria-label="互动预览"></main>
+    <div class="hud"><b id="modeName"></b><span id="modeHint"></span></div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        const stage = document.getElementById("stage");
+        const mode = new URLSearchParams(location.search).get("mode") || "magnetic-field";
+        const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const cleanups = [];
+        let raf = 0;
+        let disposed = false;
+
+        const META = {
+          "magnetic-field": ["磁场按钮群", "移动指针，感受距离不同的吸附强度"],
+          "cursor-spotlight": ["光标探照灯", "移动指针照亮描边文字"],
+          "image-reveal-lens": ["双图揭示镜", "移动或触摸，揭示第二层画面"],
+          "kinetic-type": ["字重响应", "指针靠近时，字母变重并抬起"],
+          "gravity-dots": ["重力点阵", "移动指针牵引粒子"],
+          "pointer-ripple": ["指针涟漪", "点击或触摸释放波纹"],
+          "liquid-follow": ["液态跟随器", "移动指针拖动弹簧链"],
+          "hover-image-trail": ["图片拖尾", "快速移动指针生成有限生命周期卡片"],
+          "scroll-video-scrub": ["滚动视频擦洗", "滚轮或拖动时间线改变帧"],
+          "raycast-hover": ["3D 射线悬停", "移动指针选择 3D 对象"],
+          "drag-card-stack": ["惯性卡片栈", "拖动最上层卡片越过阈值"],
+          "physics-curtain": ["物理字帘", "拨动文字链，观察约束与惯性"],
+          "shader-poster": ["Shader 海报", "指针改变噪声场和颜色"],
+          "media-carousel": ["媒体甲板", "拖动或使用两侧按钮切换"],
+          "particle-network-panel": ["粒子网络面板", "移动指针扰动点线场"],
+          "orbit-product-viewer": ["轨道产品查看器", "拖动旋转对象"],
+        };
+
+        const info = META[mode] || META["magnetic-field"];
+        document.getElementById("modeName").textContent = `${mode} / ${info[0]}`;
+        document.getElementById("modeHint").textContent = info[1];
+
+        function on(target, type, listener, options) {
+          target.addEventListener(type, listener, options);
+          cleanups.push(() => target.removeEventListener(type, listener, options));
+        }
+
+        function pointer(event, element = stage) {
+          const rect = element.getBoundingClientRect();
+          return {
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top,
+            nx: ((event.clientX - rect.left) / rect.width) * 2 - 1,
+            ny: -(((event.clientY - rect.top) / rect.height) * 2 - 1),
+          };
+        }
+
+        function animate(draw) {
+          const frame = (time) => {
+            if (disposed) return;
+            draw(time);
+            raf = requestAnimationFrame(frame);
+          };
+          raf = requestAnimationFrame(frame);
+        }
+
+        function canvasSurface() {
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+          stage.append(canvas);
+          let width = 1;
+          let height = 1;
+          let dpr = 1;
+          const resize = () => {
+            const rect = stage.getBoundingClientRect();
+            width = rect.width;
+            height = rect.height;
+            dpr = Math.min(2, devicePixelRatio || 1);
+            canvas.width = Math.max(1, Math.round(width * dpr));
+            canvas.height = Math.max(1, Math.round(height * dpr));
+            context.setTransform(dpr, 0, 0, dpr, 0, 0);
+          };
+          const observer = new ResizeObserver(resize);
+          observer.observe(stage);
+          cleanups.push(() => observer.disconnect());
+          resize();
+          return { canvas, context, size: () => ({ width, height }) };
+        }
+
+        function initMagneticField() {
+          const wrap = document.createElement("div");
+          wrap.className = "center magnet-set";
+          wrap.innerHTML = ["VIEW", "DRAG", "OPEN", "COPY"].map((label) => `<button class="magnet">${label}</button>`).join("");
+          stage.append(wrap);
+          on(stage, "pointermove", (event) => {
+            document.querySelectorAll(".magnet").forEach((button) => {
+              const rect = button.getBoundingClientRect();
+              const dx = event.clientX - (rect.left + rect.width / 2);
+              const dy = event.clientY - (rect.top + rect.height / 2);
+              const distance = Math.hypot(dx, dy);
+              const force = Math.max(0, 1 - distance / 190);
+              button.style.transform = `translate(${dx * force * 0.26}px, ${dy * force * 0.26}px) scale(${1 + force * 0.08})`;
+            });
+          });
+          on(stage, "pointerleave", () => {
+            document.querySelectorAll(".magnet").forEach((button) => (button.style.transform = ""));
+          });
+        }
+
+        function initSpotlight() {
+          const surface = document.createElement("div");
+          surface.className = "spotlight-surface";
+          surface.innerHTML = "<strong>REVEAL</strong>";
+          stage.append(surface);
+          on(stage, "pointermove", (event) => {
+            const p = pointer(event);
+            surface.style.setProperty("--x", `${p.x}px`);
+            surface.style.setProperty("--y", `${p.y}px`);
+          });
+        }
+
+        function initReveal() {
+          const surface = document.createElement("div");
+          surface.className = "reveal";
+          stage.append(surface);
+          const move = (event) => {
+            const p = pointer(event);
+            surface.style.setProperty("--x", `${p.x}px`);
+            surface.style.setProperty("--y", `${p.y}px`);
+          };
+          on(stage, "pointermove", move);
+          on(stage, "pointerdown", move);
+        }
+
+        function initKineticType() {
+          const line = document.createElement("div");
+          line.className = "center kinetic-line";
+          line.innerHTML = [..."KINETIC"].map((letter) => `<span>${letter}</span>`).join("");
+          stage.append(line);
+          on(stage, "pointermove", (event) => {
+            [...line.children].forEach((letter) => {
+              const rect = letter.getBoundingClientRect();
+              const distance = Math.abs(event.clientX - (rect.left + rect.width / 2));
+              const force = Math.max(0, 1 - distance / 150);
+              letter.style.fontWeight = String(Math.round(520 + force * 280));
+              letter.style.transform = `translateY(${-force * 18}px) scaleY(${1 + force * 0.16})`;
+              letter.style.color = force > 0.72 ? "var(--red)" : "";
+            });
+          });
+        }
+
+        function initGravityDots() {
+          const { canvas, context, size } = canvasSurface();
+          const dots = Array.from({ length: 54 }, (_, index) => ({
+            x: (index % 9) * 54 + 30,
+            y: Math.floor(index / 9) * 54 + 36,
+            vx: 0,
+            vy: 0,
+          }));
+          const target = { x: 0, y: 0, active: false };
+          on(canvas, "pointermove", (event) => Object.assign(target, pointer(event, canvas), { active: true }));
+          on(canvas, "pointerleave", () => (target.active = false));
+          animate(() => {
+            const { width, height } = size();
+            context.clearRect(0, 0, width, height);
+            for (const dot of dots) {
+              if (target.active) {
+                const dx = target.x - dot.x;
+                const dy = target.y - dot.y;
+                const distance = Math.max(38, Math.hypot(dx, dy));
+                dot.vx += (dx / distance) * 0.13;
+                dot.vy += (dy / distance) * 0.13;
+              }
+              dot.vx *= 0.94;
+              dot.vy *= 0.94;
+              dot.x = (dot.x + dot.vx + width) % width;
+              dot.y = (dot.y + dot.vy + height) % height;
+              context.beginPath();
+              context.arc(dot.x, dot.y, 2.2, 0, Math.PI * 2);
+              context.fillStyle = "#49c4b5";
+              context.fill();
+            }
+          });
+        }
+
+        function initRipple() {
+          const { canvas, context, size } = canvasSurface();
+          const rings = [];
+          const add = (event) => {
+            canvas.setPointerCapture?.(event.pointerId);
+            const p = pointer(event, canvas);
+            rings.push({ x: p.x, y: p.y, radius: 4, alpha: 1 });
+          };
+          on(canvas, "pointerdown", add);
+          on(canvas, "pointermove", (event) => {
+            if (event.buttons) add(event);
+          });
+          animate(() => {
+            const { width, height } = size();
+            context.clearRect(0, 0, width, height);
+            for (let index = rings.length - 1; index >= 0; index -= 1) {
+              const ring = rings[index];
+              ring.radius += reducedMotion ? 8 : 2.8;
+              ring.alpha -= reducedMotion ? 0.14 : 0.018;
+              context.beginPath();
+              context.arc(ring.x, ring.y, ring.radius, 0, Math.PI * 2);
+              context.strokeStyle = `rgba(255,91,80,${ring.alpha})`;
+              context.lineWidth = 2;
+              context.stroke();
+              if (ring.alpha <= 0) rings.splice(index, 1);
+            }
+          });
+        }
+
+        function initLiquidFollow() {
+          const { canvas, context, size } = canvasSurface();
+          const target = { x: innerWidth / 2, y: innerHeight / 2 };
+          const nodes = Array.from({ length: 18 }, () => ({ x: target.x, y: target.y, vx: 0, vy: 0 }));
+          on(canvas, "pointermove", (event) => Object.assign(target, pointer(event, canvas)));
+          animate(() => {
+            const { width, height } = size();
+            context.clearRect(0, 0, width, height);
+            nodes.forEach((node, index) => {
+              const leader = index === 0 ? target : nodes[index - 1];
+              node.vx += (leader.x - node.x) * (0.19 - index * 0.004);
+              node.vy += (leader.y - node.y) * (0.19 - index * 0.004);
+              node.vx *= 0.67;
+              node.vy *= 0.67;
+              node.x += node.vx;
+              node.y += node.vy;
+            });
+            context.beginPath();
+            nodes.forEach((node, index) => (index ? context.lineTo(node.x, node.y) : context.moveTo(node.x, node.y)));
+            context.strokeStyle = "#49c4b5";
+            context.lineWidth = 9;
+            context.lineCap = "round";
+            context.lineJoin = "round";
+            context.stroke();
+          });
+        }
+
+        function initImageTrail() {
+          let previous = { x: 0, y: 0 };
+          let count = 0;
+          const colors = ["#ff5b50", "#2f6bd9", "#49c4b5", "#efb948"];
+          on(stage, "pointermove", (event) => {
+            const p = pointer(event);
+            if (Math.hypot(p.x - previous.x, p.y - previous.y) < 48) return;
+            previous = p;
+            const card = document.createElement("span");
+            card.className = "trail-card";
+            card.textContent = String(++count).padStart(2, "0");
+            card.style.left = `${p.x}px`;
+            card.style.top = `${p.y}px`;
+            card.style.setProperty("--r", `${(count % 5 - 2) * 5}deg`);
+            card.style.setProperty("--c", colors[count % colors.length]);
+            stage.append(card);
+            setTimeout(() => card.remove(), 950);
+          });
+        }
+
+        function initScrollScrub() {
+          const ui = document.createElement("div");
+          ui.className = "center";
+          ui.innerHTML = `
+            <div class="scrub-ui">
+              <div class="frame-display" style="--p: 35%; --n: 35"><span class="frame-number">035</span></div>
+              <div class="scrub-track" tabindex="0"><i class="scrub-fill"></i><span>SCROLL / DRAG TIMELINE</span></div>
+            </div>`;
+          stage.append(ui);
+          const display = ui.querySelector(".frame-display");
+          const track = ui.querySelector(".scrub-track");
+          const frame = ui.querySelector(".frame-number");
+          let progress = 0.35;
+          const update = () => {
+            const percent = Math.round(progress * 100);
+            display.style.setProperty("--p", `${10 + progress * 80}%`);
+            display.style.setProperty("--n", String(percent * 2.8));
+            track.style.setProperty("--p", `${percent}%`);
+            frame.textContent = String(percent).padStart(3, "0");
+          };
+          on(stage, "wheel", (event) => {
+            progress = Math.max(0, Math.min(1, progress + event.deltaY * 0.0008));
+            update();
+          }, { passive: true });
+          const drag = (event) => {
+            const rect = track.getBoundingClientRect();
+            progress = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+            update();
+          };
+          on(track, "pointerdown", (event) => {
+            track.setPointerCapture(event.pointerId);
+            drag(event);
+          });
+          on(track, "pointermove", (event) => {
+            if (event.buttons) drag(event);
+          });
+          on(track, "keydown", (event) => {
+            if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+              progress = Math.max(0, Math.min(1, progress + (event.key === "ArrowRight" ? 0.05 : -0.05)));
+              update();
+            }
+          });
+          update();
+        }
+
+        function initDragStack() {
+          const wrap = document.createElement("div");
+          wrap.className = "center";
+          const cards = ["ARCHIVE", "STUDIO", "OBJECT"];
+          wrap.innerHTML = `<div class="card-stack">${cards.map((label, index) => `<div class="drag-card" style="--c:${["#2e6cd4","#2e756c","#c94b43"][index]};--x:${index * 7}px;--y:${index * -7}px;--r:${index * 2 - 2}deg;--s:${1 - index * .055}" data-index="${index}"><b>${label}</b></div>`).reverse().join("")}</div>`;
+          stage.append(wrap);
+          let drag = null;
+          const top = () => wrap.querySelector(".drag-card:last-child");
+          on(wrap, "pointerdown", (event) => {
+            const card = event.target.closest(".drag-card");
+            if (!card || card !== top()) return;
+            card.setPointerCapture(event.pointerId);
+            drag = { card, startX: event.clientX, x: 0 };
+            card.style.transition = "none";
+          });
+          on(wrap, "pointermove", (event) => {
+            if (!drag) return;
+            drag.x = event.clientX - drag.startX;
+            drag.card.style.transform = `translateX(${drag.x}px) rotate(${drag.x * 0.04}deg)`;
+          });
+          on(wrap, "pointerup", () => {
+            if (!drag) return;
+            drag.card.style.transition = "";
+            drag.card.style.transform = "";
+            if (Math.abs(drag.x) > 70) {
+              const card = drag.card;
+              card.remove();
+              wrap.querySelector(".card-stack").prepend(card);
+            }
+            drag = null;
+          });
+        }
+
+        function initPhysicsCurtain() {
+          const { canvas, context, size } = canvasSurface();
+          const chars = [..."落霞与孤鹜齐飞秋水共长天一色"];
+          const chains = Array.from({ length: 12 }, (_, column) =>
+            Array.from({ length: 9 }, (_, row) => ({
+              x: 0, y: 0, oldX: 0, oldY: 0, anchorX: 0, char: chars[(column * 9 + row) % chars.length],
+            })),
+          );
+          const cursor = { x: -999, y: -999, oldX: -999, oldY: -999 };
+          on(canvas, "pointermove", (event) => {
+            const p = pointer(event, canvas);
+            cursor.oldX = cursor.x; cursor.oldY = cursor.y; cursor.x = p.x; cursor.y = p.y;
+          });
+          animate(() => {
+            const { width, height } = size();
+            context.clearRect(0, 0, width, height);
+            const gap = width / (chains.length + 1);
+            chains.forEach((chain, column) => {
+              chain.forEach((point, row) => {
+                if (!point.anchorX) {
+                  point.anchorX = gap * (column + 1);
+                  point.x = point.oldX = point.anchorX;
+                  point.y = point.oldY = 52 + row * Math.min(27, (height - 68) / 9);
+                }
+                if (row === 0) {
+                  point.x = point.anchorX;
+                  point.y = 52;
+                  return;
+                }
+                const vx = (point.x - point.oldX) * 0.955;
+                const vy = (point.y - point.oldY) * 0.955;
+                point.oldX = point.x; point.oldY = point.y;
+                point.x += vx; point.y += vy + 0.08;
+                const distance = Math.hypot(point.x - cursor.x, point.y - cursor.y);
+                if (distance < 56) point.x += (cursor.x - cursor.oldX) * (1 - distance / 56) * 0.8;
+              });
+              for (let pass = 0; pass < 4; pass += 1) {
+                for (let row = 1; row < chain.length; row += 1) {
+                  const a = chain[row - 1], b = chain[row];
+                  const dx = b.x - a.x, dy = b.y - a.y;
+                  const distance = Math.max(0.01, Math.hypot(dx, dy));
+                  const rest = Math.min(27, (height - 68) / 9);
+                  const diff = (distance - rest) / distance;
+                  b.x -= dx * diff; b.y -= dy * diff;
+                }
+              }
+              context.beginPath();
+              chain.forEach((point, row) => row ? context.lineTo(point.x, point.y) : context.moveTo(point.x, point.y));
+              context.strokeStyle = "rgba(239,185,72,.58)";
+              context.stroke();
+              context.fillStyle = "#f4f1e9";
+              context.font = '12px "Songti SC", serif';
+              chain.slice(1).forEach((point) => context.fillText(point.char, point.x - 4, point.y + 4));
+            });
+          });
+        }
+
+        function initMediaCarousel() {
+          const wrap = document.createElement("div");
+          wrap.className = "center";
+          wrap.innerHTML = `
+            <div class="media-deck">
+              <button data-dir="-1" aria-label="上一张">←</button>
+              <div class="media-stage" style="--active:0">
+                ${["FORM", "MOTION", "SPACE"].map((name, index) => `<div class="media-slide" style="--i:${index};--c:${["#c94b43","#2e756c","#2e6cd4"][index]}"><b>${name}</b><span>MEDIA 0${index + 1}</span></div>`).join("")}
+              </div>
+              <button data-dir="1" aria-label="下一张">→</button>
+            </div>`;
+          stage.append(wrap);
+          const media = wrap.querySelector(".media-stage");
+          let active = 0;
+          const update = () => media.style.setProperty("--active", active);
+          on(wrap, "click", (event) => {
+            const button = event.target.closest("[data-dir]");
+            if (!button) return;
+            active = (active + Number(button.dataset.dir) + 3) % 3;
+            update();
+          });
+          let startX = 0;
+          on(media, "pointerdown", (event) => {
+            media.setPointerCapture(event.pointerId);
+            startX = event.clientX;
+          });
+          on(media, "pointerup", (event) => {
+            const delta = event.clientX - startX;
+            if (Math.abs(delta) > 44) active = (active + (delta < 0 ? 1 : -1) + 3) % 3;
+            update();
+          });
+        }
+
+        function initThreeFallback() {
+          stage.innerHTML = '<div class="three-fallback"><span></span></div>';
+        }
+
+        async function initThree(selectedMode) {
+          try {
+            const THREE = await import("https://cdn.jsdelivr.net/npm/three@0.185.0/build/three.module.js");
+            if (disposed) return;
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+            renderer.setPixelRatio(Math.min(2, devicePixelRatio || 1));
+            renderer.setClearColor(0x111415, 1);
+            stage.append(renderer.domElement);
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(44, 1, 0.1, 100);
+            camera.position.z = 6;
+            scene.add(new THREE.AmbientLight(0xffffff, 1.4));
+            const key = new THREE.PointLight(0xff5b50, 26, 18);
+            key.position.set(3, 3, 4);
+            scene.add(key);
+            const objects = [];
+            let points = null;
+
+            if (selectedMode === "raycast-hover") {
+              for (let index = 0; index < 7; index += 1) {
+                const mesh = new THREE.Mesh(
+                  new THREE.IcosahedronGeometry(0.52, 1),
+                  new THREE.MeshStandardMaterial({ color: index % 2 ? 0x49c4b5 : 0xff5b50, roughness: 0.42 }),
+                );
+                mesh.position.set((index % 4 - 1.5) * 1.25, (Math.floor(index / 4) - 0.5) * 1.35, Math.sin(index) * 0.5);
+                scene.add(mesh);
+                objects.push(mesh);
+              }
+            } else if (selectedMode === "shader-poster") {
+              const material = new THREE.ShaderMaterial({
+                uniforms: { uTime: { value: 0 }, uPointer: { value: new THREE.Vector2() } },
+                vertexShader: "varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}",
+                fragmentShader: "uniform float uTime;uniform vec2 uPointer;varying vec2 vUv;void main(){float w=sin((vUv.x+uPointer.x*.12)*18.+uTime)+cos((vUv.y+uPointer.y*.12)*15.-uTime*.8);vec3 a=vec3(.98,.2,.16);vec3 b=vec3(.1,.76,.68);gl_FragColor=vec4(mix(a,b,smoothstep(-1.,1.,w)),1.);}",
+              });
+              const mesh = new THREE.Mesh(new THREE.PlaneGeometry(5.5, 3.3, 1, 1), material);
+              scene.add(mesh);
+              objects.push(mesh);
+            } else if (selectedMode === "particle-network-panel") {
+              const positions = [];
+              for (let index = 0; index < 220; index += 1) {
+                positions.push((Math.random() - 0.5) * 6, (Math.random() - 0.5) * 3.4, (Math.random() - 0.5) * 2.5);
+              }
+              const geometry = new THREE.BufferGeometry();
+              geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+              points = new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0x49c4b5, size: 0.045 }));
+              scene.add(points);
+              objects.push(points);
+            } else {
+              const mesh = new THREE.Mesh(
+                new THREE.TorusKnotGeometry(1.18, 0.34, 150, 24),
+                new THREE.MeshPhysicalMaterial({ color: 0xefb948, metalness: 0.8, roughness: 0.2 }),
+              );
+              scene.add(mesh);
+              objects.push(mesh);
+            }
+
+            const mouse = new THREE.Vector2();
+            const raycaster = new THREE.Raycaster();
+            let dragging = false;
+            let previousX = 0;
+            on(renderer.domElement, "pointermove", (event) => {
+              const p = pointer(event, renderer.domElement);
+              mouse.set(p.nx, p.ny);
+              if (dragging && selectedMode === "orbit-product-viewer") {
+                objects[0].rotation.y += (event.clientX - previousX) * 0.012;
+              }
+              previousX = event.clientX;
+              if (selectedMode === "shader-poster") objects[0].material.uniforms.uPointer.value.copy(mouse);
+            });
+            on(renderer.domElement, "pointerdown", (event) => {
+              renderer.domElement.setPointerCapture(event.pointerId);
+              dragging = true;
+              previousX = event.clientX;
+            });
+            on(renderer.domElement, "pointerup", () => (dragging = false));
+
+            const resize = () => {
+              const rect = stage.getBoundingClientRect();
+              renderer.setSize(rect.width, rect.height, false);
+              camera.aspect = rect.width / Math.max(1, rect.height);
+              camera.updateProjectionMatrix();
+            };
+            const observer = new ResizeObserver(resize);
+            observer.observe(stage);
+            cleanups.push(() => observer.disconnect());
+            resize();
+
+            animate((time) => {
+              if (!reducedMotion) {
+                objects.forEach((object, index) => {
+                  if (!(dragging && selectedMode === "orbit-product-viewer")) {
+                    object.rotation.y += 0.002 + index * 0.0003;
+                    object.rotation.x += 0.001;
+                  }
+                });
+                if (points) points.position.x = mouse.x * 0.35;
+              }
+              if (selectedMode === "raycast-hover") {
+                raycaster.setFromCamera(mouse, camera);
+                const hit = raycaster.intersectObjects(objects)[0]?.object;
+                objects.forEach((object) => object.scale.lerp(new THREE.Vector3(...(object === hit ? [1.25,1.25,1.25] : [1,1,1])), 0.16));
+              }
+              if (selectedMode === "shader-poster") objects[0].material.uniforms.uTime.value = time * 0.001;
+              renderer.render(scene, camera);
+            });
+
+            cleanups.push(() => {
+              scene.traverse((object) => {
+                object.geometry?.dispose();
+                if (Array.isArray(object.material)) object.material.forEach((material) => material.dispose());
+                else object.material?.dispose();
+              });
+              renderer.dispose();
+            });
+          } catch (error) {
+            console.warn("Three.js preview unavailable", error);
+            initThreeFallback();
+          }
+        }
+
+        const initializers = {
+          "magnetic-field": initMagneticField,
+          "cursor-spotlight": initSpotlight,
+          "image-reveal-lens": initReveal,
+          "kinetic-type": initKineticType,
+          "gravity-dots": initGravityDots,
+          "pointer-ripple": initRipple,
+          "liquid-follow": initLiquidFollow,
+          "hover-image-trail": initImageTrail,
+          "scroll-video-scrub": initScrollScrub,
+          "drag-card-stack": initDragStack,
+          "physics-curtain": initPhysicsCurtain,
+          "media-carousel": initMediaCarousel,
+        };
+
+        function dispose() {
+          if (disposed) return;
+          disposed = true;
+          cancelAnimationFrame(raf);
+          while (cleanups.length) cleanups.pop()();
+        }
+
+        on(window, "message", (event) => {
+          if (event.data?.type === "fx:dispose") dispose();
+        });
+        on(window, "pagehide", dispose);
+
+        if (["raycast-hover", "shader-poster", "particle-network-panel", "orbit-product-viewer"].includes(mode)) {
+          initThree(mode);
+        } else {
+          (initializers[mode] || initMagneticField)();
+        }
+      })();
+    </script>
+  </body>
+</html>

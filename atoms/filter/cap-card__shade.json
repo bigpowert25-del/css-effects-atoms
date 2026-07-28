@@ -1,0 +1,16 @@
+{
+  "id": "cap-card__shade",
+  "name": "Cap Card__Shade",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".cap-card__shade {\n  position: absolute;\n  inset: 0;\n  background:\n    linear-gradient(180deg, rgb(5 12 14 / 0.3), transparent 34%),\n    linear-gradient(0deg, rgb(5 12 14 / 0.78), transparent 48%);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

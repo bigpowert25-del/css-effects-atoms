@@ -1,0 +1,16 @@
+{
+  "id": "cube-face-left",
+  "name": "Cube Face Left",
+  "category": "3d",
+  "subcategory": "transform",
+  "description": "CSS class from nimbus-ops",
+  "css": ".cube-face-left   { transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); }",
+  "tags": [
+    "nimbus-ops"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-ops",
+  "version": "1.0.0"
+}

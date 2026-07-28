@@ -1,0 +1,16 @@
+{
+  "id": "stats__track",
+  "name": "Stats__Track",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".stats__track {\n  position: relative;\n  height: clamp(48px, 5.4vh, 64px);\n  overflow: hidden;\n  border-radius: 0;\n  background: rgb(255 255 255 / 0.055);\n  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.075), 0 12px 32px rgb(0 0 0 / 0.16);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

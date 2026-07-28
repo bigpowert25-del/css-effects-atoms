@@ -1,0 +1,16 @@
+{
+  "id": "landing-root",
+  "name": "Landing Root",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from Growth_Marketing_SaaS",
+  "css": ".landing-root {\n  --background: 0 0% 0%;\n  --foreground: 0 0% 98%;\n  --radius: 0.75rem;\n  background-color: hsl(var(--background));\n  color: hsl(var(--foreground));\n}",
+  "tags": [
+    "growth_marketing_saas"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Growth_Marketing_SaaS",
+  "version": "1.0.0"
+}

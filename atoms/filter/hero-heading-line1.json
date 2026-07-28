@@ -1,0 +1,16 @@
+{
+  "id": "hero-heading-line1",
+  "name": "Hero Heading Line1",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".hero-heading-line1 { display: block; position: relative; z-index: 1; background: linear-gradient(100deg, rgb(115,34,237) 0%, rgb(253,135,61) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

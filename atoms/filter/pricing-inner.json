@@ -1,0 +1,16 @@
+{
+  "id": "pricing-inner",
+  "name": "Pricing Inner",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".pricing-inner { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 64px; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

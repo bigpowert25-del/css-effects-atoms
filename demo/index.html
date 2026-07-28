@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="从 CSS 视觉原子到 Canvas、媒体和 Three.js 完整场景的可组合网页互动素材库。"
+    />
+    <meta name="theme-color" content="#f2f0eb" />
+    <title>CSS·FX — 网页互动素材库</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23161819'/%3E%3Cpath d='M14 20h36v6H14zm0 12h25v6H14zm0 12h32v6H14z' fill='%23f04438'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./app.css?v=20260728.7" />
+  </head>
+  <body>
+    <a class="skip-link" href="#catalog">跳到素材目录</a>
+
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-lockup">
+          <a class="brand" href="./index.html" aria-label="CSS FX 首页">
+            <span>CSS</span><b>·</b><span>FX</span>
+          </a>
+          <span class="version">L0—L4</span>
+        </div>
+
+        <p class="side-intro">视觉原子、互动道具、完整场景和页面配方，放在同一套可复制坐标系里。</p>
+
+        <nav class="level-nav" id="levelNav" aria-label="素材层级"></nav>
+
+        <div class="side-section">
+          <div class="side-label">运行引擎</div>
+          <div class="engine-filters" id="engineFilters"></div>
+        </div>
+
+        <div class="side-section side-metrics" id="sideMetrics" aria-live="polite"></div>
+
+        <div class="side-foot">
+          <span>661 prompts</span>
+          <span>Schema 2.0</span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <label class="search">
+            <span class="search-symbol" aria-hidden="true">⌕</span>
+            <input
+              id="searchInput"
+              type="search"
+              aria-label="搜索素材"
+              placeholder="搜索效果、输入方式、引擎或来源"
+              autocomplete="off"
+            />
+          </label>
+          <div class="top-actions">
+            <a class="icon-button" id="singleFileDownload" href="./downloads/css-fx-library-single.html" download title="下载单 HTML 版本" aria-label="下载单 HTML 版本">↓</a>
+            <button class="icon-button" id="themeButton" type="button" title="切换主题" aria-label="切换主题">◐</button>
+            <button class="icon-button" id="resetButton" type="button" title="重置筛选" aria-label="重置筛选">↺</button>
+          </div>
+        </header>
+
+        <section class="overview">
+          <div class="overview-copy">
+            <span class="kicker">COMPOSABLE INTERACTION LIBRARY</span>
+            <h1>从一束光，到一整个可玩的网页。</h1>
+            <p>按作品复杂度选择层级，按运行技术选择引擎。轻量效果直接看，重型场景点击后独立运行。</p>
+          </div>
+
+          <div class="overview-stats" id="overviewStats"></div>
+        </section>
+
+        <section class="trend-band" id="trendRadar" aria-labelledby="trendTitle">
+          <div class="trend-head">
+            <span class="kicker">TREND RADAR</span>
+            <h2 id="trendTitle">当前优先扩展方向</h2>
+            <span class="trend-updated" id="trendUpdated"></span>
+          </div>
+          <div class="trend-list" id="trendList"></div>
+        </section>
+
+        <section class="catalog" id="catalog" aria-labelledby="catalogTitle">
+          <header class="catalog-head">
+            <div>
+              <span class="kicker" id="catalogKicker">L1 / BEHAVIOR</span>
+              <h2 id="catalogTitle">互动行为</h2>
+              <p id="catalogDescription">一个输入，对应一个清晰反馈。</p>
+            </div>
+            <div class="result-count" id="resultCount">0 ITEMS</div>
+          </header>
+
+          <div class="catalog-grid" id="catalogGrid"></div>
+          <div class="empty-state" id="emptyState" hidden>
+            <b>没有匹配的素材</b>
+            <span>换一个关键词，或重置层级与引擎筛选。</span>
+          </div>
+        </section>
+
+        <section class="prompt-library" id="promptLibrary" aria-labelledby="promptTitle" hidden>
+          <header class="prompt-library-head">
+            <div>
+              <span class="kicker">PROMPT LIBRARY / MOTIONSITES</span>
+              <h1 id="promptTitle">把 661 条网页提示词，变成真正可检索的设计底库。</h1>
+              <p>完整公开源去重后 659 条，其中 656 条可直接复制。按行业、页面类型和视觉风格筛选，也可以全文搜索具体技术与交互。</p>
+            </div>
+            <div class="prompt-source-stats" aria-label="Prompt 数据统计">
+              <div><b>661</b><span>源记录</span></div>
+              <div><b>659</b><span>去重后</span></div>
+              <div><b>656</b><span>可复制</span></div>
+            </div>
+          </header>
+
+          <div class="prompt-toolbar" aria-label="Prompt 筛选">
+            <label>
+              <span>行业</span>
+              <select id="promptIndustry"></select>
+            </label>
+            <label>
+              <span>页面类型</span>
+              <select id="promptPageType"></select>
+            </label>
+            <label>
+              <span>视觉风格</span>
+              <select id="promptStyle"></select>
+            </label>
+            <div class="prompt-result-count" id="promptResultCount">659 RESULTS</div>
+          </div>
+
+          <div class="prompt-grid" id="promptGrid"></div>
+          <div class="empty-state" id="promptEmptyState" hidden>
+            <b>没有匹配的 Prompt</b>
+            <span>换一个关键词，或重置筛选条件。</span>
+          </div>
+          <button class="prompt-load-more" id="promptLoadMore" type="button">加载更多</button>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="./generated-data.js?v=20260728.7"></script>
+    <script src="./generated-prompts.js?v=20260728.7"></script>
+    <script type="module" src="./app.js?v=20260728.7"></script>
+  </body>
+</html>

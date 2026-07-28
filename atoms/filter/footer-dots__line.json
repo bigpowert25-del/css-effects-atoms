@@ -1,0 +1,16 @@
+{
+  "id": "footer-dots__line",
+  "name": "Footer Dots__Line",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".footer-dots__line {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  width: 200%;\n  height: 70px;\n  opacity: 0.75;\n  background-image:\n    radial-gradient(circle, rgb(255 255 255 / 0.55) 1.5px, transparent 2px),\n    radial-gradient(circle, rgb(255 255 255 / 0.35) 1px, transparent 1.5px),\n    radial-gradient(circle, rgb(255 255 255 / 0.45) 1.2px, transparent 1.8px);\n  background-position: 0 8px, 24px 22px, 48px 14px;\n  background-size: 72px 38px, 110px 44px, 160px 52px;\n  animation: footerDotsMove 18s linear infinite;\n  transform: translateY(-50%);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "premium-nav-list",
+  "name": "Premium Nav List",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".premium-nav-list{display:flex;gap:0;margin:0;padding:0;list-style:none;align-items:center}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

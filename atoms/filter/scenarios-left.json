@@ -1,0 +1,16 @@
+{
+  "id": "scenarios-left",
+  "name": "Scenarios Left",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".scenarios-left { width: 540px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: space-between; height: 830px; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

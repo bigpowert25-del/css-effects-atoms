@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "run_id": "css-fx-github-20260728",
+  "created_at": "2026-07-28T06:41:49.003Z",
+  "updated_at": "2026-07-28T06:44:29Z",
+  "objective": "Publish the CSS.FX visual interaction and prompt library in a public GitHub repository with clear upstream attribution and personal non-commercial terms",
+  "lifecycle": [
+    "idea_captured",
+    "evidence_reviewed",
+    "candidate_ready",
+    "local_verified",
+    "draft_saved",
+    "human_approved",
+    "user_reported_published",
+    "platform_verified_published",
+    "archived"
+  ],
+  "source": {
+    "kind": "local_project_and_public_upstream",
+    "source_sha": "2a8c639aff9007999afb4243db3e0fec28bb4a31",
+    "evidence": [
+      "MotionSites repository and 661-record source tree verified",
+      "Local project passed 41 automated tests before publication preparation"
+    ]
+  },
+  "gates": {
+    "evidence_review": "passed",
+    "content_contract": "passed",
+    "privacy_scan": "passed",
+    "technical_validation": "passed",
+    "human_content_review": "passed",
+    "human_audio_review": "not_applicable",
+    "rollback_readiness": "passed",
+    "publish_authorization": "passed"
+  },
+  "channels": {
+    "github": {
+      "status": "not_started",
+      "artifacts": [],
+      "audience": "public; personal non-commercial study and reference",
+      "publish_actor": "assistant",
+      "published_url": null,
+      "verified_at": null,
+      "evidence": [],
+      "notes": [
+        "User explicitly requested a public GitHub repository.",
+        "User explicitly required non-commercial personal practice/reference terms.",
+        "MotionSites upstream material remains under its original MIT License."
+      ]
+    }
+  },
+  "browser_control": {
+    "status": "not_used",
+    "released_at": null,
+    "release_evidence": null
+  },
+  "remaining_work": [],
+  "notes": []
+}

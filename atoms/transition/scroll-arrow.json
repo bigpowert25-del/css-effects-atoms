@@ -1,0 +1,16 @@
+{
+  "id": "scroll-arrow",
+  "name": "Scroll Arrow",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from luxury-botanical",
+  "css": ".scroll-arrow {\n    animation: scrollArrow 1.6s ease-in-out infinite;\n  }",
+  "tags": [
+    "luxury-botanical"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/luxury-botanical",
+  "version": "1.0.0"
+}

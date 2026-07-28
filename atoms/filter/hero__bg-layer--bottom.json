@@ -1,0 +1,16 @@
+{
+  "id": "hero__bg-layer--bottom",
+  "name": "Hero__Bg Layer  Bottom",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".hero__bg-layer--bottom {\n  background:\n    radial-gradient(circle at 52% 26%, rgb(255 255 255 / 0.22), transparent 35%),\n    linear-gradient(180deg, rgb(70 100 170 / 0.14), rgb(255 255 255 / 0));\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

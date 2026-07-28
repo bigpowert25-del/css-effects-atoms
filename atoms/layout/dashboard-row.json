@@ -1,0 +1,16 @@
+{
+  "id": "dashboard-row",
+  "name": "Dashboard Row",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from nimbus-demo",
+  "css": ".dashboard-row {\n  display: grid;\n  grid-template-columns: 1.3fr 1fr 0.8fr 1fr 0.8fr;\n  min-height: 54px;\n  align-items: center;\n  border-bottom: 1px solid rgba(255, 247, 222, 0.08);\n  transition: background 160ms ease;\n}",
+  "tags": [
+    "nimbus-demo"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-demo",
+  "version": "1.0.0"
+}

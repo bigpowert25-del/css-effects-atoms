@@ -1,0 +1,16 @@
+{
+  "id": "story-word",
+  "name": "Story Word",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-driving-assistant",
+  "css": ".story-word {\n  font-family: var(--font-orbitron); font-weight: 400;\n  text-align: center; text-transform: uppercase;\n  line-height: 0.9; letter-spacing: -0.04em;\n  color: #F0F1F3; font-size: var(--story-word-size);\n  opacity: 0; will-change: transform, opacity, filter;\n}",
+  "tags": [
+    "ai-driving-assistant"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-driving-assistant",
+  "version": "1.0.0"
+}

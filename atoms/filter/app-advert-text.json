@@ -1,0 +1,16 @@
+{
+  "id": "app-advert-text",
+  "name": "App Advert Text",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".app-advert-text { display: flex; flex-direction: column; gap: 48px; max-width: 580px; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

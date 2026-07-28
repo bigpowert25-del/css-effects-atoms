@@ -1,0 +1,16 @@
+{
+  "id": "billing-toggle-track",
+  "name": "Billing Toggle Track",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".billing-toggle-track { position: relative; width: 52px; height: 32px; border-radius: 999px; padding: 3px; cursor: pointer; flex-shrink: 0; background: linear-gradient(135deg, rgba(122,50,227,1) 0%, rgba(253,135,61,1) 100%); transition: box-shadow 0.2s; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

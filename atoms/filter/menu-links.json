@@ -1,0 +1,16 @@
+{
+  "id": "menu-links",
+  "name": "Menu Links",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from neural-interface",
+  "css": ".menu-links {\n  display: flex; align-items: center; gap: 24px;\n  margin-left: auto; padding-right: 24px;\n  opacity: 0; transform: translateX(15px);\n  transition: opacity 0.15s, transform 0.15s;\n  pointer-events: none; flex-shrink: 0;\n  white-space: nowrap;\n}",
+  "tags": [
+    "neural-interface"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/neural-interface",
+  "version": "1.0.0"
+}

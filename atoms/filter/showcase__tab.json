@@ -1,0 +1,16 @@
+{
+  "id": "showcase__tab",
+  "name": "Showcase__Tab",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".showcase__tab {\n  display: flex;\n  align-items: center;\n  gap: clamp(8px, 0.7vw, 14px);\n  color: rgb(255 255 255 / 0.28);\n  font-size: clamp(12px, 0.82vw, 15px);\n  font-weight: 500;\n  line-height: 1;\n  white-space: nowrap;\n  cursor: default;\n  user-select: none;\n  transition: color 320ms ease;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

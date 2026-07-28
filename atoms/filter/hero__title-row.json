@@ -1,0 +1,16 @@
+{
+  "id": "hero__title-row",
+  "name": "Hero__Title Row",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".hero__title-row {\n  position: fixed;\n  top: calc(50% - 56px + clamp(50px, 4.5vw, 90px));\n  left: 4%;\n  z-index: 2;\n  display: flex;\n  align-items: baseline;\n  gap: clamp(112px, 12vw, 224px);\n  color: #ffffff;\n  font-weight: 200;\n  pointer-events: none;\n  transform: translate3d(15vw, var(--scroll-y, 0px), 0);\n  will-change: transform, opacity;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

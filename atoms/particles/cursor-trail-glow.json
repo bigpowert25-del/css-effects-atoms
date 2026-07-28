@@ -1,0 +1,17 @@
+{
+  "id": "cursor-trail-glow",
+  "name": "光标拖尾发光",
+  "category": "particles",
+  "subcategory": "cursor",
+  "description": "鼠标移动时产生渐变发光粒子拖尾",
+  "css": ".fx-cursor-trail{position:fixed;pointer-events:none;z-index:9999}\n.fx-cursor-dot{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(99,179,237,0.8),transparent);animation:fx-fade-out 0.8s ease-out forwards}",
+  "js": "document.addEventListener('mousemove',e=>{const d=document.createElement('div');d.className='fx-cursor-dot';d.style.left=e.pageX+'px';d.style.top=e.pageY+'px';d.style.width='20px';d.style.height='20px';document.querySelector('.fx-cursor-trail').appendChild(d);setTimeout(()=>d.remove(),800)})",
+  "css_also": "@keyframes fx-fade-out{to{opacity:0;transform:scale(0)}}",
+  "dependencies": [],
+  "source": "motionsites/crafted",
+  "version": "1.0.0",
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "tags": [],
+  "keywords": [],
+  "html": ""
+}

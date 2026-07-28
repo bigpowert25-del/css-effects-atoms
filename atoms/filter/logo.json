@@ -1,0 +1,16 @@
+{
+  "id": "logo",
+  "name": "Logo",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from 3d-story",
+  "css": ".logo { font-weight: 700; font-size: 1.25rem; color: #fff; letter-spacing: -0.025em; }",
+  "tags": [
+    "3d-story"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/3d-story",
+  "version": "1.0.0"
+}

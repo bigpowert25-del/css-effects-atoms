@@ -1,0 +1,16 @@
+{
+  "id": "cta-primary-border",
+  "name": "Cta Primary Border",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".cta-primary-border { position: absolute; inset: 0; border-radius: 23px; overflow: hidden; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "bounce-arrow",
+  "name": "Bounce Arrow",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from 3d-story",
+  "css": ".bounce-arrow {\n  position: relative; z-index: 10; display: flex; justify-content: center; padding-bottom: 2rem;\n}",
+  "tags": [
+    "3d-story"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/3d-story",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "scroll-container",
+  "name": "Scroll Container",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".scroll-container{position:relative;width:100%;height:500vh;background:#000}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

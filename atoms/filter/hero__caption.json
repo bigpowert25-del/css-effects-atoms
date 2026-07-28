@@ -1,0 +1,16 @@
+{
+  "id": "hero__caption",
+  "name": "Hero__Caption",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".hero__caption {\n  position: fixed;\n  z-index: 4;\n  left: clamp(24px, 3.85vw, 78px);\n  bottom: 28px;\n  display: inline-flex;\n  align-items: center;\n  gap: 24px;\n  max-width: min(170px, calc(50vw - 112px));\n  margin: 0;\n  color: rgb(42 42 42 / 0.58);\n  font-size: 16px;\n  font-weight: 400;\n  line-height: 22px;\n  letter-spacing: 0;\n  transform: translate3d(0, var(--scroll-y, 0px), 0);\n  will-change: transform, opacity;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

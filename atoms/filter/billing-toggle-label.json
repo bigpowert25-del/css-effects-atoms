@@ -1,0 +1,16 @@
+{
+  "id": "billing-toggle-label",
+  "name": "Billing Toggle Label",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".billing-toggle-label { font-size: 16px; font-weight: 500; line-height: 16px; color: #000; transition: opacity 0.3s; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "showcase__tab-num",
+  "name": "Showcase__Tab Num",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".showcase__tab-num {\n  font-weight: 600;\n  font-size: clamp(11px, 0.72vw, 13px);\n  color: rgb(255 255 255 / 0.38);\n  transition: color 320ms ease;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

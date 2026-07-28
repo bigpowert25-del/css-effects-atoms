@@ -1,0 +1,16 @@
+{
+  "id": "story-card",
+  "name": "Story Card",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".story-card {\n  scroll-snap-align: center;\n  min-width: 0;\n  opacity: 0.54;\n  transform: translateY(10px);\n  transition: opacity 260ms ease, transform 260ms ease;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

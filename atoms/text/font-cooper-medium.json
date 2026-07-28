@@ -1,0 +1,16 @@
+{
+  "id": "font-cooper-medium",
+  "name": "Font Cooper Medium",
+  "category": "text",
+  "subcategory": "glow",
+  "description": "CSS class from Evergreen_Finance",
+  "css": ".font-cooper-medium {\n  font-family: 'Cooper BT W01 Medium', 'Cooper BT W01 Light', 'Georgia', serif;\n  font-weight: 500;\n}",
+  "tags": [
+    "evergreen_finance"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Evergreen_Finance",
+  "version": "1.0.0"
+}

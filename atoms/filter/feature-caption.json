@@ -1,0 +1,16 @@
+{
+  "id": "feature-caption",
+  "name": "Feature Caption",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-driving-assistant",
+  "css": ".feature-caption {\n  position: absolute; z-index: 30; pointer-events: none;\n  display: flex; flex-direction: column; align-items: flex-start;\n  gap: 19px; opacity: 0;\n  left: var(--hero-pad-left); bottom: 40px;\n  width: min(377px, calc(100% - 2 * var(--hero-pad-left)));\n  will-change: transform, opacity;\n}",
+  "tags": [
+    "ai-driving-assistant"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-driving-assistant",
+  "version": "1.0.0"
+}

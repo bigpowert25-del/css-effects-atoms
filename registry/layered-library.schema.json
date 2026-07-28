@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.css-fx.dev/layered-library.schema.json",
+  "title": "CSS FX Layered Library",
+  "type": "object",
+  "required": ["schemaVersion", "items"],
+  "properties": {
+    "schemaVersion": {
+      "const": "2.0.0"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/item"
+      }
+    }
+  },
+  "$defs": {
+    "item": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "level",
+        "engine",
+        "family",
+        "summary",
+        "tags",
+        "source",
+        "preview",
+        "copy",
+        "dependencies",
+        "inputs",
+        "performance",
+        "accessibility",
+        "maturity"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "level": {
+          "enum": ["L0", "L1", "L2", "L3", "L4"]
+        },
+        "engine": {
+          "enum": ["css-dom", "canvas-2d", "media", "three-webgl"]
+        },
+        "family": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source": {
+          "type": "object",
+          "required": ["kind", "label"]
+        },
+        "preview": {
+          "type": "object",
+          "required": ["mode"]
+        },
+        "copy": {
+          "type": "object"
+        },
+        "dependencies": {
+          "type": "array"
+        },
+        "inputs": {
+          "type": "array"
+        },
+        "performance": {
+          "type": "object"
+        },
+        "accessibility": {
+          "type": "object"
+        },
+        "maturity": {
+          "enum": ["stable", "featured", "experimental", "recipe"]
+        },
+        "trend": {
+          "type": "object"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "level": {
+                "const": "L3"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "preview": {
+                "required": ["mode", "scene"]
+              },
+              "performance": {
+                "required": ["fallback", "cleanup"]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "level": {
+                "const": "L4"
+              }
+            }
+          },
+          "then": {
+            "required": ["recipe"],
+            "properties": {
+              "copy": {
+                "required": ["prompt"]
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": true
+    }
+  }
+}

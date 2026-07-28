@@ -1,0 +1,16 @@
+{
+  "id": "product-card",
+  "name": "Product Card",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".product-card {\n      background: white;\n      padding: 12px;\n      height: 276px;\n      display: flex;\n      flex-direction: column;\n      justify-content: space-between;\n      position: relative;\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

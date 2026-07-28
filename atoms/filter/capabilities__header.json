@@ -1,0 +1,16 @@
+{
+  "id": "capabilities__header",
+  "name": "Capabilities__Header",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".capabilities__header {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  gap: 32px;\n  max-width: var(--hero-max-width);\n  margin: 0 auto clamp(24px, 3vw, 42px);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

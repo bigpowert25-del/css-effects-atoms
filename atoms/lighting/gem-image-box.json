@@ -1,0 +1,16 @@
+{
+  "id": "gem-image-box",
+  "name": "Gem Image Box",
+  "category": "lighting",
+  "subcategory": "shadow",
+  "description": "CSS class from Scenic_Travel",
+  "css": ".gem-image-box { width: 200px; height: 100%; border-radius: 20px; }",
+  "tags": [
+    "scenic_travel"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Scenic_Travel",
+  "version": "1.0.0"
+}

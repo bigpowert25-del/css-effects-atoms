@@ -1,0 +1,16 @@
+{
+  "id": "dashboard-title-row",
+  "name": "Dashboard Title Row",
+  "category": "3d",
+  "subcategory": "transform",
+  "description": "CSS class from nimbus-demo",
+  "css": ".dashboard-title-row {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 18px;\n  margin-bottom: 34px;\n}",
+  "tags": [
+    "nimbus-demo"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-demo",
+  "version": "1.0.0"
+}

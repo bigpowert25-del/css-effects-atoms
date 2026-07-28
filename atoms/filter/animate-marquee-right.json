@@ -1,0 +1,16 @@
+{
+  "id": "animate-marquee-right",
+  "name": "Animate Marquee Right",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from Max_Reed_Portfolio",
+  "css": ".animate-marquee-right { animation: marquee-right 26s linear infinite; }",
+  "tags": [
+    "max_reed_portfolio"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Max_Reed_Portfolio",
+  "version": "1.0.0"
+}

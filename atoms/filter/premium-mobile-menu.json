@@ -1,0 +1,16 @@
+{
+  "id": "premium-mobile-menu",
+  "name": "Premium Mobile Menu",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".premium-mobile-menu{position:fixed;inset:0;z-index:55;background:rgba(0,0,0,.88);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);display:flex;align-items:center;justify-content:center;pointer-events:auto;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "menu-close",
+  "name": "Menu Close",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from investment-hero",
+  "css": ".menu-close {\n  animation: menuSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;\n}",
+  "tags": [
+    "investment-hero"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/investment-hero",
+  "version": "1.0.0"
+}

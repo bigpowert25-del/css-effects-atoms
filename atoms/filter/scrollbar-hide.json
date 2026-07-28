@@ -1,0 +1,16 @@
+{
+  "id": "scrollbar-hide",
+  "name": "Scrollbar Hide",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from Growth_Marketing_SaaS",
+  "css": ".scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }",
+  "tags": [
+    "growth_marketing_saas"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Growth_Marketing_SaaS",
+  "version": "1.0.0"
+}

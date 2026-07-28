@@ -1,0 +1,16 @@
+{
+  "id": "font-arsenica",
+  "name": "Font Arsenica",
+  "category": "text",
+  "subcategory": "glow",
+  "description": "CSS class from golden-portal",
+  "css": ".font-arsenica { font-family: var(--font-serif); }",
+  "tags": [
+    "golden-portal"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/golden-portal",
+  "version": "1.0.0"
+}

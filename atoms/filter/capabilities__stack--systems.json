@@ -1,0 +1,16 @@
+{
+  "id": "capabilities__stack--systems",
+  "name": "Capabilities__Stack  Systems",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".capabilities__stack--systems { grid-template-rows: minmax(420px, 1.45fr) auto; }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

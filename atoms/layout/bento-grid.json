@@ -1,0 +1,26 @@
+{
+  "id": "bento-grid",
+  "name": "Bento网格",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "苹果风格的不规则Bento网格布局",
+  "css": ".fx-bento{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:16px}\n.fx-bento-item{border-radius:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);padding:24px;transition:all 0.3s}\n.fx-bento-item:hover{background:rgba(255,255,255,0.08);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.3)}\n.fx-bento-item.col-2{grid-column:span 2}\n.fx-bento-item.row-2{grid-row:span 2}",
+  "tags": [
+    "bento",
+    "grid",
+    "apple",
+    "layout"
+  ],
+  "keywords": [
+    "Bento",
+    "网格",
+    "不规则",
+    "苹果"
+  ],
+  "dependencies": [],
+  "source": "motionsites/crafted",
+  "version": "1.0.0",
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "html": "",
+  "js": ""
+}

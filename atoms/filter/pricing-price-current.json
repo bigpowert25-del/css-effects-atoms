@@ -1,0 +1,16 @@
+{
+  "id": "pricing-price-current",
+  "name": "Pricing Price Current",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".pricing-price-current { font-size: 38px; font-weight: 500; line-height: 30px; letter-spacing: -0.05em; transition: opacity 0.4s, transform 0.4s; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

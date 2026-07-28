@@ -1,0 +1,16 @@
+{
+  "id": "showcase__tab-bar",
+  "name": "Showcase__Tab Bar",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".showcase__tab-bar {\n  display: block;\n  flex-shrink: 0;\n  width: 1px;\n  height: 14px;\n  background: currentColor;\n  opacity: 0;\n  transition: opacity 320ms ease;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

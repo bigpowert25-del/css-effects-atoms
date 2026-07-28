@@ -1,0 +1,16 @@
+{
+  "id": "video-stories__header",
+  "name": "Video Stories__Header",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".video-stories__header { width: min(100% - 96px, 900px); margin: 0 auto clamp(38px, 4vw, 74px); }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

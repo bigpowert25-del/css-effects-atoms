@@ -1,0 +1,16 @@
+{
+  "id": "liquid-glass",
+  "name": "Liquid Glass",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from 404-planet",
+  "css": ".liquid-glass {\n       background: rgba(255, 255, 255, 0.01);\n       background-blend-mode: luminosity;\n       backdrop-filter: blur(4px);\n       -webkit-backdrop-filter: blur(4px);\n       border: none;\n       box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);\n       position: relative;\n       overflow: hidden;\n     }",
+  "tags": [
+    "404-planet"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/404-planet",
+  "version": "1.0.0"
+}

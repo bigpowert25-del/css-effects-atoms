@@ -1,0 +1,16 @@
+{
+  "id": "pagination-btn",
+  "name": "Pagination Btn",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".pagination-btn { position: relative; width: 44px; height: 44px; cursor: pointer; border-radius: 50%; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

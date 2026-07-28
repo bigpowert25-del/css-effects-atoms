@@ -1,0 +1,16 @@
+{
+  "id": "prompt",
+  "name": "Prompt",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from 3d-story",
+  "css": ".prompt { color: #2C5C88; font-family: monospace; font-size: 0.875rem; }",
+  "tags": [
+    "3d-story"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/3d-story",
+  "version": "1.0.0"
+}

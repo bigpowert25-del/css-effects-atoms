@@ -1,0 +1,16 @@
+{
+  "id": "text-black-side",
+  "name": "Text Black Side",
+  "category": "lighting",
+  "subcategory": "shadow",
+  "description": "CSS class from Scenic_Travel",
+  "css": ".text-black-side { color: #1c1c1c; clip-path: inset(0 50% 0 0); }",
+  "tags": [
+    "scenic_travel"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Scenic_Travel",
+  "version": "1.0.0"
+}

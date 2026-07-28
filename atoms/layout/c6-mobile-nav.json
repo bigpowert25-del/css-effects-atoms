@@ -1,0 +1,16 @@
+{
+  "id": "c6-mobile-nav",
+  "name": "C6 Mobile Nav",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from Learnly",
+  "css": ".c6-mobile-nav {\n  position: fixed;\n  top: 0;\n  right: -100%;\n  width: 80%;\n  height: 100vh;\n  background: white;\n  z-index: 99;\n  display: flex;\n  flex-direction: column;\n  padding: 120px 40px;\n  gap: 30px;\n  box-shadow: -10px 0 30px rgba(0,0,0,0.05);\n  transition: right 0.5s cubic-bezier(0.23, 1, 0.32, 1);\n}",
+  "tags": [
+    "learnly"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Learnly",
+  "version": "1.0.0"
+}

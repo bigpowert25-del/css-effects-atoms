@@ -1,0 +1,16 @@
+{
+  "id": "animate-scale-in",
+  "name": "Animate Scale In",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from Luxury_Ecommerce_Design",
+  "css": ".animate-scale-in {\n  animation: scale-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);\n}",
+  "tags": [
+    "luxury_ecommerce_design"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Luxury_Ecommerce_Design",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "stats__header",
+  "name": "Stats__Header",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".stats__header {\n  display: grid;\n  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);\n  gap: clamp(32px, 6vw, 120px);\n  max-width: var(--hero-max-width);\n  margin: 0 auto clamp(34px, 4.5vw, 72px);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

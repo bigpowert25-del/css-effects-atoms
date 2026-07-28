@@ -1,0 +1,16 @@
+{
+  "id": "site-footer__brand",
+  "name": "Site Footer__Brand",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".site-footer__brand { display: flex; align-items: center; width: 100%; min-width: 0; color: #ffffff; }",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

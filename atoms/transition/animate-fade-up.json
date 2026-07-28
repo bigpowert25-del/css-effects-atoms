@@ -1,0 +1,16 @@
+{
+  "id": "animate-fade-up",
+  "name": "Animate Fade Up",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from audio-showcase",
+  "css": ".animate-fade-up {\n  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;\n}",
+  "tags": [
+    "audio-showcase"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/audio-showcase",
+  "version": "1.0.0"
+}

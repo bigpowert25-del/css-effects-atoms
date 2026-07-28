@@ -1,0 +1,16 @@
+{
+  "id": "story-beat",
+  "name": "Story Beat",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-driving-assistant",
+  "css": ".story-beat {\n  position: absolute; inset: 0; z-index: 30;\n  pointer-events: none; display: flex;\n  align-items: center; justify-content: center;\n  perspective: 1000px;\n}",
+  "tags": [
+    "ai-driving-assistant"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-driving-assistant",
+  "version": "1.0.0"
+}

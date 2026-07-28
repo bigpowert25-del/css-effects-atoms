@@ -1,0 +1,16 @@
+{
+  "id": "backers-track",
+  "name": "Backers Track",
+  "category": "transition",
+  "subcategory": "animation",
+  "description": "CSS class from halo-benefits",
+  "css": ".backers-track {\n  display: flex;\n  width: max-content;\n  animation: backers-marquee 30s linear infinite;\n}",
+  "tags": [
+    "halo-benefits"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/halo-benefits",
+  "version": "1.0.0"
+}

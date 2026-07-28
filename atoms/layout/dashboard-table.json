@@ -1,0 +1,16 @@
+{
+  "id": "dashboard-table",
+  "name": "Dashboard Table",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from nimbus-demo",
+  "css": ".dashboard-table {\n  display: grid;\n  border: 1px solid rgba(255, 247, 222, 0.12);\n  border-radius: 4px;\n  overflow: hidden;\n}",
+  "tags": [
+    "nimbus-demo"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-demo",
+  "version": "1.0.0"
+}

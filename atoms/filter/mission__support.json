@@ -1,0 +1,16 @@
+{
+  "id": "mission__support",
+  "name": "Mission__Support",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".mission__support {\n  grid-column: 1;\n  grid-row: 2;\n  align-self: start;\n  max-width: 520px;\n  margin: 0;\n  color: #5f5f5f;\n  font-size: clamp(23.7px, 1.56vw, 30.6px);\n  font-weight: 370;\n  line-height: 1.18;\n  letter-spacing: 0;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "modal-cube-shell",
+  "name": "Modal Cube Shell",
+  "category": "3d",
+  "subcategory": "transform",
+  "description": "CSS class from nimbus-ops",
+  "css": ".modal-cube-shell {\n  position: absolute;\n  inset: 0;\n  width: 100%;\n  min-height: inherit;\n  border: 0;\n  padding: 0;\n  color: inherit;\n  background: transparent;\n  cursor: pointer;\n  perspective: 1000px;\n  transform-style: preserve-3d;\n  touch-action: manipulation;\n  -webkit-tap-highlight-color: transparent;\n}",
+  "tags": [
+    "nimbus-ops"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-ops",
+  "version": "1.0.0"
+}

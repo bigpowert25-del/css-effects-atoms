@@ -1,0 +1,16 @@
+{
+  "id": "scenario-feature-card",
+  "name": "Scenario Feature Card",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".scenario-feature-card { display: flex; align-items: center; gap: 16px; background: #fff; border-radius: 18px; height: 72px; padding: 0 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); opacity: 0; transform: translateY(14px); transition: opacity 0.5s, transform 0.5s; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

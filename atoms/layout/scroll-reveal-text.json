@@ -1,0 +1,16 @@
+{
+  "id": "scroll-reveal-text",
+  "name": "Scroll Reveal Text",
+  "category": "layout",
+  "subcategory": "flex",
+  "description": "CSS class from Scroll_Landing_Page",
+  "css": ".scroll-reveal-text { display: flex; flex-wrap: wrap; margin: 0; }",
+  "tags": [
+    "scroll_landing_page"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Scroll_Landing_Page",
+  "version": "1.0.0"
+}

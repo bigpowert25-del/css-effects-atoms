@@ -1,0 +1,16 @@
+{
+  "id": "c6-nav",
+  "name": "C6 Nav",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from Learnly",
+  "css": ".c6-nav {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 60px;\n  position: relative;\n  z-index: 100;\n}",
+  "tags": [
+    "learnly"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Learnly",
+  "version": "1.0.0"
+}

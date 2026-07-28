@@ -1,0 +1,16 @@
+{
+  "id": "c6-login",
+  "name": "C6 Login",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from Learnly",
+  "css": ".c6-login {\n  font-size: 0.95rem;\n  color: var(--text-main);\n  text-decoration: none;\n  font-weight: 600;\n}",
+  "tags": [
+    "learnly"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Learnly",
+  "version": "1.0.0"
+}

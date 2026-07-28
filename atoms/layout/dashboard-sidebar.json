@@ -1,0 +1,16 @@
+{
+  "id": "dashboard-sidebar",
+  "name": "Dashboard Sidebar",
+  "category": "layout",
+  "subcategory": "grid",
+  "description": "CSS class from nimbus-demo",
+  "css": ".dashboard-sidebar {\n  padding: 26px 18px;\n  border-right: 1px solid rgba(151, 211, 235, 0.12);\n  color: rgba(223, 245, 255, 0.44);\n}",
+  "tags": [
+    "nimbus-demo"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-demo",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "cap-card__light",
+  "name": "Cap Card__Light",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".cap-card__light {\n  position: absolute;\n  inset: 0;\n  background:\n    linear-gradient(135deg, rgb(255 255 255 / 0.45), rgb(255 255 255 / 0.34)),\n    linear-gradient(0deg, rgb(247 248 248 / 0.36), transparent 62%);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

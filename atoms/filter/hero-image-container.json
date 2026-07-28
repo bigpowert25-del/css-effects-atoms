@@ -1,0 +1,16 @@
+{
+  "id": "hero-image-container",
+  "name": "Hero Image Container",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-meeting-notes",
+  "css": ".hero-image-container { width: 100%; aspect-ratio: 3/2; border-radius: 16px; overflow: hidden; }",
+  "tags": [
+    "ai-meeting-notes"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-meeting-notes",
+  "version": "1.0.0"
+}

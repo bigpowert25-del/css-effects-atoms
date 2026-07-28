@@ -1,0 +1,25 @@
+{
+  "id": "tilt-card",
+  "name": "3D倾斜卡片",
+  "category": "3d",
+  "subcategory": "tilt",
+  "description": "鼠标悬停3D透视倾斜 + 光泽反射",
+  "css": ".fx-tilt-card{transform-style:preserve-3d;perspective:1000px;transition:transform 0.2s ease-out}\n.fx-tilt-shine{position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--mx) var(--my),rgba(255,255,255,0.15),transparent 60%);pointer-events:none;opacity:0;transition:opacity 0.3s}\n.fx-tilt-card:hover .fx-tilt-shine{opacity:1}",
+  "js": "document.querySelectorAll('.fx-tilt-card').forEach(c=>{c.innerHTML+='<div class=\"fx-tilt-shine\"></div>';c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();const x=(e.clientX-r.left)/r.width;const y=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',`${x*100}%`);c.style.setProperty('--my',`${y*100}%`);c.style.transform=`perspective(1000px) rotateX(${(y-0.5)*20}deg) rotateY(${(x-0.5)*-20}deg)`});c.addEventListener('mouseleave',()=>{c.style.transform='perspective(1000px) rotateX(0) rotateY(0)'})})",
+  "tags": [
+    "3d",
+    "tilt",
+    "card",
+    "perspective"
+  ],
+  "keywords": [
+    "3D倾斜",
+    "透视",
+    "卡片翻转"
+  ],
+  "dependencies": [],
+  "source": "motionsites/crafted",
+  "version": "1.0.0",
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "html": ""
+}

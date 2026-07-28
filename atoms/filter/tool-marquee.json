@@ -1,0 +1,16 @@
+{
+  "id": "tool-marquee",
+  "name": "Tool Marquee",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".tool-marquee {\n  display: grid;\n  gap: 14px;\n  overflow: hidden;\n  padding: 26px 0 8px;\n  mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "font-inter",
+  "name": "Font Inter",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from celestial-renewal",
+  "css": ".font-inter {\n  font-family: 'Inter', sans-serif;\n}",
+  "tags": [
+    "celestial-renewal"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/celestial-renewal",
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "glass-pill",
+  "name": "Glass Pill",
+  "category": "background",
+  "subcategory": "color",
+  "description": "CSS class from Matrix_Cyberpunk_Animation",
+  "css": ".glass-pill {\n  @apply bg-white/5 border border-white/10 backdrop-blur-md;\n}",
+  "tags": [
+    "matrix_cyberpunk_animation"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Matrix_Cyberpunk_Animation",
+  "version": "1.0.0"
+}

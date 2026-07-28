@@ -1,0 +1,16 @@
+{
+  "id": "no-scrollbar",
+  "name": "No Scrollbar",
+  "category": "text",
+  "subcategory": "glow",
+  "description": "CSS class from Stellar_Launch",
+  "css": ".no-scrollbar {\n  scrollbar-width: none;\n  -ms-overflow-style: none;\n}",
+  "tags": [
+    "stellar_launch"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Stellar_Launch",
+  "version": "1.0.0"
+}

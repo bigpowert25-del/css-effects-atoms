@@ -1,0 +1,16 @@
+{
+  "id": "console-figure-label",
+  "name": "Console Figure Label",
+  "category": "3d",
+  "subcategory": "transform",
+  "description": "CSS class from nimbus-demo",
+  "css": ".console-figure-label {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  margin: clamp(42px, 6vw, 72px) 0 14px;\n  color: rgba(255, 247, 222, 0.42);\n  font-family: var(--font-mono);\n  font-size: 12px;\n  letter-spacing: 0.08rem;\n  text-transform: uppercase;\n}",
+  "tags": [
+    "nimbus-demo"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/nimbus-demo",
+  "version": "1.0.0"
+}

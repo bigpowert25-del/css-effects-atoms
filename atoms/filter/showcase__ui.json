@@ -1,0 +1,16 @@
+{
+  "id": "showcase__ui",
+  "name": "Showcase__Ui",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".showcase__ui {\n  position: absolute;\n  inset: 0;\n  display: grid;\n  grid-template-columns: 1fr auto;\n  align-items: end;\n  padding: clamp(32px, 4vw, 72px) clamp(32px, 4.5vw, 80px);\n  pointer-events: none;\n  will-change: opacity;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

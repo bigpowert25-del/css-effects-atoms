@@ -1,0 +1,16 @@
+{
+  "id": "font-geist",
+  "name": "Font Geist",
+  "category": "3d",
+  "subcategory": "transform",
+  "description": "CSS class from luxury-hero",
+  "css": ".font-geist {\n  font-family: 'Geist', sans-serif;\n}",
+  "tags": [
+    "luxury-hero"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/luxury-hero",
+  "version": "1.0.0"
+}

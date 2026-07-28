@@ -1,0 +1,16 @@
+{
+  "id": "grid",
+  "name": "Grid",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from 3d-story",
+  "css": ".grid {\n  max-width: 72rem; margin: 0 auto;\n  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;\n}",
+  "tags": [
+    "3d-story"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/3d-story",
+  "version": "1.0.0"
+}

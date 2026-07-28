@@ -1,0 +1,16 @@
+{
+  "id": "hero-corner-logo",
+  "name": "Hero Corner Logo",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from ai-driving-assistant",
+  "css": ".hero-corner-logo {\n  position: absolute; z-index: 10; pointer-events: none;\n  width: var(--hero-logo-w);\n  aspect-ratio: var(--hero-logo-aspect);\n  left: var(--hero-logo-left);\n  top: var(--hero-logo-top);\n  transform-origin: center;\n  will-change: transform, opacity, filter;\n}",
+  "tags": [
+    "ai-driving-assistant"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/ai-driving-assistant",
+  "version": "1.0.0"
+}

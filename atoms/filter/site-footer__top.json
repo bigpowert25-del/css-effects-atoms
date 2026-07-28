@@ -1,0 +1,16 @@
+{
+  "id": "site-footer__top",
+  "name": "Site Footer__Top",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".site-footer__top {\n  display: grid;\n  grid-template-columns: minmax(320px, 1.25fr) repeat(3, minmax(150px, 0.42fr));\n  gap: clamp(28px, 4vw, 76px);\n  min-height: clamp(220px, 24vw, 330px);\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

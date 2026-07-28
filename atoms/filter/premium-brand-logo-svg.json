@@ -1,0 +1,16 @@
+{
+  "id": "premium-brand-logo-svg",
+  "name": "Premium Brand Logo Svg",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".premium-brand-logo-svg{width:clamp(28px,2.6vw,44px);height:auto;opacity:0.95}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

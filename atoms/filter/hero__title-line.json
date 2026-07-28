@@ -1,0 +1,16 @@
+{
+  "id": "hero__title-line",
+  "name": "Hero__Title Line",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from aerocore",
+  "css": ".hero__title-line {\n  display: block;\n  font-size: clamp(144px, 18vw, 285px);\n  white-space: nowrap;\n}",
+  "tags": [
+    "aerocore"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/aerocore",
+  "version": "1.0.0"
+}

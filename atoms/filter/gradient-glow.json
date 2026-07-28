@@ -1,0 +1,16 @@
+{
+  "id": "gradient-glow",
+  "name": "Gradient Glow",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".gradient-glow {\n      position: absolute;\n      left: -96px;\n      top: 33%;\n      width: 1360px;\n      height: 1360px;\n      border-radius: 50%;\n      background: rgba(246, 187, 126, 0.4);\n      filter: blur(450px);\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

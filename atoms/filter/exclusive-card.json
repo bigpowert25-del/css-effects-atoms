@@ -1,0 +1,16 @@
+{
+  "id": "exclusive-card",
+  "name": "Exclusive Card",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from jewelry-store",
+  "css": ".exclusive-card {\n      position: relative;\n      background: white;\n      aspect-ratio: 280 / 160;\n      overflow: hidden;\n      flex-shrink: 0;\n      width: calc(100% - 86px);\n    }",
+  "tags": [
+    "jewelry-store"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/jewelry-store",
+  "version": "1.0.0"
+}

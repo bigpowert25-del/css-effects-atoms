@@ -1,0 +1,16 @@
+{
+  "id": "fb-input",
+  "name": "Fb Input",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".fb-input{width:100%;padding:12px 20px;background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.1);font-family:\"Space Grotesk\",sans-serif;font-size:14px;letter-spacing:0.025em;text-align:center;outline:none;transition:all .3s ease}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

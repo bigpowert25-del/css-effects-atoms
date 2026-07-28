@@ -1,0 +1,16 @@
+{
+  "id": "hero-title",
+  "name": "Hero Title",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from Visual_Hero",
+  "css": ".hero-title {\n  font-family: 'Instrument Serif', serif;\n  font-style: italic;\n  font-size: clamp(96px, 18vw, 280px);\n  line-height: 0.92;\n  letter-spacing: -0.02em;\n  color: white;\n  text-align: center;\n}",
+  "tags": [
+    "visual_hero"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/Visual_Hero",
+  "version": "1.0.0"
+}

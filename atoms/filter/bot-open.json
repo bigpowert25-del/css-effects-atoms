@@ -1,0 +1,16 @@
+{
+  "id": "bot-open",
+  "name": "Bot Open",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".bot-open{transform:translateY(-6.5px) rotate(-45deg)}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}

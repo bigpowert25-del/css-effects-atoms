@@ -1,0 +1,16 @@
+{
+  "id": "premium-botanical-card",
+  "name": "Premium Botanical Card",
+  "category": "filter",
+  "subcategory": "glassmorphism",
+  "description": "CSS class from bl",
+  "css": ".premium-botanical-card{position:absolute;bottom:clamp(24px,3vw,48px);left:clamp(24px,3vw,48px);width:clamp(380px,30vw,540px);max-width:90vw;background:rgba(255,255,255,.16);backdrop-filter:blur(80px);-webkit-backdrop-filter:blur(80px);border-radius:0;padding:clamp(32px,3.2vw,56px);z-index:45;pointer-events:auto;border:1px solid rgba(255,255,255,.15);box-shadow:0 30px 60px rgba(0,0,0,.3);will-change:transform,opacity,filter}",
+  "tags": [
+    "bl"
+  ],
+  "keywords": [],
+  "dependencies": [],
+  "browserSupport": "Chrome 90+, Firefox 90+, Safari 15+",
+  "source": "motionsites/bl",
+  "version": "1.0.0"
+}
