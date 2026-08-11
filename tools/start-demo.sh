@@ -13,8 +13,10 @@ LAUNCH_PLIST="$HOME/Library/LaunchAgents/${LAUNCH_LABEL}.plist"
 RUNTIME_ROOT="$HOME/Library/Application Support/CSSFXDemo"
 
 if [ "$PORT" = "9876" ] && [ -f "$LAUNCH_PLIST" ]; then
-  mkdir -p "$RUNTIME_ROOT/demo"
+  mkdir -p "$RUNTIME_ROOT"
   rsync -a --delete "$ROOT_DIR/demo/" "$RUNTIME_ROOT/demo/"
+  rsync -a "$ROOT_DIR/index.html" "$RUNTIME_ROOT/index.html"
+  rsync -a --delete "$ROOT_DIR/intro/" "$RUNTIME_ROOT/intro/"
 fi
 
 if curl --fail --silent --show-error "$HEALTH_URL" >/dev/null 2>&1; then

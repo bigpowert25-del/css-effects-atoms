@@ -4,7 +4,7 @@
 
 **Goal:** Merge the verified cinematic intro into the existing CSS.FX repository as an optional /intro/ experience while keeping the existing /demo/ library as the default homepage.
 
-**Architecture:** Add a small root redirect page that sends visitors to ./demo/index.html; copy only the intro runtime into intro/; update the intro's three ordinary HTML links to ../demo/index.html#L0/L1/L3. Keep the existing demo/, registry, build scripts, single-file output, and repository license boundary unchanged.
+**Architecture:** Add a small root redirect page that sends visitors to ./demo/index.html; copy only the intro runtime into intro/; update the intro's three ordinary HTML links to ../demo/index.html#L0/L1/L3. Keep the existing demo/, registry, single-file output, and repository license boundary unchanged; extend only the 9876 launch-service sync in tools/start-demo.sh so the new root and intro paths are actually served.
 
 **Tech Stack:** Static HTML, CSS, browser-native ES modules, vendored Three.js 0.182.0, Node built-in test runner, Python http.server, curl, GitHub Pages-compatible relative URLs.
 
@@ -39,13 +39,14 @@ Allowed implementation paths:
 - tests/cinematic-intro.test.mjs
 - README.md
 - THIRD_PARTY_NOTICES.md
+- tools/start-demo.sh
 - docs/superpowers/plans/2026-08-11-cssfx-intro-integration.md
 - docs/superpowers/runs/20260811-cssfx-intro-integration.md
 
 Excluded implementation paths:
 
 - Existing demo/, atoms/, registry/ runtime and data files
-- Existing CSS.FX build scripts except documentation-only references
+- Existing CSS.FX build scripts except the minimal 9876 runtime sync change in tools/start-demo.sh
 - The source experiment directory
 - GitHub remote, visibility, Pages settings, releases, and outbound messages
 
@@ -202,6 +203,7 @@ git commit -m "test: define integrated cinematic intro contract"
 - Create: intro/vendor/three.core.js
 - Create: intro/vendor/THREE-LICENSE.txt
 - Modify: intro/index.html
+- Modify: tools/start-demo.sh
 
 - [ ] **Step 1: Copy only the runtime files from the isolated experiment**
 
@@ -265,12 +267,12 @@ Run:
 node --test tests/cinematic-intro.test.mjs
 ~~~
 
-Expected: 7/7 integrated intro tests pass.
+Expected: 8/8 integrated intro tests pass, including the existing 9876 service sync contract.
 
 - [ ] **Step 5: Commit the runtime port**
 
 ~~~
-git add index.html intro tests/cinematic-intro.test.mjs
+git add index.html intro tools/start-demo.sh tests/cinematic-intro.test.mjs
 git commit -m "feat: add optional cinematic intro experience"
 ~~~
 
@@ -334,7 +336,7 @@ git commit -m "docs: document cinematic intro entry and attribution"
 node --test tests/*.test.mjs
 ~~~
 
-Expected: existing 41 CSS.FX tests plus 7 integration tests, 48 passed, 0 failed.
+Expected: existing 41 CSS.FX tests plus 8 integration tests, 49 passed, 0 failed.
 
 - [ ] **Step 2: Run the UI source scanner**
 
@@ -347,10 +349,11 @@ Expected: status: "pass", errors: 0, and no warnings introduced by the integrati
 - [ ] **Step 3: Verify the main demo source is unchanged**
 
 ~~~
-git diff -- demo atoms registry tools
+git diff -- demo atoms registry
+git diff 43139c8..HEAD -- tools/start-demo.sh
 ~~~
 
-Expected: no output. Documentation-only changes may mention the new intro, but no existing CSS.FX runtime, data or build file may change.
+Expected: the first command has no output; the second shows only the approved sync of root index.html and intro/ into the existing 9876 runtime directory. No existing CSS.FX runtime or data file may change.
 
 - [ ] **Step 4: Commit the verified test state**
 
@@ -429,7 +432,7 @@ git diff eb90504..HEAD --stat
 git diff --check eb90504..HEAD
 ~~~
 
-Expected: only the approved root entry, intro/, tests, README, third-party notice, plan/spec and run record are present; no remote action has occurred.
+Expected: only the approved root entry, intro/, service-sync change, tests, README, third-party notice, plan/spec and run record are present; no remote action has occurred.
 
 - [ ] **Step 2: Report the state by dimension**
 

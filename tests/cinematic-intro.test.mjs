@@ -107,3 +107,11 @@ test("intro keeps Three.js licensing and does not alter the existing demo path",
   assert.ok(fs.existsSync(path.join(root, "demo/index.html")));
   assert.ok(fs.existsSync(path.join(root, "demo/app.js")));
 });
+
+test("the local demo service syncs the integrated root and intro", () => {
+  const script = readRoot("tools/start-demo.sh");
+  assert.ok(script.includes('"$ROOT_DIR/index.html"'));
+  assert.ok(
+    script.includes('rsync -a --delete "$ROOT_DIR/intro/" "$RUNTIME_ROOT/intro/"'),
+  );
+});

@@ -21,7 +21,7 @@
 
 - 不新建第二个 GitHub 仓库。
 - 不把 CSS.FX 仓库嵌套为子仓库或 Git submodule。
-- 不把实验目录的 `launchctl` 服务、临时 `/library/` 打包逻辑、隔离合同和调试过程文件带入主运行路径。
+- 不把实验目录的 `launchctl` 服务、临时 `/library/` 打包逻辑、隔离合同和调试过程文件带入主运行路径；现有主仓库服务脚本只做最小的根入口同步扩展。
 - 不修改 CSS.FX 原有素材的内容、数据口径或构建产物语义。
 - 不在本设计阶段推送、部署、改变仓库可见性或发送外部消息。
 - 不复制外部作品的模型、纹理、代码、品牌或精确构图；开场继续使用原创程序化场景。
@@ -86,7 +86,7 @@ SCENES       → ../demo/index.html#L3
 3. `intro/index.html` 加载本地 Three.js、场景模块和开场状态机。
 4. 开场状态机负责播放、跳过、重播、减弱动效、页面隐藏暂停和 WebGL 降级。
 5. 开场菜单只负责普通 HTML 导航，目标由 `demo/app.js` 读取 `#L0/#L1/#L3` 并渲染现有分类。
-6. CSS.FX 原有 `demo/`、`registry/` 和构建脚本不需要知道 `intro/` 的内部实现。
+6. CSS.FX 原有 `demo/`、`registry/` 和构建逻辑不需要知道 `intro/` 的内部实现；`tools/start-demo.sh` 只负责把根 `index.html` 和 `intro/` 同步到已有 9876 服务运行目录。
 
 每个目录保持单向依赖：`intro/` 可以链接到 `demo/`，但 `demo/` 不反向依赖开场脚本、Three.js 或实验服务。
 
@@ -96,6 +96,7 @@ SCENES       → ../demo/index.html#L3
 - WebGL 不可用：开场显示已有静态降级入口，仍可进入 `demo/`。
 - 用户偏好减弱动效：直接显示可用的开场界面，不依赖 8 秒动画完成。
 - 资源缺失：测试在静态层检查 `intro` 的模块、Three.js 核心文件和许可证文件；浏览器验收记录控制台错误与空白画布。
+- 现有 9876 常驻服务：启动脚本同步 `demo/`、根 `index.html` 和 `intro/`，不替换服务标签、不改变端口和其他运行目录。
 - GitHub Pages 子路径：所有开场资源和菜单目标使用相对路径，禁止写死 `/demo/` 或域名根路径。
 
 ## 许可证与归属
@@ -142,6 +143,7 @@ SCENES       → ../demo/index.html#L3
 - 新增根 `index.html`。
 - 新增 `intro/` 运行时目录及面向使用者的 README。
 - 修改开场菜单相对路径。
+- 修改 `tools/start-demo.sh`，让既有 9876 服务同步根入口和 `intro/`。
 - 修改主 README 的入口、运行和许可证说明。
 - 修改 `THIRD_PARTY_NOTICES.md`。
 - 新增或迁移开场与入口合同测试。
