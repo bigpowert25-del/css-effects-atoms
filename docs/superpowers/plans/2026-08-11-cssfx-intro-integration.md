@@ -342,7 +342,7 @@ Expected: existing 41 CSS.FX tests plus 7 integration tests, 48 passed, 0 failed
 node /Users/mac/.codex/skills/audit-ui-quality/scripts/scan-ui.mjs . --strict --json
 ~~~
 
-Expected: status: "pass", errors: 0, warnings: 0. If the scanner reports a new issue caused by the root redirect page, fix the source before continuing; do not weaken the scanner invocation.
+Expected: status: "pass", errors: 0, and no warnings introduced by the integration. The pre-existing repository baseline has 6 warnings in demo/; the new root entry must not add another warning. If the scanner reports a new issue caused by the root redirect page, fix the source before continuing; do not weaken the scanner invocation.
 
 - [ ] **Step 3: Verify the main demo source is unchanged**
 
