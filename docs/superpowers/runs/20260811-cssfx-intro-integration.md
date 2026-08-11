@@ -6,7 +6,7 @@ overall_status: partial
 implementation_status: passed
 local_verification: passed
 e2e_acceptance: passed
-publish_status: not_authorized
+publish_status: partial
 rollback_status: ready
 ```
 
@@ -17,7 +17,8 @@ rollback_status: ready
 - Main branch baseline: `43139c8`
 - Read-only source experiment: `/Users/mac/Documents/完项目/38-css-effects-atoms/experiments/exp-20260728-cssfx-cinematic-intro`
 - Local service: `com.spicy.css-fx-demo`, `127.0.0.1:9876`
-- Remote push, Pages deployment and visibility changes: not authorized and not executed
+- Feature branch push: completed at `a038e8678543852fb1924eecbdf704a050624268`
+- PR creation, Pages deployment and visibility changes: not executed
 
 ## Implemented
 
@@ -26,6 +27,8 @@ rollback_status: ready
 - Updated intro navigation to `../demo/index.html#L0`, `#L1` and `#L3`.
 - Updated `tools/start-demo.sh` to sync the root entry and `intro/` into the existing 9876 launch-service runtime directory.
 - Added README and third-party attribution for the optional intro.
+- Clarified public README local-preview addresses and added repository source links.
+- Added a regression test preventing clickable localhost links in the public README.
 - Left `demo/`, `atoms/`, `registry/` and existing catalog data untouched.
 
 ## TDD and automated verification
@@ -34,7 +37,8 @@ rollback_status: ready
 - Integration GREEN after runtime port: 7/7 passed.
 - Service-sync RED: 7 passed, 1 failed because `tools/start-demo.sh` did not sync root/intro.
 - Service-sync GREEN: 8/8 passed.
-- Full repository suite: 49 passed, 0 failed.
+- Original integration suite: 49 passed, 0 failed.
+- Post-push README regression suite: 50 passed, 0 failed.
 - JavaScript syntax: `intro/src/cinematic-intro.js` and `intro/src/scene.js` passed.
 - Shell syntax: `tools/start-demo.sh` passed.
 - `git diff --check`: passed.
@@ -91,11 +95,20 @@ bb7a0e6 feat: add optional cinematic intro experience
 1d0f1ca docs: document cinematic intro entry and attribution
 524c39a fix: keep root redirect accessible
 524ed0f feat: serve integrated intro from demo service
+a038e86 docs: clarify local preview links
 ```
+
+## Public README link audit
+
+- Scope: 13 other first-party GitHub remotes across 14 local checkout paths under `/Users/mac/Documents/完项目`.
+- Files checked: `README*` and Markdown documentation, excluding `.git/`, `.worktrees/` and `node_modules/`.
+- Result: 0 occurrences of `localhost`, `127.0.0.1` or `0.0.0.0` in those first-party public documents.
+- Two non-first-party local clones contain development URLs: `systemchester/FrameRonin` has clickable localhost links, and `andrewyng/openworker` has bare localhost text. Neither was modified.
 
 ## Rollback
 
 The source experiment remains untouched. To roll back this feature branch locally,
 remove the added root `index.html`, `intro/`, the integration test, the service-sync
 lines, README/notice additions and this run record; retain the existing `demo/`,
-`atoms/`, `registry/` and catalog build outputs. Do not push or deploy this branch.
+`atoms/`, `registry/` and catalog build outputs. Do not deploy this branch without
+separate authorization.
