@@ -48,3 +48,12 @@ visual conventions or product names. Those materials remain the property of
 their respective owners. Inclusion is for personal, non-commercial study and
 technical reference and does not imply endorsement or transfer of rights.
 
+## Three.js
+
+- Version: `0.182.0`
+- Local runtime: `intro/vendor/three.module.js` and `intro/vendor/three.core.js`
+- License notice: `intro/vendor/THREE-LICENSE.txt`
+- Upstream project: [mrdoob/three.js](https://github.com/mrdoob/three.js)
+
+The vendored Three.js runtime remains available under its upstream MIT License.
+This repository does not claim to be an official Three.js project.
