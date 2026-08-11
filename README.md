@@ -54,12 +54,18 @@ Prompt 库的真实数据口径：
 ./tools/start-demo.sh 9876
 ```
 
-打开：
+本地预览（仅在本机启动服务后有效）：
 
-- 默认入口：<http://127.0.0.1:9876/>
-- 素材库：<http://127.0.0.1:9876/demo/index.html>
-- 电影感开场：<http://127.0.0.1:9876/intro/>
-- Prompt 库：<http://127.0.0.1:9876/demo/index.html#PROMPTS>
+- 默认入口：`http://127.0.0.1:9876/`
+- 素材库：`http://127.0.0.1:9876/demo/index.html`
+- 电影感开场：`http://127.0.0.1:9876/intro/`
+- Prompt 库：`http://127.0.0.1:9876/demo/index.html#PROMPTS`
+
+仓库源码入口：
+
+- [默认入口源码](./index.html)
+- [素材库源码](./demo/index.html)
+- [电影感开场源码](./intro/index.html)
 
 Prompt 库支持：
 
@@ -76,7 +82,8 @@ Prompt 库支持：
 静态降级；开场中的 ATOMS、INTERACTIONS 和 SCENES 会进入真实素材库的
 L0、L1 和 L3 分类。
 
-体验入口：<http://127.0.0.1:9876/intro/>
+本地体验地址（仅在本机启动服务后有效）：
+`http://127.0.0.1:9876/intro/`
 
 ## 单 HTML
 
@@ -117,7 +124,7 @@ node --test tests/*.test.mjs
 
 当前验收结果：
 
-- 41/41 自动化测试通过
+- 50/50 自动化测试通过
 - 桌面版无横向溢出
 - 390 x 844 手机视口通过
 - Prompt 筛选、全文搜索、展开、复制和渐进加载通过

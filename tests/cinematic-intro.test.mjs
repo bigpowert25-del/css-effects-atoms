@@ -35,6 +35,15 @@ test("root entry keeps the CSS.FX catalog as the default homepage", () => {
   assert.ok(!html.includes("intro/index.html"));
 });
 
+test("README separates local preview addresses from repository links", () => {
+  const readme = readRoot("README.md");
+  assert.match(readme, /本地预览（仅在本机启动服务后有效）/);
+  assert.doesNotMatch(readme, /<https?:\/\/127\.0\.0\.1:[^>]+>/);
+  for (const sourcePath of ["index.html", "demo/index.html", "intro/index.html"]) {
+    assert.match(readme, new RegExp(`\\.\\/${sourcePath.replace("/", "\\/")}`));
+  }
+});
+
 test("intro keeps semantic controls and local runtime paths", () => {
   const html = readIntro("index.html");
   const runtime = [
