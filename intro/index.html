@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN" data-intro-state="boot">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta
+      name="description"
+      content="CSS.FX 电影感开场：一个完全离线的 Three.js 暗室与 CRT 镜头。"
+    />
+    <title>CSS.FX · Cinematic Intro</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="experience" aria-labelledby="experienceTitle">
+      <canvas id="cinematicCanvas" aria-hidden="true"></canvas>
+      <div class="blind-echo" aria-hidden="true"></div>
+      <div class="film-grain" aria-hidden="true"></div>
+      <div class="scanlines" aria-hidden="true"></div>
+      <div class="vignette" aria-hidden="true"></div>
+
+      <header class="masthead">
+        <a class="brand" href="#interface" aria-label="CSS.FX 首页">
+          <span class="brand-mark">C</span>
+          <span>CSS·FX</span>
+        </a>
+        <p class="sequence" aria-hidden="true">SEQ. 001 / 08 SEC</p>
+        <button id="skipIntro" class="text-button" type="button">
+          跳过开场
+        </button>
+      </header>
+
+      <section id="interface" class="interface" aria-describedby="status">
+        <p class="eyebrow"><span></span>L3 / CINEMATIC SCENE</p>
+        <h1 id="experienceTitle">进入<br />互动现场</h1>
+        <p class="intro-copy">
+          一个关于动效原子、交互行为与浏览器现场的开放档案。
+        </p>
+        <nav aria-label="实验导航">
+          <a
+            href="../demo/index.html#L0"
+            aria-label="进入 CSS.FX 视觉原子库"
+          ><span>01</span> ATOMS</a>
+          <a
+            href="../demo/index.html#L1"
+            aria-label="进入 CSS.FX 互动行为库"
+          ><span>02</span> INTERACTIONS</a>
+          <a
+            href="../demo/index.html#L3"
+            aria-label="进入 CSS.FX 完整场景库"
+          ><span>03</span> SCENES</a>
+        </nav>
+        <button id="replayIntro" class="replay" type="button">
+          <span aria-hidden="true">↺</span> 重播镜头
+        </button>
+      </section>
+
+      <p id="status" class="status" aria-live="polite">
+        正在进入 CSS.FX 场景
+      </p>
+
+      <section id="fallback" class="fallback" hidden>
+        <p>CSS·FX / STATIC MODE</p>
+        <h2>你的浏览器未启动 WebGL，已切换到静态入口。</h2>
+        <a href="#interface">进入互动档案</a>
+      </section>
+
+      <footer class="frame-footer" aria-hidden="true">
+        <span>35 MM / SIMULATED</span>
+        <span>SHANGHAI 31.23°N</span>
+      </footer>
+    </main>
+    <script type="module" src="./src/cinematic-intro.js"></script>
+  </body>
+</html>
