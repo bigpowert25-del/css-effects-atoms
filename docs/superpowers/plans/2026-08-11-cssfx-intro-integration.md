@@ -57,7 +57,7 @@ Excluded implementation paths:
 - Create: tests/cinematic-intro.test.mjs
 - Test: tests/cinematic-intro.test.mjs
 
-- [ ] **Step 1: Write the failing test file**
+- [x] **Step 1: Write the failing test file**
 
 Create the test file with this complete contract. It deliberately reads the future intro/ directory and root index.html; the first run must fail because those files do not yet exist.
 
@@ -173,7 +173,7 @@ test("intro keeps Three.js licensing and does not alter the existing demo path",
 });
 ~~~
 
-- [ ] **Step 2: Run the new contract to verify RED**
+- [x] **Step 2: Run the new contract to verify RED**
 
 Run:
 
@@ -183,7 +183,7 @@ node --test tests/cinematic-intro.test.mjs
 
 Expected: the command fails because index.html and intro/ are absent. The failure must identify a missing integrated runtime file, not a syntax error in the test itself.
 
-- [ ] **Step 3: Commit the failing contract**
+- [x] **Step 3: Commit the failing contract**
 
 ~~~
 git add tests/cinematic-intro.test.mjs
@@ -205,7 +205,7 @@ git commit -m "test: define integrated cinematic intro contract"
 - Modify: intro/index.html
 - Modify: tools/start-demo.sh
 
-- [ ] **Step 1: Copy only the runtime files from the isolated experiment**
+- [x] **Step 1: Copy only the runtime files from the isolated experiment**
 
 Run from the repository root:
 
@@ -222,7 +222,7 @@ cp /Users/mac/Documents/完项目/38-css-effects-atoms/experiments/exp-20260728-
 
 Do not copy the experiment's scripts/, tests/, evidence/, EXPERIMENT_CONTRACT.yaml, PROJECT_DESIGN.md or RESULTS.md.
 
-- [ ] **Step 2: Change the three intro routes to the main repository demo**
+- [x] **Step 2: Change the three intro routes to the main repository demo**
 
 In intro/index.html, replace the three href values with exactly:
 
@@ -234,7 +234,7 @@ href="../demo/index.html#L3"
 
 Update the page description and title to remove the word 隔离实验 / Experiment; keep all existing controls, canvas markup, and local module paths unchanged.
 
-- [ ] **Step 3: Add the root fallback redirect page**
+- [x] **Step 3: Add the root fallback redirect page**
 
 Create index.html with this exact accessible fallback:
 
@@ -259,7 +259,7 @@ Create index.html with this exact accessible fallback:
 </html>
 ~~~
 
-- [ ] **Step 4: Run the integration contract to verify GREEN**
+- [x] **Step 4: Run the integration contract to verify GREEN**
 
 Run:
 
@@ -269,7 +269,7 @@ node --test tests/cinematic-intro.test.mjs
 
 Expected: 8/8 integrated intro tests pass, including the existing 9876 service sync contract.
 
-- [ ] **Step 5: Commit the runtime port**
+- [x] **Step 5: Commit the runtime port**
 
 ~~~
 git add index.html intro tools/start-demo.sh tests/cinematic-intro.test.mjs
@@ -284,7 +284,7 @@ git commit -m "feat: add optional cinematic intro experience"
 - Modify: THIRD_PARTY_NOTICES.md
 - Create: intro/README.md
 
-- [ ] **Step 1: Document the two public local paths**
+- [x] **Step 1: Document the two public local paths**
 
 Update the README run section to show:
 
@@ -296,15 +296,15 @@ http://127.0.0.1:9876/intro/
 
 Add a short “电影感开场” section that explains the intro is optional, uses local Three.js, supports skip/replay/reduced-motion/fallback, and links to ./intro/.
 
-- [ ] **Step 2: Add the integrated intro README**
+- [x] **Step 2: Add the integrated intro README**
 
 Create intro/README.md with the runtime purpose, local URL, navigation mapping, controls, and a note that the CSS.FX demo remains at ../demo/index.html. Do not mention the temporary 9886 bundle or the isolated experiment service.
 
-- [ ] **Step 3: Add Three.js attribution**
+- [x] **Step 3: Add Three.js attribution**
 
 Append a Three.js section to THIRD_PARTY_NOTICES.md identifying the vendored version as 0.182.0, the local files under intro/vendor/, and the MIT license preserved in intro/vendor/THREE-LICENSE.txt.
 
-- [ ] **Step 4: Run documentation and source checks**
+- [x] **Step 4: Run documentation and source checks**
 
 Run:
 
@@ -316,7 +316,7 @@ node --check intro/src/scene.js
 
 Expected: all commands exit 0 with no whitespace or syntax errors.
 
-- [ ] **Step 5: Commit documentation and attribution**
+- [x] **Step 5: Commit documentation and attribution**
 
 ~~~
 git add README.md THIRD_PARTY_NOTICES.md intro/README.md
@@ -330,7 +330,7 @@ git commit -m "docs: document cinematic intro entry and attribution"
 - Test: tests/*.test.mjs
 - Inspect: index.html, intro/, demo/
 
-- [ ] **Step 1: Run the full Node test suite**
+- [x] **Step 1: Run the full Node test suite**
 
 ~~~
 node --test tests/*.test.mjs
@@ -338,7 +338,7 @@ node --test tests/*.test.mjs
 
 Expected: existing 41 CSS.FX tests plus 8 integration tests, 49 passed, 0 failed.
 
-- [ ] **Step 2: Run the UI source scanner**
+- [x] **Step 2: Run the UI source scanner**
 
 ~~~
 node /Users/mac/.codex/skills/audit-ui-quality/scripts/scan-ui.mjs . --strict --json
@@ -346,7 +346,7 @@ node /Users/mac/.codex/skills/audit-ui-quality/scripts/scan-ui.mjs . --strict --
 
 Expected: status: "pass", errors: 0, and no warnings introduced by the integration. The pre-existing repository baseline has 6 warnings in demo/; the new root entry must not add another warning. If the scanner reports a new issue caused by the root redirect page, fix the source before continuing; do not weaken the scanner invocation.
 
-- [ ] **Step 3: Verify the main demo source is unchanged**
+- [x] **Step 3: Verify the main demo source is unchanged**
 
 ~~~
 git diff -- demo atoms registry
@@ -355,7 +355,7 @@ git diff 43139c8..HEAD -- tools/start-demo.sh
 
 Expected: the first command has no output; the second shows only the approved sync of root index.html and intro/ into the existing 9876 runtime directory. No existing CSS.FX runtime or data file may change.
 
-- [ ] **Step 4: Commit the verified test state**
+- [x] **Step 4: Commit the verified test state**
 
 ~~~
 git add tests/cinematic-intro.test.mjs
@@ -369,7 +369,7 @@ git commit -m "test: cover cssfx intro integration and root routing"
 - Runtime only: local port 9876
 - Evidence: docs/superpowers/runs/20260811-cssfx-intro-integration.md
 
-- [ ] **Step 1: Start the existing demo server**
+- [x] **Step 1: Start the existing demo server**
 
 ~~~
 ./tools/start-demo.sh 9876
@@ -377,7 +377,7 @@ git commit -m "test: cover cssfx intro integration and root routing"
 
 Expected: the existing CSS.FX demo is available at http://127.0.0.1:9876/demo/index.html.
 
-- [ ] **Step 2: Verify HTTP resources**
+- [x] **Step 2: Verify HTTP resources**
 
 ~~~
 curl -fsS -o /dev/null -w 'root %{http_code}\n' http://127.0.0.1:9876/
@@ -389,7 +389,7 @@ curl -fsS -o /dev/null -w 'three %{http_code}\n' http://127.0.0.1:9876/intro/ven
 
 Expected: all five statuses are HTTP 200.
 
-- [ ] **Step 3: Perform browser acceptance**
+- [x] **Step 3: Perform browser acceptance**
 
 Check in one browser session:
 
@@ -402,7 +402,7 @@ Check in one browser session:
 
 If the in-app browser blocks local URL automation, preserve e2e_acceptance: pending and report the exact limitation; do not use a second browser automation mechanism to bypass it.
 
-- [ ] **Step 4: Write the run record**
+- [x] **Step 4: Write the run record**
 
 Create docs/superpowers/runs/20260811-cssfx-intro-integration.md with the observed test totals, HTTP statuses, browser results, changed paths, rollback steps, and these independent fields:
 
@@ -414,7 +414,7 @@ publish_status: not_authorized
 rollback_status: ready
 ~~~
 
-- [ ] **Step 5: Commit the local verification record**
+- [x] **Step 5: Commit the local verification record**
 
 ~~~
 git add docs/superpowers/runs/20260811-cssfx-intro-integration.md
@@ -423,7 +423,7 @@ git commit -m "docs: record cinematic intro integration verification"
 
 ## Task 6: Final Handoff Without Remote Publication
 
-- [ ] **Step 1: Review the complete local diff**
+- [x] **Step 1: Review the complete local diff**
 
 ~~~
 git status --short --branch
@@ -434,11 +434,11 @@ git diff --check eb90504..HEAD
 
 Expected: only the approved root entry, intro/, service-sync change, tests, README, third-party notice, plan/spec and run record are present; no remote action has occurred.
 
-- [ ] **Step 2: Report the state by dimension**
+- [x] **Step 2: Report the state by dimension**
 
 Report implementation, local verification, browser end-to-end acceptance, publication authorization, and rollback separately. Do not call the whole GitHub release complete while publish_status is not_authorized or browser evidence is pending.
 
-- [ ] **Step 3: Stop before push or Pages deployment**
+- [x] **Step 3: Stop before push or Pages deployment**
 
 Do not run git push, GitHub APIs, Pages configuration, release creation or external messages in this plan. Those actions require a new explicit user authorization after local review.
 
